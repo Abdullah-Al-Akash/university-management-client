@@ -1,0 +1,625 @@
+[
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 27,
+    "yearSem": "1/1",
+    "sem": "1st",
+    "room": "1029"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": "EEE-102",
+        "courseTitle": "Introduction to Electrical Engineering Sessional",
+        "credit": 1.5
+      },
+      "4": {
+        "courseCode": "EEE-101",
+        "courseTitle": "Introduction to Electrical Engineering",
+        "teacher": null,
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 26,
+    "yearSem": "1/2",
+    "sem": "2nd",
+    "room": "1019"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 25,
+    "yearSem": "1/3",
+    "sem": "3rd",
+    "room": "1008"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": "MTH-207",
+        "courseTitle": "Mathematics-IV",
+        "teacher": null,
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-211",
+        "courseTitle": "Object Oriented Programming Language",
+        "teacher": null,
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 24,
+    "yearSem": "2/1",
+    "sem": "4th",
+    "room": "1009"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": "CSE-221",
+        "courseTitle": "Algorithms",
+        "teacher": null,
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-222",
+        "courseTitle": "Algorithms",
+        "teacher": null,
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 23,
+    "yearSem": "2/2",
+    "sem": "5th",
+    "room": "1021"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 22,
+    "yearSem": "2/3",
+    "sem": "6th",
+    "room": "1022"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 21,
+    "yearSem": "3/1",
+    "sem": "7th",
+    "room": "1006"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 20,
+    "yearSem": "3/2",
+    "sem": "8th",
+    "room": "1011"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 19,
+    "yearSem": "3/3",
+    "sem": "9th",
+    "room": "1017"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 18,
+    "yearSem": "4/1",
+    "sem": "10th",
+    "room": "1024"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 17,
+    "yearSem": "4/2",
+    "sem": "11th",
+    "room": "1023"
+  },
+  {
+    "shift": "Regular",
+    "day": "Saturday",
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": "CSE-453",
+        "courseTitle": "Digital Image Processing",
+        "teacher": null,
+        "credit": 3
+      },
+      "4": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "batch": 16,
+    "yearSem": "4/3",
+    "sem": "12th",
+    "room": "1026"
+  }
+]

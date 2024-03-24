@@ -78,7 +78,7 @@ const App = () => {
         <RegularTable data={data} loading={loading}></RegularTable>
       )}
 
-      {/* Evening batch table */}
+      {/* Evening batch table  Friday*/}
       {!selectBatch &&
       selectShift === "evening" &&
       eveningDayTab === "Friday" ? (

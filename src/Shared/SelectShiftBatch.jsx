@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const SelectShiftBatch = ({ setSelectBatch, setSelectShift }) => {
+const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
   return (
     <div className="flex justify-between items-center">
       <div>
@@ -9,8 +9,7 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift }) => {
         <select
           className="border-2 my-[10px] px-5 py-3 cursor-pointer outline-none"
           onChange={(e) => setSelectShift(e.target.value)}
-          name=""
-          id=""
+          value={selectShift}
         >
           <option value="regular">Regular</option>
           <option value="evening">Evening</option>

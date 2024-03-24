@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 
 const RegularBatchTable = ({ selectBatch }) => {
-  const [datas, setDatas] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(`allData.json`)
       .then((res) => res.json())
       .then((data) => {
         const singleBatchData = data.filter((d) => d.batch == selectBatch);
-        setDatas(singleBatchData);
+        setData(singleBatchData);
         setLoading(false);
         console.log(data);
         console.log(singleBatchData);
@@ -87,7 +87,7 @@ const RegularBatchTable = ({ selectBatch }) => {
 
           {loading
             ? "loading"
-            : datas?.map((item, index) => {
+            : data?.map((item, index) => {
                 const { day, courses, room } = item;
                 return (
                   <tr key={item}>

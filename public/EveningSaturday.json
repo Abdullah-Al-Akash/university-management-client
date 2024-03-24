@@ -1,0 +1,342 @@
+[
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "CSE-121",
+                "courseTitle": "Structured Programming Language",
+                "teacher": null,
+                "credit": 3
+            },
+            "2": {
+                "courseCode": "ENG-101",
+                "courseTitle": "Foundation English",
+                "teacher": null,
+                "credit": 3
+            },
+            "3": {
+                "courseCode": null,
+                "courseTitle": null,
+                "teacher": null,
+                "credit": null
+            },
+            "4": {
+                "courseCode": null,
+                "courseTitle": null,
+                "teacher": null,
+                "credit": null
+            }
+        },
+        "batch": 27,
+        "yearSem": "1/3",
+        "sem": "1st",
+        "room": "1029"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "MTH-103",
+                "courseTitle": "Mathematics-II",
+                "teacher": null,
+                "credit": 3
+            },
+            "2": {
+                "courseCode": "CSE-123",
+                "courseTitle": "Discrete Mathematics",
+                "teacher": null,
+                "credit": 3
+            },
+            "3": {
+                "courseCode": "PHY-102",
+                "courseTitle": "Physics Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "4": {
+                "courseCode": "PHY-102",
+                "courseTitle": "Physics Sessional",
+                "teacher": null,
+                "credit": null
+            }
+        },
+        "batch": 26,
+        "yearSem": "2/1",
+        "sem": "2nd",
+        "room": "1019"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "CSE-132",
+                "courseTitle": "Data Structure Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "2": {
+                "courseCode": "CSE-132",
+                "courseTitle": "Data Structure Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "3": {
+                "courseCode": "MTH-105",
+                "courseTitle": "Mathematics-III",
+                "teacher": null,
+                "credit": 3
+            },
+            "4": {
+                "courseCode": "CSE-131",
+                "courseTitle": "Data Structure",
+                "teacher": null,
+                "credit": 3
+            }
+        },
+        "batch": 25,
+        "yearSem": "2/2",
+        "sem": "3rd",
+        "room": "1021"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "CSE-211",
+                "courseTitle": "Object Oriented Programming",
+                "teacher": null,
+                "credit": 3
+            },
+            "2": {
+                "courseCode": "EEE-201",
+                "courseTitle": "Electrical Drives and Instrumentation",
+                "teacher": null,
+                "credit": 3
+            },
+            "3": {
+                "courseCode": "EEE-202",
+                "courseTitle": "Electrical Drives and Instrumentation Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "4": {
+                "courseCode": "EEE-202",
+                "courseTitle": "Electrical Drives and Instrumentation Sessional",
+                "teacher": null,
+                "credit": 1.5
+            }
+        },
+        "batch": 24,
+        "yearSem": "2/3",
+        "sem": "4th",
+        "room": "1008"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "CSE-221",
+                "courseTitle": "Algorithms",
+                "teacher": null,
+                "credit": 3
+            },
+            "2": {
+                "courseCode": "CSE-133",
+                "courseTitle": "Numerical Methods",
+                "teacher": null,
+                "credit": 3
+            },
+            "3": {
+                "courseCode": "CSE-223",
+                "courseTitle": "Database Management Systems",
+                "teacher": null,
+                "credit": 3
+            },
+            "4": {
+                "courseCode": null,
+                "courseTitle": null,
+                "teacher": null,
+                "credit": null
+            }
+        },
+        "batch": 23,
+        "yearSem": "3/1",
+        "sem": "5th",
+        "room": "1024"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "CSE-315",
+                "courseTitle": "Theory of Computing",
+                "teacher": null,
+                "credit": 3
+            },
+            "2": {
+                "courseCode": "CSE-233",
+                "courseTitle": "System Analysis and Design",
+                "teacher": null,
+                "credit": 3
+            },
+            "3": {
+                "courseCode": "CSE-234",
+                "courseTitle": "System Analysis and Design Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "4": {
+                "courseCode": "CSE-234",
+                "courseTitle": "System Analysis and Design Sessional",
+                "teacher": null,
+                "credit": 1.5
+            }
+        },
+        "batch": 22,
+        "yearSem": "3/2",
+        "sem": "6th",
+        "room": "1022"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "CSE-321",
+                "courseTitle": "Software Engineering",
+                "teacher": null,
+                "credit": 3
+            },
+            "2": {
+                "courseCode": "CSE-313",
+                "courseTitle": "Microprocessors and Microcontroller",
+                "teacher": null,
+                "credit": 3
+            },
+            "3": {
+                "courseCode": "CSE-314",
+                "courseTitle": "Microprocessors and Microcontroller Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "4": {
+                "courseCode": "CSE-314",
+                "courseTitle": "Microprocessors and Microcontroller Sessional",
+                "teacher": null,
+                "credit": 1.5
+            }
+        },
+        "batch": 21,
+        "yearSem": "3/3",
+        "sem": "7th",
+        "room": "1023"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "CSE 317",
+                "courseTitle": "Data Communication",
+                "teacher": null,
+                "credit": 3
+            },
+            "2": {
+                "courseCode": "CSE-331",
+                "courseTitle": "Computer Network",
+                "teacher": null,
+                "credit": null
+            },
+            "3": {
+                "courseCode": "CSE-332",
+                "courseTitle": "Computer Network Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "4": {
+                "courseCode": "CSE-332",
+                "courseTitle": "Computer Network Sessional",
+                "teacher": null,
+                "credit": 1.5
+            }
+        },
+        "batch": 20,
+        "yearSem": "4/1",
+        "sem": "8th",
+        "room": "1011"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": "CSE-312",
+                "courseTitle": "Artificial Intelligence Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "2": {
+                "courseCode": "CSE-312",
+                "courseTitle": "Artificial Intelligence Sessional",
+                "teacher": null,
+                "credit": 1.5
+            },
+            "3": {
+                "courseCode": "CSE-311",
+                "courseTitle": "Artificial Intelligence",
+                "teacher": null,
+                "credit": 3
+            },
+            "4": {
+                "courseCode": null,
+                "courseTitle": null,
+                "teacher": null,
+                "credit": null
+            }
+        },
+        "batch": 19,
+        "yearSem": "4/2",
+        "sem": "9th",
+        "room": "1009"
+    },
+    {
+        "shift": "Evening",
+        "day": "Saturday",
+        "courses": {
+            "1": {
+                "courseCode": null,
+                "courseTitle": null,
+                "teacher": null,
+                "credit": null
+            },
+            "2": {
+                "courseCode": "CSE-453",
+                "courseTitle": "Digital Image Processing",
+                "teacher": null,
+                "credit": 3
+            },
+            "3": {
+                "courseCode": null,
+                "courseTitle": null,
+                "teacher": null,
+                "credit": null
+            },
+            "4": {
+                "courseCode": null,
+                "courseTitle": null,
+                "teacher": null,
+                "credit": null
+            }
+        },
+        "batch": 18,
+        "yearSem": "4/3",
+        "sem": "10th",
+        "room": "1025"
+    }
+]

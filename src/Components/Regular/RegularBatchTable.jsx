@@ -2,20 +2,20 @@
 import { useEffect, useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 
-const RegularBatchTable = ({ SelectSession }) => {
+const RegularBatchTable = ({ selectBatch }) => {
   const [datas, setDatas] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(`allData.json`)
       .then((res) => res.json())
       .then((data) => {
-        const singleBatchData = data.filter((d) => d.batch == SelectSession);
+        const singleBatchData = data.filter((d) => d.batch == selectBatch);
         setDatas(singleBatchData);
         setLoading(false);
         console.log(data);
         console.log(singleBatchData);
       });
-  }, [SelectSession]);
+  }, [selectBatch]);
   return (
     <div>
       <TableWrapper>

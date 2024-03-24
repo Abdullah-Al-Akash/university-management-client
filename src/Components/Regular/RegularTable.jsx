@@ -88,7 +88,7 @@ const RegularTable = ({ data, loading }) => {
           : data?.map((item, index) => {
               const { batch, courses, room, sem, yearSem } = item;
               return (
-                <tr key={item}>
+                <tr key={index}>
                   <td
                     className={`px-[16px] border-r-[1px]
             bg-white  py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}

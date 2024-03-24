@@ -1,0 +1,772 @@
+[
+  {
+    "courses": {
+      "1": {
+        "courseCode": "ECO-201",
+        "courseTitle": "Engineering Economics",
+        "teacher": "MHA",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "ECO-201",
+        "courseTitle": "Engineering Economics",
+        "teacher": "MHA",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "CSE-122",
+        "courseTitle": "Structured Programming Language Sessional",
+        "teacher": "HOR RN: 1030",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-122",
+        "courseTitle": "Structured Programming Language Sessional",
+        "teacher": "HOR RN: 1030",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "CSE-121",
+        "courseTitle": "Structured Programming Language",
+        "teacher": "HOR",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "CSE-121",
+        "courseTitle": "Structured Programming Language",
+        "teacher": "HOR",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": "MTH-101",
+        "courseTitle": "Mathematics-I",
+        "teacher": "RA",
+        "credit": 3
+      },
+      "9": {
+        "courseCode": "MTH-101",
+        "courseTitle": "Mathematics-I",
+        "teacher": "RA",
+        "credit": 3
+      },
+      "10": {
+        "courseCode": "ENG-101",
+        "courseTitle": "Foundation English",
+        "teacher": "NEW",
+        "credit": 3
+      },
+      "11": {
+        "courseCode": "ENG-101",
+        "courseTitle": "Foundation English",
+        "teacher": "NEW",
+        "credit": 3
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563e5",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 27,
+    "yearSem": "1/3",
+    "sem": "1st",
+    "room": "1029"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": "MTH-103",
+        "courseTitle": "Mathematics-II",
+        "teacher": "SK",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "MTH-103",
+        "courseTitle": "Mathematics-II",
+        "teacher": "SK",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "PHY-101",
+        "courseTitle": "Physics",
+        "teacher": "AK",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "PHY-101",
+        "courseTitle": "Physics",
+        "teacher": "AK",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "EEE-101",
+        "courseTitle": "Introduction to Electrical Engineering",
+        "teacher": "EK",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "EEE-101",
+        "courseTitle": "Introduction to Electrical Engineering",
+        "teacher": "EK",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": "EEE-102",
+        "courseTitle": "Introduction to Electrical Engineering Sessional",
+        "teacher": "EK",
+        "credit": 3
+      },
+      "9": {
+        "courseCode": "EEE-102",
+        "courseTitle": "Introduction to Electrical Engineering Sessional",
+        "teacher": "EK",
+        "credit": 3
+      },
+      "10": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "11": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563e6",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 26,
+    "yearSem": "2/1",
+    "sem": "2nd",
+    "room": "1019"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": "ACT-201",
+        "courseTitle": "Financial & Managerial Accounting",
+        "teacher": "JI",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "ACT-201",
+        "courseTitle": "Financial & Managerial Accounting",
+        "teacher": "JI",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "EEE-103",
+        "courseTitle": "Electronics Device and Circuits",
+        "teacher": "SKJ",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "EEE-103",
+        "courseTitle": "Electronics Device and Circuits",
+        "teacher": "SKJ",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "MTH-105",
+        "courseTitle": "Mathematics-III",
+        "teacher": "RA",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "MTH-105",
+        "courseTitle": "Mathematics-III",
+        "teacher": "RA",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": "CSE-131",
+        "courseTitle": "Data Structure",
+        "teacher": "MBUT",
+        "credit": 3
+      },
+      "9": {
+        "courseCode": "CSE-131",
+        "courseTitle": "Data Structure",
+        "teacher": "MBUT",
+        "credit": 3
+      },
+      "10": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "11": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563e7",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 25,
+    "yearSem": "2/2",
+    "sem": "3rd",
+    "room": "1021"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": "CSE-235",
+        "courseTitle": "Computer Architecture",
+        "teacher": "RS",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "CSE-235",
+        "courseTitle": "Computer Architecture",
+        "teacher": "RS",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "CSE-211",
+        "courseTitle": "Object Oriented Programming",
+        "teacher": "MAJ",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-211",
+        "courseTitle": "Object Oriented Programming",
+        "teacher": "MAJ",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "CSE-212",
+        "courseTitle": "Object Oriented Programming Sessional",
+        "teacher": "RN: 1020 MAJ",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "CSE-212",
+        "courseTitle": "Object Oriented Programming Sessional",
+        "teacher": "RN: 1020 MAJ",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": "EEE-201",
+        "courseTitle": "Electrical Drives and Instrumentation",
+        "teacher": "RUB",
+        "credit": 3
+      },
+      "9": {
+        "courseCode": "EEE-201",
+        "courseTitle": "Electrical Drives and Instrumentation",
+        "teacher": "RUB",
+        "credit": 3
+      },
+      "10": {
+        "courseCode": "MTH-207",
+        "courseTitle": "Mathematics-IV",
+        "teacher": "RA",
+        "credit": 3
+      },
+      "11": {
+        "courseCode": "MTH-207",
+        "courseTitle": "Mathematics-IV",
+        "teacher": "RA",
+        "credit": 3
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563e8",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 24,
+    "yearSem": "2/3",
+    "sem": "4th",
+    "room": "1008"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": "CSE-133",
+        "courseTitle": "Numerical Methods",
+        "teacher": "TA",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "CSE-133",
+        "courseTitle": "Numerical Methods",
+        "teacher": "TA",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "CSE-221",
+        "courseTitle": "Algorithms",
+        "teacher": "MMH",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-221",
+        "courseTitle": "Algorithms",
+        "teacher": "MMH",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "CSE-222",
+        "courseTitle": "Algorithms Sessional",
+        "teacher": "RN:1030 MMH",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "CSE-222",
+        "courseTitle": "Algorithms Sessional",
+        "teacher": "RN:1030 MMH",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": "CSE-223",
+        "courseTitle": "Database Management Systems",
+        "teacher": "MK",
+        "credit": 3
+      },
+      "9": {
+        "courseCode": "CSE-223",
+        "courseTitle": "Database Management Systems",
+        "teacher": "MK",
+        "credit": 3
+      },
+      "10": {
+        "courseCode": "CSE-224",
+        "courseTitle": "Database Management Systems Sessional",
+        "teacher": "RN:1030 MK",
+        "credit": 3
+      },
+      "11": {
+        "courseCode": "CSE-224",
+        "courseTitle": "Database Management Systems Sessional",
+        "teacher": "RN:1030 MK",
+        "credit": 3
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563e9",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 23,
+    "yearSem": "3/1",
+    "sem": "5th",
+    "room": "1024"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": "CSE-213",
+        "courseTitle": "Digital Logic Design",
+        "teacher": "JAF",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "CSE-213",
+        "courseTitle": "Digital Logic Design",
+        "teacher": "JAF",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "CSE-214",
+        "courseTitle": "Digital Logic Design Sessional",
+        "teacher": "RN: 1015 MBUT",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-214",
+        "courseTitle": "Digital Logic Design Sessional",
+        "teacher": "RN: 1015 MBUT",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "CSE-231",
+        "courseTitle": "Operating Systems",
+        "teacher": "FA",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "CSE-231",
+        "courseTitle": "Operating Systems",
+        "teacher": "FA",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": "CSE-232",
+        "courseTitle": "Operating Systems Sessional",
+        "teacher": "RN:1030  FA",
+        "credit": 3
+      },
+      "9": {
+        "courseCode": "CSE-232",
+        "courseTitle": "Operating Systems Sessional",
+        "teacher": "RN:1030  FA",
+        "credit": 3
+      },
+      "10": {
+        "courseCode": "CSE-233",
+        "courseTitle": "System Analysis and Design",
+        "teacher": "ARD",
+        "credit": 3
+      },
+      "11": {
+        "courseCode": "CSE-233",
+        "courseTitle": "System Analysis and Design",
+        "teacher": "ARD",
+        "credit": 3
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563ea",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 22,
+    "yearSem": "3/2",
+    "sem": "6th",
+    "room": "1022"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": "CSE-322",
+        "courseTitle": "Software Engineering Sessional",
+        "teacher": "RN:1020  FBH",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "CSE-322",
+        "courseTitle": "Software Engineering Sessional",
+        "teacher": "RN:1020  FBH",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "CSE-321",
+        "courseTitle": "Software Engineering",
+        "teacher": "FBH",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-321",
+        "courseTitle": "Software Engineering",
+        "teacher": "FBH",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "CSE-323",
+        "courseTitle": "Compiler",
+        "teacher": "JAF",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "CSE-323",
+        "courseTitle": "Compiler",
+        "teacher": "JAF",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": "CSE-324",
+        "courseTitle": "Compiler Sessional",
+        "teacher": "RN:1030  MTZ",
+        "credit": 3
+      },
+      "9": {
+        "courseCode": "CSE-324",
+        "courseTitle": "Compiler Sessional",
+        "teacher": "RN:1030  MTZ",
+        "credit": 3
+      },
+      "10": {
+        "courseCode": "MGT-201",
+        "courseTitle": "Industrial and Operational Manage",
+        "teacher": "SS",
+        "credit": 3
+      },
+      "11": {
+        "courseCode": "MGT-201",
+        "courseTitle": "Industrial and Operational Manage",
+        "teacher": "SS",
+        "credit": 3
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563eb",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 21,
+    "yearSem": "3/3",
+    "sem": "7th",
+    "room": "1023"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": "CSE 317",
+        "courseTitle": "Data Communication",
+        "teacher": "FA",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "CSE 317",
+        "courseTitle": "Data Communication",
+        "teacher": "FA",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "CSE-336",
+        "courseTitle": "Computer Graphics Sessional",
+        "teacher": "RN: 1020 FAN",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-336",
+        "courseTitle": "Computer Graphics Sessional",
+        "teacher": "RN: 1020 FAN",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "CSE-335",
+        "courseTitle": "Computer Graphics",
+        "teacher": "FAN",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "CSE-335",
+        "courseTitle": "Computer Graphics",
+        "teacher": "FAN",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": "CSE-341",
+        "courseTitle": "VLSI Design",
+        "teacher": "JAF",
+        "credit": 3
+      },
+      "9": {
+        "courseCode": "CSE-341",
+        "courseTitle": "VLSI Design",
+        "teacher": "JAF",
+        "credit": 3
+      },
+      "10": {
+        "courseCode": "CSE-342",
+        "courseTitle": "VLSI Design Sessional",
+        "teacher": "RN:1020 JAF",
+        "credit": 3
+      },
+      "11": {
+        "courseCode": "CSE-342",
+        "courseTitle": "VLSI Design Sessional",
+        "teacher": "RN:1020 JAF",
+        "credit": 3
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563ec",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 20,
+    "yearSem": "4/1",
+    "sem": "8th",
+    "room": "1011"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": "CSE-417",
+        "courseTitle": "Project Management",
+        "teacher": "JF",
+        "credit": 3
+      },
+      "2": {
+        "courseCode": "CSE-417",
+        "courseTitle": "Project Management",
+        "teacher": "JF",
+        "credit": 3
+      },
+      "3": {
+        "courseCode": "CSE-311",
+        "courseTitle": "Artificial Intelligence",
+        "teacher": "PSK",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-311",
+        "courseTitle": "Artificial Intelligence",
+        "teacher": "PSK",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": "CSE-459",
+        "courseTitle": "Internet of Things",
+        "teacher": "JF",
+        "credit": 3
+      },
+      "7": {
+        "courseCode": "CSE-459",
+        "courseTitle": "Internet of Things",
+        "teacher": "JF",
+        "credit": 3
+      },
+      "8": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "9": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "10": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "11": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563ed",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 19,
+    "yearSem": "4/2",
+    "sem": "9th",
+    "room": "1009"
+  },
+  {
+    "courses": {
+      "1": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "2": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "3": {
+        "courseCode": "CSE-453",
+        "courseTitle": "Digital Image Processing",
+        "teacher": "FA",
+        "credit": 3
+      },
+      "4": {
+        "courseCode": "CSE-453",
+        "courseTitle": "Digital Image Processing",
+        "teacher": "FA",
+        "credit": 3
+      },
+      "5": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "6": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "7": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "8": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "9": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "10": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      },
+      "11": {
+        "courseCode": null,
+        "courseTitle": null,
+        "teacher": null,
+        "credit": null
+      }
+    },
+    "_id": "65fcfcf18b5440f5d56563ee",
+    "shift": "Evening",
+    "day": "Friday",
+    "batch": 18,
+    "yearSem": "4/3",
+    "sem": "10th",
+    "room": "1025"
+  }
+]

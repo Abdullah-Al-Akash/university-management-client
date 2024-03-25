@@ -11,8 +11,8 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
           onChange={(e) => setSelectShift(e.target.value)}
           value={selectShift}
         >
-          <option value="regular">Regular</option>
-          <option value="evening">Evening</option>
+          <option value="Regular">Regular</option>
+          <option value="Evening">Evening</option>
         </select>
       </div>
       <div>

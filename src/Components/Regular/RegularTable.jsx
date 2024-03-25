@@ -2,6 +2,7 @@
 import TableWrapper from "../../Shared/TableWrapper";
 
 const RegularTable = ({ data, loading }) => {
+  console.log(data);
   return (
     <TableWrapper>
       <table

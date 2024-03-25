@@ -13,8 +13,8 @@ const App = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectBatch, setSelectBatch] = useState("");
-  const [selectShift, setSelectShift] = useState("regular");
-  const [regularDayTab, setRegularDayTab] = useState("Tuesday");
+  const [selectShift, setSelectShift] = useState("Regular");
+  const [regularDayTab, setRegularDayTab] = useState("Saturday");
   const [eveningDayTab, setEveningDayTab] = useState("Thursday");
   /*  
   api : "https://routine-management-system-backend.onrender.com/api/v1/routine?day=Saturday&shift=Regular"
@@ -22,35 +22,37 @@ const App = () => {
   useEffect(() => {
     setLoading(true);
     console.log(selectShift, "from inside useEffect from app.jsx");
-    let url;
-    if (selectShift === "regular") {
-      url =
-        regularDayTab == "Tuesday"
-          ? "Tuesday.json"
-          : regularDayTab == "Wednesday"
-          ? "Wednesday-routine.json"
-          : regularDayTab == "Thursday"
-          ? "Thursday-routine.json"
-          : regularDayTab == "Saturday"
-          ? "Saturday-routine.json"
-          : regularDayTab == "Sunday" && "Sunday-ragular.json";
-    } else if (selectShift === "evening") {
-      // TODO : Need to update for friday
-      url =
-        eveningDayTab === "Thursday"
-          ? "EveningThursday.json"
-          : eveningDayTab === "Saturday"
-          ? "EveningSaturday.json"
-          : eveningDayTab === "Friday"
-          ? "EveningFriday.json"
-          : "";
-    }
-    fetch(`${url}`)
+    // let url;
+    // if (selectShift === "regular") {
+    //   url =
+    //     regularDayTab == "Tuesday"
+    //       ? "Tuesday.json"
+    //       : regularDayTab == "Wednesday"
+    //       ? "Wednesday-routine.json"
+    //       : regularDayTab == "Thursday"
+    //       ? "Thursday-routine.json"
+    //       : regularDayTab == "Saturday"
+    //       ? "Saturday-routine.json"
+    //       : regularDayTab == "Sunday" && "Sunday-ragular.json";
+    // } else if (selectShift === "evening") {
+    //   // TODO : Need to update for friday
+    //   url =
+    //     eveningDayTab === "Thursday"
+    //       ? "EveningThursday.json"
+    //       : eveningDayTab === "Saturday"
+    //       ? "EveningSaturday.json"
+    //       : eveningDayTab === "Friday"
+    //       ? "EveningFriday.json"
+    //       : "";
+    // }
+    fetch(
+      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${regularDayTab}&shift=${selectShift}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setData(data);
         setLoading(false);
-        console.log(data);
+        console.log(data.data);
       })
       .catch((e) => {
         console.log(e);
@@ -74,37 +76,40 @@ const App = () => {
       ></SelectShiftBatch>
 
       {/* Regular batch table */}
-      {!selectBatch && selectShift === "regular" && (
-        <RegularTable data={data} loading={loading}></RegularTable>
+      {!selectBatch && selectShift === "Regular" && (
+        <RegularTable data={data.data} loading={loading}></RegularTable>
       )}
 
       {/* Evening batch table  Friday*/}
       {!selectBatch &&
-      selectShift === "evening" &&
+      selectShift === "Evening" &&
       eveningDayTab === "Friday" ? (
-        <EveningFridayTable data={data} loading={loading}></EveningFridayTable>
+        <EveningFridayTable
+          data={data.data}
+          loading={loading}
+        ></EveningFridayTable>
       ) : (
         !selectBatch &&
-        selectShift === "evening" &&
+        selectShift === "Evening" &&
         eveningDayTab != "Friday" && (
-          <EveningTable data={data} loading={loading} />
+          <EveningTable data={data.data} loading={loading} />
         )
       )}
 
       {/* Individual table */}
-      {selectBatch && selectShift === "regular" && (
+      {selectBatch && selectShift === "Regular" && (
         <RegularBatchTable selectBatch={selectBatch}></RegularBatchTable>
       )}
 
       {/* Regular day tab */}
-      {selectShift == "regular" && !selectBatch && (
+      {selectShift == "Regular" && !selectBatch && (
         <RegularDayTab
           setRegularDayTab={setRegularDayTab}
           regularDayTab={regularDayTab}
         ></RegularDayTab>
       )}
       {/* Evening day tab */}
-      {selectShift == "evening" && !selectBatch && (
+      {selectShift == "Evening" && !selectBatch && (
         <EveningDayTab
           setEveningDayTab={setEveningDayTab}
           eveningDayTab={eveningDayTab}

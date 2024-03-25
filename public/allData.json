@@ -529,50 +529,64 @@
     {
         "shift": "Regular",
         "day": "Saturday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "5": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "5": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "6": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "6": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "7": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "7": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 19,
         "yearSem": "3/3",
         "sem": "9th",
@@ -581,50 +595,64 @@
     {
         "shift": "Regular",
         "day": "Saturday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "5": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "5": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "6": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "6": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "7": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "7": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 18,
         "yearSem": "4/1",
         "sem": "10th",
@@ -633,50 +661,64 @@
     {
         "shift": "Regular",
         "day": "Saturday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "5": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "5": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "6": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "6": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "7": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "7": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 17,
         "yearSem": "4/2",
         "sem": "11th",
@@ -685,50 +727,64 @@
     {
         "shift": "Regular",
         "day": "Saturday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": "CSE-453",
-                "courseTitle": "Digital Image Processing",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-453",
+                    "courseTitle": "Digital Image Processing",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "5": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "5": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "6": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "6": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "7": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "7": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 16,
         "yearSem": "4/3",
         "sem": "12th",
@@ -737,32 +793,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": "MTH-101",
-                "courseTitle": "Mathematics-I",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "MTH-101",
+                    "courseTitle": "Mathematics-I",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-100",
-                "courseTitle": "Introduction to Computer System",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-100",
+                    "courseTitle": "Introduction to Computer System",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 27,
         "yearSem": "1/1",
         "sem": "1st",
@@ -771,32 +835,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": "EEE-101",
-                "courseTitle": "Introduction to Electrical Engineering",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "EEE-101",
+                    "courseTitle": "Introduction to Electrical Engineering",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-123",
-                "courseTitle": "Discrete Mathematics",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-123",
+                    "courseTitle": "Discrete Mathematics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 26,
         "yearSem": "1/2",
         "sem": "2nd",
@@ -805,32 +877,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": "ACT-201",
-                "courseTitle": "Financial & Managerial Accounting",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "ACT-201",
+                    "courseTitle": "Financial & Managerial Accounting",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "MTH-105",
-                "courseTitle": "Mathematics-III",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "MTH-105",
+                    "courseTitle": "Mathematics-III",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-133",
-                "courseTitle": "Numerical Methods",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-133",
+                    "courseTitle": "Numerical Methods",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "EEE-103",
-                "courseTitle": "Electronics Device and Circuits",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "EEE-103",
+                    "courseTitle": "Electronics Device and Circuits",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 25,
         "yearSem": "1/3",
         "sem": "3rd",
@@ -839,32 +919,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-213",
-                "courseTitle": "Digital Logic Design",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-213",
+                    "courseTitle": "Digital Logic Design",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "EEE-201",
-                "courseTitle": "Electronics Drives and Instrumentation",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "EEE-201",
+                    "courseTitle": "Electronics Drives and Instrumentation",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "EEE-202",
-                "courseTitle": "Electronics Drives and Instrumentation Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "EEE-202",
+                    "courseTitle": "Electronics Drives and Instrumentation Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 24,
         "yearSem": "2/1",
         "sem": "4th",
@@ -873,32 +961,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": "CSE-344",
-                "courseTitle": "Advance OOP Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-344",
+                    "courseTitle": "Advance OOP Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "MTH-221",
-                "courseTitle": "Mathematics-V",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "MTH-221",
+                    "courseTitle": "Mathematics-V",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 23,
         "yearSem": "2/2",
         "sem": "5th",
@@ -907,32 +1003,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-235",
-                "courseTitle": "Computer Architecture",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-235",
+                    "courseTitle": "Computer Architecture",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-231",
-                "courseTitle": "Operating Systems",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-231",
+                    "courseTitle": "Operating Systems",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 22,
         "yearSem": "2/3",
         "sem": "6th",
@@ -941,32 +1045,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-315",
-                "courseTitle": "Theory of Computing",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-315",
+                    "courseTitle": "Theory of Computing",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-313",
-                "courseTitle": "Microprocessor and Micro Controller",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-313",
+                    "courseTitle": "Microprocessor and Micro Controller",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 21,
         "yearSem": "3/1",
         "sem": "7th",
@@ -975,32 +1087,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": "ECO-201",
-                "courseTitle": "Engineering Economics",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "ECO-201",
+                    "courseTitle": "Engineering Economics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-323",
-                "courseTitle": "Compiler",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-323",
+                    "courseTitle": "Compiler",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-324",
-                "courseTitle": "Compiler Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-324",
+                    "courseTitle": "Compiler Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 20,
         "yearSem": "3/2",
         "sem": "8th",
@@ -1009,32 +1129,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 19,
         "yearSem": "3/3",
         "sem": "9th",
@@ -1043,32 +1171,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": "CSE-447",
-                "courseTitle": "Network Security",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-447",
+                    "courseTitle": "Network Security",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 18,
         "yearSem": "4/1",
         "sem": "10th",
@@ -1077,32 +1213,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 17,
         "yearSem": "4/2",
         "sem": "11th",
@@ -1111,32 +1255,40 @@
     {
         "shift": "Regular",
         "day": "Sunday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 16,
         "yearSem": "4/3",
         "sem": "12th",
@@ -1145,32 +1297,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 27,
         "yearSem": "1/1",
         "sem": "1st",
@@ -1179,32 +1339,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 26,
         "yearSem": "1/2",
         "sem": "2nd",
@@ -1213,32 +1381,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 25,
         "yearSem": "1/3",
         "sem": "3rd",
@@ -1247,32 +1423,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": "CSE-212",
-                "courseTitle": "OOP Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-212",
+                    "courseTitle": "OOP Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-211",
-                "courseTitle": "Object Oriented Programming Language",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-211",
+                    "courseTitle": "Object Oriented Programming Language",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 24,
         "yearSem": "2/1",
         "sem": "4th",
@@ -1281,32 +1465,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 23,
         "yearSem": "2/2",
         "sem": "5th",
@@ -1315,32 +1507,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 22,
         "yearSem": "2/3",
         "sem": "6th",
@@ -1349,32 +1549,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": "CSE-315",
-                "courseTitle": "Theory of Computing",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-315",
+                    "courseTitle": "Theory of Computing",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-317",
-                "courseTitle": "Data Communications",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-317",
+                    "courseTitle": "Data Communications",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 21,
         "yearSem": "3/1",
         "sem": "7th",
@@ -1383,32 +1591,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 20,
         "yearSem": "3/2",
         "sem": "8th",
@@ -1417,32 +1633,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": "CSE-342",
-                "courseTitle": "VLSI Design Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-342",
+                    "courseTitle": "VLSI Design Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-341",
-                "courseTitle": "VLSI Design",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-341",
+                    "courseTitle": "VLSI Design",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 19,
         "yearSem": "3/3",
         "sem": "9th",
@@ -1451,32 +1675,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": "CSE-459",
-                "courseTitle": "Internet of Things",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-459",
+                    "courseTitle": "Internet of Things",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-417",
-                "courseTitle": "Project Management",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-417",
+                    "courseTitle": "Project Management",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 18,
         "yearSem": "4/1",
         "sem": "10th",
@@ -1485,32 +1717,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 17,
         "yearSem": "4/2",
         "sem": "11th",
@@ -1519,32 +1759,40 @@
     {
         "shift": "Regular",
         "day": "Thursday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 16,
         "yearSem": "4/3",
         "sem": "12th",
@@ -1553,32 +1801,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": "MTH-101",
-                "courseTitle": "Mathematics-I",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "MTH-101",
+                    "courseTitle": "Mathematics-I",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-121",
-                "courseTitle": "Structured Programming Language",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-121",
+                    "courseTitle": "Structured Programming Language",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-122",
-                "courseTitle": "Structured ProgrammingSessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-122",
+                    "courseTitle": "Structured ProgrammingSessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "ENG-101",
-                "courseTitle": "Foundation English",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "ENG-101",
+                    "courseTitle": "Foundation English",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 27,
         "yearSem": "1/1",
         "sem": "1st",
@@ -1587,32 +1843,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-123",
-                "courseTitle": "Discrete Mathematics",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-123",
+                    "courseTitle": "Discrete Mathematics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "PHY-101",
-                "courseTitle": "Physics",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "PHY-101",
+                    "courseTitle": "Physics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "PHY-102",
-                "courseTitle": "Physics Sessional",
-                "teacher": null,
-                "credit": 1.5
+            {
+                "3": {
+                    "courseCode": "PHY-102",
+                    "courseTitle": "Physics Sessional",
+                    "teacher": null,
+                    "credit": 1.5
+                }
             },
-            "4": {
-                "courseCode": "CHM-101",
-                "courseTitle": "Chemistry",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CHM-101",
+                    "courseTitle": "Chemistry",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 26,
         "yearSem": "1/2",
         "sem": "2nd",
@@ -1621,32 +1885,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": "ACT-201",
-                "courseTitle": "Financial & Managerial Accounting",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "ACT-201",
+                    "courseTitle": "Financial & Managerial Accounting",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-131",
-                "courseTitle": "Data Structures",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-131",
+                    "courseTitle": "Data Structures",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "EEE-103",
-                "courseTitle": "Electronics Device and Circuits",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "EEE-103",
+                    "courseTitle": "Electronics Device and Circuits",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "EEE-104",
-                "courseTitle": "CR#223",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "EEE-104",
+                    "courseTitle": "CR#223",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 25,
         "yearSem": "1/3",
         "sem": "3rd",
@@ -1655,32 +1927,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 24,
         "yearSem": "2/1",
         "sem": "4th",
@@ -1689,32 +1969,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": "CSE-224",
-                "courseTitle": "Database Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-224",
+                    "courseTitle": "Database Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-223",
-                "courseTitle": "Database Management Systems",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-223",
+                    "courseTitle": "Database Management Systems",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 23,
         "yearSem": "2/2",
         "sem": "5th",
@@ -1723,32 +2011,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-233",
-                "courseTitle": "System Analysis and Design",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-233",
+                    "courseTitle": "System Analysis and Design",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-235",
-                "courseTitle": "Computer Architecture",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-235",
+                    "courseTitle": "Computer Architecture",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 22,
         "yearSem": "2/3",
         "sem": "6th",
@@ -1757,32 +2053,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-311",
-                "courseTitle": "Artificial Intelligence",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-311",
+                    "courseTitle": "Artificial Intelligence",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-317",
-                "courseTitle": "Data Communications",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-317",
+                    "courseTitle": "Data Communications",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-313",
-                "courseTitle": "Microprocessor and Micro Controller",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-313",
+                    "courseTitle": "Microprocessor and Micro Controller",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-314",
-                "courseTitle": "Microprocessor and Micro Controller Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-314",
+                    "courseTitle": "Microprocessor and Micro Controller Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 21,
         "yearSem": "3/1",
         "sem": "7th",
@@ -1791,32 +2095,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-325",
-                "courseTitle": "Digital System Design",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-325",
+                    "courseTitle": "Digital System Design",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "ECO-201",
-                "courseTitle": "Engineering Economics",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "ECO-201",
+                    "courseTitle": "Engineering Economics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-321",
-                "courseTitle": "Software Engineering",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-321",
+                    "courseTitle": "Software Engineering",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-322",
-                "courseTitle": "Software Engineering Sessional",
-                "teacher": null,
-                "credit": 1.5
+            {
+                "4": {
+                    "courseCode": "CSE-322",
+                    "courseTitle": "Software Engineering Sessional",
+                    "teacher": null,
+                    "credit": 1.5
+                }
             }
-        },
+        ],
         "batch": 20,
         "yearSem": "3/2",
         "sem": "8th",
@@ -1825,32 +2137,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-335",
-                "courseTitle": "Computer Graphics",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-335",
+                    "courseTitle": "Computer Graphics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-336",
-                "courseTitle": "Computer Graphics Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-336",
+                    "courseTitle": "Computer Graphics Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-331",
-                "courseTitle": "Computer Network",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-331",
+                    "courseTitle": "Computer Network",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 19,
         "yearSem": "3/3",
         "sem": "9th",
@@ -1859,32 +2179,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-417",
-                "courseTitle": "Project Management",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-417",
+                    "courseTitle": "Project Management",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-459",
-                "courseTitle": "Internet of Things",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-459",
+                    "courseTitle": "Internet of Things",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-447",
-                "courseTitle": "Network Security",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-447",
+                    "courseTitle": "Network Security",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 18,
         "yearSem": "4/1",
         "sem": "10th",
@@ -1893,32 +2221,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": "MGT-201",
-                "courseTitle": "Industrial and Operational Manage",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "MGT-201",
+                    "courseTitle": "Industrial and Operational Manage",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-429",
-                "courseTitle": "Web Programming",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-429",
+                    "courseTitle": "Web Programming",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 17,
         "yearSem": "4/2",
         "sem": "11th",
@@ -1927,32 +2263,40 @@
     {
         "shift": "Regular",
         "day": "Tuesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 16,
         "yearSem": "4/3",
         "sem": "12th",
@@ -1961,32 +2305,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": "CSE-121",
-                "courseTitle": "Structured Programming Language",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-121",
+                    "courseTitle": "Structured Programming Language",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "ENG-101",
-                "courseTitle": "Foundation English",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "ENG-101",
+                    "courseTitle": "Foundation English",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-100",
-                "courseTitle": "Introduction to Computer System",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-100",
+                    "courseTitle": "Introduction to Computer System",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 27,
         "yearSem": "1/1",
         "sem": "1st",
@@ -1995,32 +2347,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-123",
-                "courseTitle": "Discrete Mathematics",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-123",
+                    "courseTitle": "Discrete Mathematics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "PHY-101",
-                "courseTitle": "Physics",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "PHY-101",
+                    "courseTitle": "Physics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CHM-101",
-                "courseTitle": "Chemistry",
-                "teacher": null,
-                "credit": 1.5
+            {
+                "3": {
+                    "courseCode": "CHM-101",
+                    "courseTitle": "Chemistry",
+                    "teacher": null,
+                    "credit": 1.5
+                }
             },
-            "4": {
-                "courseCode": "MTH-103",
-                "courseTitle": "Mathematics",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "MTH-103",
+                    "courseTitle": "Mathematics",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 26,
         "yearSem": "1/2",
         "sem": "2nd",
@@ -2029,32 +2389,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-133",
-                "courseTitle": "Numerical Methods",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-133",
+                    "courseTitle": "Numerical Methods",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-132",
-                "courseTitle": "Data Structures Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-132",
+                    "courseTitle": "Data Structures Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-131",
-                "courseTitle": "Data Structures",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-131",
+                    "courseTitle": "Data Structures",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "MTH-105",
-                "courseTitle": "Mathematics-III",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "MTH-105",
+                    "courseTitle": "Mathematics-III",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 25,
         "yearSem": "1/3",
         "sem": "3rd",
@@ -2063,32 +2431,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": "MTH-207",
-                "courseTitle": "Mathematics-IV",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "MTH-207",
+                    "courseTitle": "Mathematics-IV",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-214",
-                "courseTitle": "Digital Logic Design Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-214",
+                    "courseTitle": "Digital Logic Design Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-213",
-                "courseTitle": "Digital Logic Design",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-213",
+                    "courseTitle": "Digital Logic Design",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "EEE-201",
-                "courseTitle": "Electronics Drives and Instrumentation",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "EEE-201",
+                    "courseTitle": "Electronics Drives and Instrumentation",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 24,
         "yearSem": "2/1",
         "sem": "4th",
@@ -2097,32 +2473,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-223",
-                "courseTitle": "Database Management Systems",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-223",
+                    "courseTitle": "Database Management Systems",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "MTH-221",
-                "courseTitle": "Mathematics-V",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "MTH-221",
+                    "courseTitle": "Mathematics-V",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-221",
-                "courseTitle": "Algorithms",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-221",
+                    "courseTitle": "Algorithms",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 23,
         "yearSem": "2/2",
         "sem": "5th",
@@ -2131,32 +2515,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-231",
-                "courseTitle": "Operating Systems",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-231",
+                    "courseTitle": "Operating Systems",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-232",
-                "courseTitle": "OS Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-232",
+                    "courseTitle": "OS Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-233",
-                "courseTitle": "System Analysis and Design",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-233",
+                    "courseTitle": "System Analysis and Design",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-234",
-                "courseTitle": "System Analysis and Design Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-234",
+                    "courseTitle": "System Analysis and Design Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 22,
         "yearSem": "2/3",
         "sem": "6th",
@@ -2165,32 +2557,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": "CSE-312",
-                "courseTitle": "Artificial Intelligence Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-312",
+                    "courseTitle": "Artificial Intelligence Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-311",
-                "courseTitle": "Artificial Intelligence",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-311",
+                    "courseTitle": "Artificial Intelligence",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 21,
         "yearSem": "3/1",
         "sem": "7th",
@@ -2199,32 +2599,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-325",
-                "courseTitle": "Digital System Design",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-325",
+                    "courseTitle": "Digital System Design",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-323",
-                "courseTitle": "Compiler",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-323",
+                    "courseTitle": "Compiler",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-321",
-                "courseTitle": "Software Engineering",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-321",
+                    "courseTitle": "Software Engineering",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-326",
-                "courseTitle": "Digital System Design Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-326",
+                    "courseTitle": "Digital System Design Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 20,
         "yearSem": "3/2",
         "sem": "8th",
@@ -2233,32 +2641,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": "CSE-331",
-                "courseTitle": "Computer Network",
-                "teacher": null,
-                "credit": 3
+        "courses": [
+            {
+                "1": {
+                    "courseCode": "CSE-331",
+                    "courseTitle": "Computer Network",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "2": {
-                "courseCode": "CSE-332",
-                "courseTitle": "Computer Network Sessional",
-                "teacher": null,
-                "credit": 3
+            {
+                "2": {
+                    "courseCode": "CSE-332",
+                    "courseTitle": "Computer Network Sessional",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "3": {
-                "courseCode": "CSE-335",
-                "courseTitle": "Computer Graphics",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "CSE-335",
+                    "courseTitle": "Computer Graphics",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-341",
-                "courseTitle": "VLSI Design",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-341",
+                    "courseTitle": "VLSI Design",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 19,
         "yearSem": "3/3",
         "sem": "9th",
@@ -2267,32 +2683,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "4": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             }
-        },
+        ],
         "batch": 18,
         "yearSem": "4/1",
         "sem": "10th",
@@ -2301,32 +2725,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": "MGT-201",
-                "courseTitle": "Industrial and Operational Manage",
-                "teacher": null,
-                "credit": 3
+            {
+                "3": {
+                    "courseCode": "MGT-201",
+                    "courseTitle": "Industrial and Operational Manage",
+                    "teacher": null,
+                    "credit": 3
+                }
             },
-            "4": {
-                "courseCode": "CSE-429",
-                "courseTitle": "Web Programming",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-429",
+                    "courseTitle": "Web Programming",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 17,
         "yearSem": "4/2",
         "sem": "11th",
@@ -2335,32 +2767,40 @@
     {
         "shift": "Regular",
         "day": "Wednesday",
-        "courses": {
-            "1": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+        "courses": [
+            {
+                "1": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "2": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "2": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "3": {
-                "courseCode": null,
-                "courseTitle": null,
-                "teacher": null,
-                "credit": null
+            {
+                "3": {
+                    "courseCode": null,
+                    "courseTitle": null,
+                    "teacher": null,
+                    "credit": null
+                }
             },
-            "4": {
-                "courseCode": "CSE-453",
-                "courseTitle": "Digital Image Processing",
-                "teacher": null,
-                "credit": 3
+            {
+                "4": {
+                    "courseCode": "CSE-453",
+                    "courseTitle": "Digital Image Processing",
+                    "teacher": null,
+                    "credit": 3
+                }
             }
-        },
+        ],
         "batch": 16,
         "yearSem": "4/3",
         "sem": "12th",

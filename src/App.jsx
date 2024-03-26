@@ -8,6 +8,7 @@ import EveningDayTab from "./Components/Evening/EveningDayTab";
 import RegularTable from "./Components/Regular/RegularTable";
 import EveningTable from "./Components/Evening/EveningTable";
 import EveningFridayTable from "./Components/Evening/EveningFridayTable";
+import AddNewBatchModal from "./Components/Modal/AddNewBatchModal";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -117,6 +118,10 @@ const App = () => {
           eveningDayTab={eveningDayTab}
         ></EveningDayTab>
       )}
+
+
+      {/* Modal */}
+      <AddNewBatchModal/>
     </div>
   );
 };

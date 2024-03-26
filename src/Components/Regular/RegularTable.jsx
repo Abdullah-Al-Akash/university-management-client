@@ -2,11 +2,15 @@
 import { useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 import TeacherAssign from "../Modal/TeacherAssign";
+import Loading from "../../Shared/Loading";
 
-const RegularTable = ({ data }) => {
+const RegularTable = ({ data, loading }) => {
   const [courseId, setCourseId] = useState("");
   const [rowIndex, setRowIndex] = useState(null);
   console.log(courseId, "table");
+  if(loading){
+    return <Loading></Loading>
+  }
   return (
     <>
       <TableWrapper>

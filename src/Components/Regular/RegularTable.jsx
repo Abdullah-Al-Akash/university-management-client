@@ -2,7 +2,7 @@
 import TableWrapper from "../../Shared/TableWrapper";
 
 const RegularTable = ({ data, loading }) => {
-  console.log(data);
+
   return (
     <TableWrapper>
       <table
@@ -88,6 +88,7 @@ const RegularTable = ({ data, loading }) => {
           ? "loading"
           : data?.map((item, index) => {
               const { batch, courses, room, sem, yearSem } = item;
+              console.log(courses);
               return (
                 <tr key={index}>
                   <td
@@ -120,10 +121,10 @@ const RegularTable = ({ data, loading }) => {
                     colSpan={3}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses?.["1"]?.courseCode && (
+                    {courses["0"]?.["1"]?.courseCode && (
                       <>
-                        {courses?.["1"]?.courseCode}{" "}
-                        {courses?.["1"]?.courseTitle}{" "}
+                        {courses["0"]?.["1"]?.courseCode}{" "}
+                        {courses["0"]?.["1"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
@@ -131,34 +132,40 @@ const RegularTable = ({ data, loading }) => {
                     colSpan={3}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses?.["2"]?.courseCode && (
+                    {courses["1"]?.["2"]?.courseCode && (
                       <>
-                        {courses?.["2"]?.courseCode}{" "}
-                        {courses?.["2"]?.courseTitle}{" "}
+                        {courses["1"]?.["2"]?.courseCode}{" "}
+                        {courses["1"]?.["2"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
                   <td
+                  colSpan={
+                    courses["2"]?.["3"]?.courseTitle?.includes("Sessional") ? 2 : 1
+                  }
                     className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] ${
                       courses?.["3"]?.courseTitle?.includes("Sessional")
                         ? "border-r-0"
                         : ""
                     }`}
                   >
-                    {courses?.["3"]?.courseCode && (
+                    {courses["2"]?.["3"]?.courseCode && (
                       <>
-                        {courses?.["3"]?.courseCode}{" "}
-                        {courses?.["3"]?.courseTitle}{" "}
+                        {courses["2"]?.["3"]?.courseCode}{" "}
+                        {courses["2"]?.["3"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
-                  <td
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] ${
-                      courses?.["3"]?.courseTitle?.includes("Sessional")
-                        ? "border-l-0"
-                        : ""
-                    }`}
-                  ></td>
+                  {
+                    !courses["2"]?.["3"]?.courseTitle?.includes("Sessional") && (<td
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] ${
+                        courses["3"]?.["3"]?.courseTitle?.includes("Sessional")
+                          ? "border-l-0"
+                          : ""
+                      }`}
+                    ></td>)
+                  }
+                  
                   <td className="px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 border-t-0 border-b-0 text-[20px]">
                     {" "}
                     {index === 4 ? "B" : ""} {index === 5 ? "R" : ""}{" "}
@@ -168,17 +175,17 @@ const RegularTable = ({ data, loading }) => {
                   <td
                     className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                     colSpan={
-                      courses?.["4"]?.courseTitle?.includes("Sessional") ? 2 : 1
+                      courses["3"]?.["4"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }
                   >
-                    {courses?.["4"]?.courseCode && (
+                    {courses["3"]?.["4"]?.courseCode && (
                       <>
-                        {courses?.["4"]?.courseCode}{" "}
-                        {courses?.["4"]?.courseTitle}{" "}
+                        {courses["3"]?.["4"]?.courseCode}{" "}
+                        {courses["3"]?.["4"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
-                  {!courses?.["4"]?.courseTitle?.includes("Sessional") && (
+                  {!courses["3"]?.["4"]?.courseTitle?.includes("Sessional") && (
                     <td
                       className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                     ></td>

@@ -8,7 +8,7 @@ const EveningDayTab = ({ setEveningDayTab, eveningDayTab }) => {
               return <button key={ind}
               onClick={() => setEveningDayTab(elem)}
               className={`${
-                eveningDayTab == elem ? "bg-emerald-300 font-bold px-3" : ""
+                eveningDayTab == elem ? "bg-orange-500 font-bold px-3" : ""
               }`}
             >
               {elem}

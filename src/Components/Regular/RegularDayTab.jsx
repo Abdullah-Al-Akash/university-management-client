@@ -7,7 +7,7 @@ const RegularDayTab = ({ setRegularDayTab, regularDayTab }) => {
       {['Tuesday', 'Wednesday', 'Thursday', 'Saturday', 'Sunday'].map((elem, ind) => {
         return <button key={ind}
           onClick={() => setRegularDayTab(elem)}
-          className={`${regularDayTab == elem ? "bg-emerald-300 font-bold px-3" : ""
+          className={`${regularDayTab == elem ? "bg-orange-500 font-bold px-3" : ""
             }`}
         >
           {elem}

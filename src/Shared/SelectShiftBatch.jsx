@@ -1,4 +1,7 @@
 /* eslint-disable no-unused-vars */
+
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
   return (
@@ -42,6 +45,9 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
           <option value="27">27th</option>
         </select>
       </div> */}
+      <Link to="/faculty">
+        <button>View Faculty</button>
+      </Link>
     </div>
   );
 };

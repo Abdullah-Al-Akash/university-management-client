@@ -59,8 +59,6 @@ const App = () => {
       });
   }, [regularDayTab, eveningDayTab, selectShift]);
 
-  console.log(selectShift, "from app.js");
-
   if (loading) {
     return <div className="h-screen bg-slate-200 flex items-center justify-center">
       <span className="animate-spin h-5 w-5 mr-3 border-2 border-l-red-500 border-r-green-500 border-t-white border-b-black  rounded-full "></span>

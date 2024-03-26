@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import { FaXmark } from "react-icons/fa6";
 
+
 const AddNewBatchModal = () => {
 
     const { register, handleSubmit, formState:{errors} } = useForm(); // initialize the hook

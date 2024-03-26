@@ -140,6 +140,9 @@ const RegularTable = ({ data, loading }) => {
                     )}
                   </td>
                   <td
+                  colSpan={
+                    courses["2"]?.["3"]?.courseTitle?.includes("Sessional") ? 2 : 1
+                  }
                     className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] ${
                       courses?.["3"]?.courseTitle?.includes("Sessional")
                         ? "border-r-0"
@@ -153,13 +156,16 @@ const RegularTable = ({ data, loading }) => {
                       </>
                     )}
                   </td>
-                  <td
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] ${
-                      courses["3"]?.["3"]?.courseTitle?.includes("Sessional")
-                        ? "border-l-0"
-                        : ""
-                    }`}
-                  ></td>
+                  {
+                    !courses["2"]?.["3"]?.courseTitle?.includes("Sessional") && (<td
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] ${
+                        courses["3"]?.["3"]?.courseTitle?.includes("Sessional")
+                          ? "border-l-0"
+                          : ""
+                      }`}
+                    ></td>)
+                  }
+                  
                   <td className="px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 border-t-0 border-b-0 text-[20px]">
                     {" "}
                     {index === 4 ? "B" : ""} {index === 5 ? "R" : ""}{" "}

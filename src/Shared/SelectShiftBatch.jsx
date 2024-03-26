@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
   return (
@@ -15,7 +16,7 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
           <option value="Evening">Evening</option>
         </select>
       </div>
-      <div>
+      {/* <div>
         <label htmlFor="" className="font-bold">
           Select Batch:{" "}
         </label>
@@ -40,7 +41,7 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
           <option value="26">26th</option>
           <option value="27">27th</option>
         </select>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -59,8 +59,6 @@ const App = () => {
       });
   }, [regularDayTab, eveningDayTab, selectShift]);
 
-  console.log(selectShift, "from app.js");
-
   if (loading) {
     return "loading...";
   }

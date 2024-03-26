@@ -1,21 +1,39 @@
 
+import { useForm } from "react-hook-form";
 import { FaXmark } from "react-icons/fa6";
+
 
 const AddNewBatchModal = () => {
 
-    const addNewBatchHandler = ()=> {
-        // fetch({method: 'POST', url: 'https://routine-management-system-backend.onrender.com/api/v1/routine'})
-    }
+    const { register, handleSubmit, formState:{errors} } = useForm(); // initialize the hook
+    const addNewBatchHandler = (form) => {
+        const {confirm} = form
+        console.log(confirm);
+    };
+
+    console.log(errors, 12);
 
     return (
         <dialog id="add_new_batch_modal" className="modal">
             <div className="modal-box">
 
-                <div className="space-y-4">
-                    <label htmlFor="confirm" className="font-semibold">Please type <span className="font-bold">confirm</span> to add new batch</label>
-                    <input type="text" placeholder="confirm" id="confirm" className="my-inp"/>
+                <form className="space-y-4" onSubmit={handleSubmit(addNewBatchHandler)}>
+                    <label htmlFor="confirm" className="font-semibold">Please type <span className="font-bold">Confirm</span> to add new batch</label>
+                    <div className="space-y-2">
+                        <input
+                            type="text"
+                            placeholder="Confirm"
+                            id="confirm"
+                            {...register('confirm', {
+                                validate: (value) => value === 'Confirm' || 'Value must be "Confirm"'
+                            })}
+                            className="my-inp"
+                        />
+                        {errors.confirm?.message && <span className="text-red-500">*{errors.confirm?.message}</span>}
+                    </div>
+
                     <button type="submit" className="my-btn-one">Submit</button>
-                </div>
+                </form>
 
 
                 <div className="modal-action absolute top-0 right-1 mt-0">

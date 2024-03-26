@@ -1,4 +1,5 @@
 import TableWrapper from "../../Shared/TableWrapper";
+import TeacherAssign from "../Modal/TeacherAssign";
 
 const EveningFridayTable = ({ data, loading }) => {
   console.log(data, "Friday");
@@ -165,23 +166,46 @@ const EveningFridayTable = ({ data, loading }) => {
                   {room}
                 </td>
                 {/* First Two Class */}
-                <td
-                  colSpan={`${
-                    classesBeforeBreak[0]?.[1]?.courseCode ===
-                    classesBeforeBreak[1]?.[2]?.courseCode
-                      ? "6"
-                      : "3"
-                  }`}
-                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
-                >
-                  {classesBeforeBreak[0]?.[1]?.courseCode && (
-                    <>
-                      {classesBeforeBreak[0]?.[1]?.courseCode} (
-                      {classesBeforeBreak[0]?.[1]?.courseTitle}){" "}
-                      {classesBeforeBreak[0]?.[1]?.teacher?.sortForm ?? ""}
-                    </>
-                  )}
-                </td>
+                {classesBeforeBreak[0]?.[1]?.courseTitle ? (
+                  <td
+                    onClick={() =>
+                      document.getElementById("teacher_assign").showModal()
+                    }
+                    colSpan={`${
+                      classesBeforeBreak[0]?.[1]?.courseCode ===
+                      classesBeforeBreak[1]?.[2]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                  >
+                    {classesBeforeBreak[0]?.[1]?.courseCode && (
+                      <>
+                        {classesBeforeBreak[0]?.[1]?.courseCode} (
+                        {classesBeforeBreak[0]?.[1]?.courseTitle}){" "}
+                        {classesBeforeBreak[0]?.[1]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                ) : (
+                  <td
+                    colSpan={`${
+                      classesBeforeBreak[0]?.[1]?.courseCode ===
+                      classesBeforeBreak[1]?.[2]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                  >
+                    {classesBeforeBreak[0]?.[1]?.courseCode && (
+                      <>
+                        {classesBeforeBreak[0]?.[1]?.courseCode} (
+                        {classesBeforeBreak[0]?.[1]?.courseTitle}){" "}
+                        {classesBeforeBreak[0]?.[1]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                )}
                 {classesBeforeBreak[0]?.[1]?.courseCode !==
                 classesBeforeBreak[1]?.[2]?.courseCode ? (
                   <td
@@ -367,6 +391,7 @@ const EveningFridayTable = ({ data, loading }) => {
             );
           })}
       </table>
+      <TeacherAssign></TeacherAssign>
     </TableWrapper>
   );
 };

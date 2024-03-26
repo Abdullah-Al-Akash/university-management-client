@@ -2,6 +2,7 @@
 const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
   return (
     <div className="flex justify-between items-center">
+      {/* Select shift */}
       <div>
         <label htmlFor="" className="font-bold">
           Select Shift:{" "}
@@ -15,6 +16,11 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
           <option value="Evening">Evening</option>
         </select>
       </div>
+
+      {/* Added new batch*/}
+      <button className="btn">Added new button</button>
+
+      {/* Select batch */}
       <div>
         <label htmlFor="" className="font-bold">
           Select Batch:{" "}

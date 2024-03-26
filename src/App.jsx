@@ -46,7 +46,7 @@ const App = () => {
     //       : "";
     // }
     fetch(
-      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${regularDayTab}&shift=${selectShift}`
+      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${selectShift === 'Regular' ? regularDayTab : eveningDayTab}&shift=${selectShift}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -59,7 +59,6 @@ const App = () => {
       });
   }, [regularDayTab, eveningDayTab, selectShift]);
 
-  console.log(selectShift, "from app.js");
 
   if (loading) {
     return <div className="h-screen bg-slate-200 flex items-center justify-center">

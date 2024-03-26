@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
+import FacultyTable from "./Components/Faculty/FacultyTable";
 
 export const router = createBrowserRouter([
   {
@@ -8,6 +9,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/faculty",
-    element: <>Faculty</>,
+    element: <FacultyTable />,
   },
 ]);

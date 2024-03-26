@@ -1,4 +1,5 @@
 import TableWrapper from "../../Shared/TableWrapper";
+import TeacherAssign from "../Modal/TeacherAssign";
 
 const EveningFridayTable = ({ data, loading }) => {
   console.log(data, "Friday");
@@ -165,77 +166,164 @@ const EveningFridayTable = ({ data, loading }) => {
                   {room}
                 </td>
                 {/* First Two Class */}
-                <td
-                  colSpan={`${
-                    classesBeforeBreak[0]?.[1]?.courseCode ===
-                    classesBeforeBreak[1]?.[2]?.courseCode
-                      ? "6"
-                      : "3"
-                  }`}
-                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
-                >
-                  {classesBeforeBreak[0]?.[1]?.courseCode && (
-                    <>
-                      {classesBeforeBreak[0]?.[1]?.courseCode} (
-                      {classesBeforeBreak[0]?.[1]?.courseTitle}){" "}
-                      {classesBeforeBreak[0]?.[1]?.teacher?.sortForm ?? ""}
-                    </>
-                  )}
-                </td>
-                {classesBeforeBreak[0]?.[1]?.courseCode !==
-                classesBeforeBreak[1]?.[2]?.courseCode ? (
+                {classesBeforeBreak[0]?.[1]?.courseTitle ? (
+                  <td
+                    onClick={() =>
+                      document.getElementById("teacher_assign").showModal()
+                    }
+                    colSpan={`${
+                      classesBeforeBreak[0]?.[1]?.courseCode ===
+                      classesBeforeBreak[1]?.[2]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                  >
+                    {classesBeforeBreak[0]?.[1]?.courseCode && (
+                      <>
+                        {classesBeforeBreak[0]?.[1]?.courseCode} (
+                        {classesBeforeBreak[0]?.[1]?.courseTitle}){" "}
+                        {classesBeforeBreak[0]?.[1]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                ) : (
                   <td
                     colSpan={`${
-                      classesBeforeBreak[1]?.[2]?.courseCode ===
-                      classesBeforeBreak[2]?.[3]?.courseCode
+                      classesBeforeBreak[0]?.[1]?.courseCode ===
+                      classesBeforeBreak[1]?.[2]?.courseCode
                         ? "6"
                         : "3"
                     }`}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {classesBeforeBreak[1]?.[2]?.courseCode && (
+                    {classesBeforeBreak[0]?.[1]?.courseCode && (
                       <>
-                        {classesBeforeBreak[1]?.[2]?.courseCode} (
-                        {classesBeforeBreak[1]?.[2]?.courseTitle}){" "}
-                        {classesBeforeBreak[1]?.[2]?.teacher?.sortForm ?? ""}
+                        {classesBeforeBreak[0]?.[1]?.courseCode} (
+                        {classesBeforeBreak[0]?.[1]?.courseTitle}){" "}
+                        {classesBeforeBreak[0]?.[1]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>
+                )}
+                {classesBeforeBreak[0]?.[1]?.courseCode !==
+                classesBeforeBreak[1]?.[2]?.courseCode ? (
+                  courses[1]?.[2]?.courseTitle ? (
+                    <td
+                      onClick={() =>
+                        document.getElementById("teacher_assign").showModal()
+                      }
+                      colSpan={`${
+                        classesBeforeBreak[1]?.[2]?.courseCode ===
+                        classesBeforeBreak[2]?.[3]?.courseCode
+                          ? "6"
+                          : "3"
+                      }`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    >
+                      {classesBeforeBreak[1]?.[2]?.courseCode && (
+                        <>
+                          {classesBeforeBreak[1]?.[2]?.courseCode} (
+                          {classesBeforeBreak[1]?.[2]?.courseTitle}){" "}
+                          {classesBeforeBreak[1]?.[2]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  ) : (
+                    <td
+                      colSpan={`${
+                        classesBeforeBreak[1]?.[2]?.courseCode ===
+                        classesBeforeBreak[2]?.[3]?.courseCode
+                          ? "6"
+                          : "3"
+                      }`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    >
+                      {classesBeforeBreak[1]?.[2]?.courseCode && (
+                        <>
+                          {classesBeforeBreak[1]?.[2]?.courseCode} (
+                          {classesBeforeBreak[1]?.[2]?.courseTitle}){" "}
+                          {classesBeforeBreak[1]?.[2]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  )
                 ) : (
                   ""
                 )}
                 {/* Second Two Class */}
-                <td
-                  colSpan={`${
-                    classesBeforeBreak[2]?.[3]?.courseCode ===
-                    classesBeforeBreak[3]?.[4]?.courseCode
-                      ? "6"
-                      : "3"
-                  }`}
-                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
-                >
-                  {classesBeforeBreak[2]?.[3]?.courseCode && (
-                    <>
-                      {classesBeforeBreak[2]?.[3]?.courseCode} (
-                      {classesBeforeBreak[2]?.[3]?.courseTitle}){" "}
-                      {classesBeforeBreak[2]?.[3]?.teacher?.sortForm ?? ""}
-                    </>
-                  )}
-                </td>
-                {classesBeforeBreak[2]?.[3]?.courseCode !==
-                classesBeforeBreak[3]?.[4]?.courseCode ? (
+                {classesBeforeBreak[2]?.[3]?.courseTitle ? (
                   <td
-                    colSpan={3}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    onClick={() =>
+                      document.getElementById("teacher_assign").showModal()
+                    }
+                    colSpan={`${
+                      classesBeforeBreak[2]?.[3]?.courseCode ===
+                      classesBeforeBreak[3]?.[4]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                   >
-                    {classesBeforeBreak[3]?.[4]?.courseCode && (
+                    {classesBeforeBreak[2]?.[3]?.courseCode && (
                       <>
-                        {classesBeforeBreak[3]?.[4]?.courseCode} (
-                        {classesBeforeBreak[3]?.[4]?.courseTitle}){" "}
-                        {classesBeforeBreak[3]?.[4]?.teacher?.sortForm ?? ""}
+                        {classesBeforeBreak[2]?.[3]?.courseCode} (
+                        {classesBeforeBreak[2]?.[3]?.courseTitle}){" "}
+                        {classesBeforeBreak[2]?.[3]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>
+                ) : (
+                  <td
+                    colSpan={`${
+                      classesBeforeBreak[2]?.[3]?.courseCode ===
+                      classesBeforeBreak[3]?.[4]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                  >
+                    {classesBeforeBreak[2]?.[3]?.courseCode && (
+                      <>
+                        {classesBeforeBreak[2]?.[3]?.courseCode} (
+                        {classesBeforeBreak[2]?.[3]?.courseTitle}){" "}
+                        {classesBeforeBreak[2]?.[3]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                )}
+                {classesBeforeBreak[2]?.[3]?.courseCode !==
+                classesBeforeBreak[3]?.[4]?.courseCode ? (
+                  classesBeforeBreak[3]?.[4]?.courseTitle ? (
+                    <td
+                      onClick={() =>
+                        document.getElementById("teacher_assign").showModal()
+                      }
+                      colSpan={3}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    >
+                      {classesBeforeBreak[3]?.[4]?.courseCode && (
+                        <>
+                          {classesBeforeBreak[3]?.[4]?.courseCode} (
+                          {classesBeforeBreak[3]?.[4]?.courseTitle}){" "}
+                          {classesBeforeBreak[3]?.[4]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  ) : (
+                    <td
+                      colSpan={3}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    >
+                      {classesBeforeBreak[3]?.[4]?.courseCode && (
+                        <>
+                          {classesBeforeBreak[3]?.[4]?.courseCode} (
+                          {classesBeforeBreak[3]?.[4]?.courseTitle}){" "}
+                          {classesBeforeBreak[3]?.[4]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  )
                 ) : (
                   ""
                 )}
@@ -247,126 +335,270 @@ const EveningFridayTable = ({ data, loading }) => {
                 </td>
                 {/* After Half Period */}
                 {/* Number 5 */}
-                <td
-                  colSpan={`${
-                    classesAfterBreak[0]?.[5]?.courseCode ===
-                    classesAfterBreak[1]?.[6]?.courseCode
-                      ? "6"
-                      : "3"
-                  }`}
-                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
-                >
-                  {classesAfterBreak[0]?.[5]?.courseCode && (
-                    <>
-                      {classesAfterBreak[0]?.[5]?.courseCode} (
-                      {classesAfterBreak[0]?.[5]?.courseTitle}){" "}
-                      {classesAfterBreak[0]?.[5]?.teacher?.sortForm ?? ""}
-                    </>
-                  )}
-                </td>
-                <td
-                  colSpan={`${
-                    classesAfterBreak[1]?.[6]?.courseCode ===
-                    classesAfterBreak[2]?.[7]?.courseCode
-                      ? "6"
-                      : "3"
-                  }`}
-                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                >
-                  {classesAfterBreak[1]?.[6]?.courseCode && (
-                    <>
-                      {classesAfterBreak[1]?.[6]?.courseCode} (
-                      {classesAfterBreak[1]?.[6]?.courseTitle}){" "}
-                      {classesAfterBreak[1]?.[6]?.teacher?.sortForm ?? ""}
-                    </>
-                  )}
-                </td>
-                {classesAfterBreak[1]?.[6]?.courseCode !==
-                  classesAfterBreak[2]?.[7]?.courseCode && (
+                {classesAfterBreak[0]?.[5]?.courseTitle ? (
                   <td
-                    colSpan={3}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    onClick={() =>
+                      document.getElementById("teacher_assign").showModal()
+                    }
+                    colSpan={`${
+                      classesAfterBreak[0]?.[5]?.courseCode ===
+                      classesAfterBreak[1]?.[6]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                   >
-                    {classesAfterBreak[2]?.[7]?.courseCode && (
+                    {classesAfterBreak[0]?.[5]?.courseCode && (
                       <>
-                        {classesAfterBreak[2]?.[7]?.courseCode} (
-                        {classesAfterBreak[2]?.[7]?.courseTitle}){" "}
-                        {classesAfterBreak[2]?.[7]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[0]?.[5]?.courseCode} (
+                        {classesAfterBreak[0]?.[5]?.courseTitle}){" "}
+                        {classesAfterBreak[0]?.[5]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                ) : (
+                  <td
+                    colSpan={`${
+                      classesAfterBreak[0]?.[5]?.courseCode ===
+                      classesAfterBreak[1]?.[6]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                  >
+                    {classesAfterBreak[0]?.[5]?.courseCode && (
+                      <>
+                        {classesAfterBreak[0]?.[5]?.courseCode} (
+                        {classesAfterBreak[0]?.[5]?.courseTitle}){" "}
+                        {classesAfterBreak[0]?.[5]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>
                 )}
+                {classesAfterBreak[1]?.[6]?.courseCode ? (
+                  <td
+                    onClick={() =>
+                      document.getElementById("teacher_assign").showModal()
+                    }
+                    colSpan={`${
+                      classesAfterBreak[1]?.[6]?.courseCode ===
+                      classesAfterBreak[2]?.[7]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                  >
+                    {classesAfterBreak[1]?.[6]?.courseCode && (
+                      <>
+                        {classesAfterBreak[1]?.[6]?.courseCode} (
+                        {classesAfterBreak[1]?.[6]?.courseTitle}){" "}
+                        {classesAfterBreak[1]?.[6]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                ) : (
+                  <td
+                    colSpan={`${
+                      classesAfterBreak[1]?.[6]?.courseCode ===
+                      classesAfterBreak[2]?.[7]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                  >
+                    {classesAfterBreak[1]?.[6]?.courseCode && (
+                      <>
+                        {classesAfterBreak[1]?.[6]?.courseCode} (
+                        {classesAfterBreak[1]?.[6]?.courseTitle}){" "}
+                        {classesAfterBreak[1]?.[6]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                )}
+                {classesAfterBreak[1]?.[6]?.courseCode !==
+                  classesAfterBreak[2]?.[7]?.courseCode &&
+                  (classesAfterBreak[2]?.[7]?.courseCode ? (
+                    <td
+                      onClick={() =>
+                        document.getElementById("teacher_assign").showModal()
+                      }
+                      colSpan={3}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    >
+                      {classesAfterBreak[2]?.[7]?.courseCode && (
+                        <>
+                          {classesAfterBreak[2]?.[7]?.courseCode} (
+                          {classesAfterBreak[2]?.[7]?.courseTitle}){" "}
+                          {classesAfterBreak[2]?.[7]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  ) : (
+                    <td
+                      colSpan={3}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    >
+                      {classesAfterBreak[2]?.[7]?.courseCode && (
+                        <>
+                          {classesAfterBreak[2]?.[7]?.courseCode} (
+                          {classesAfterBreak[2]?.[7]?.courseTitle}){" "}
+                          {classesAfterBreak[2]?.[7]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  ))}
 
                 {/* 7 and 8 */}
 
-                <td
-                  colSpan={`${
-                    classesAfterBreak[3]?.[8]?.courseCode ===
-                    classesAfterBreak[4]?.[9]?.courseCode
-                      ? "6"
-                      : "3"
-                  }`}
-                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                >
-                  {classesAfterBreak[3]?.[8]?.courseCode && (
-                    <>
-                      {classesAfterBreak[3]?.[8]?.courseCode} (
-                      {classesAfterBreak[3]?.[8]?.courseTitle}){" "}
-                      {classesAfterBreak[3]?.[8]?.teacher?.sortForm ?? ""}
-                    </>
-                  )}
-                </td>
+                {classesAfterBreak[3]?.[8]?.courseCode ? (
+                  <td
+                    onClick={() =>
+                      document.getElementById("teacher_assign").showModal()
+                    }
+                    colSpan={`${
+                      classesAfterBreak[3]?.[8]?.courseCode ===
+                      classesAfterBreak[4]?.[9]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                  >
+                    {classesAfterBreak[3]?.[8]?.courseCode && (
+                      <>
+                        {classesAfterBreak[3]?.[8]?.courseCode} (
+                        {classesAfterBreak[3]?.[8]?.courseTitle}){" "}
+                        {classesAfterBreak[3]?.[8]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                ) : (
+                  <td
+                    colSpan={`${
+                      classesAfterBreak[3]?.[8]?.courseCode ===
+                      classesAfterBreak[4]?.[9]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                  >
+                    {classesAfterBreak[3]?.[8]?.courseCode && (
+                      <>
+                        {classesAfterBreak[3]?.[8]?.courseCode} (
+                        {classesAfterBreak[3]?.[8]?.courseTitle}){" "}
+                        {classesAfterBreak[3]?.[8]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                )}
                 {classesAfterBreak[3]?.[8]?.courseCode !==
-                  classesAfterBreak[4]?.[9]?.courseCode && (
+                  classesAfterBreak[4]?.[9]?.courseCode &&
+                  (classesAfterBreak[4]?.[9]?.courseCode ? (
+                    <td
+                      onClick={() =>
+                        document.getElementById("teacher_assign").showModal()
+                      }
+                      colSpan={3}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    >
+                      {classesAfterBreak[4]?.[9]?.courseCode && (
+                        <>
+                          {classesAfterBreak[4]?.[9]?.courseCode} (
+                          {classesAfterBreak[4]?.[9]?.courseTitle}){" "}
+                          {classesAfterBreak[4]?.[9]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  ) : (
+                    <td
+                      colSpan={3}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    >
+                      {classesAfterBreak[4]?.[9]?.courseCode && (
+                        <>
+                          {classesAfterBreak[4]?.[9]?.courseCode} (
+                          {classesAfterBreak[4]?.[9]?.courseTitle}){" "}
+                          {classesAfterBreak[4]?.[9]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  ))}
+                {classesAfterBreak[5]?.[10]?.courseCode ? (
                   <td
-                    colSpan={3}
+                    onClick={() =>
+                      document.getElementById("teacher_assign").showModal()
+                    }
+                    colSpan={`${
+                      classesAfterBreak[5]?.[10]?.courseCode ===
+                      classesAfterBreak[6]?.[11]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {classesAfterBreak[4]?.[9]?.courseCode && (
+                    {classesAfterBreak[5]?.[10]?.courseCode && (
                       <>
-                        {classesAfterBreak[4]?.[9]?.courseCode} (
-                        {classesAfterBreak[4]?.[9]?.courseTitle}){" "}
-                        {classesAfterBreak[4]?.[9]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[5]?.[10]?.courseCode} (
+                        {classesAfterBreak[5]?.[10]?.courseTitle}){" "}
+                        {classesAfterBreak[5]?.[10]?.teacher?.sortForm ?? ""}
+                      </>
+                    )}
+                  </td>
+                ) : (
+                  <td
+                    colSpan={`${
+                      classesAfterBreak[5]?.[10]?.courseCode ===
+                      classesAfterBreak[6]?.[11]?.courseCode
+                        ? "6"
+                        : "3"
+                    }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                  >
+                    {classesAfterBreak[5]?.[10]?.courseCode && (
+                      <>
+                        {classesAfterBreak[5]?.[10]?.courseCode} (
+                        {classesAfterBreak[5]?.[10]?.courseTitle}){" "}
+                        {classesAfterBreak[5]?.[10]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>
                 )}
-                <td
-                  colSpan={`${
-                    classesAfterBreak[5]?.[10]?.courseCode ===
-                    classesAfterBreak[6]?.[11]?.courseCode
-                      ? "6"
-                      : "3"
-                  }`}
-                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                >
-                  {classesAfterBreak[5]?.[10]?.courseCode && (
-                    <>
-                      {classesAfterBreak[5]?.[10]?.courseCode} (
-                      {classesAfterBreak[5]?.[10]?.courseTitle}){" "}
-                      {classesAfterBreak[5]?.[10]?.teacher?.sortForm ?? ""}
-                    </>
-                  )}
-                </td>
                 {classesAfterBreak[5]?.[10]?.courseCode !==
-                  classesAfterBreak[6]?.[11]?.courseCode && (
-                  <td
-                    colSpan={3}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                  >
-                    {classesAfterBreak[6]?.[11]?.courseCode && (
-                      <>
-                        {classesAfterBreak[6]?.[11]?.courseCode} (
-                        {classesAfterBreak[6]?.[11]?.courseTitle}){" "}
-                        {classesAfterBreak[6]?.[11]?.teacher?.sortForm ?? ""}
-                      </>
-                    )}
-                  </td>
-                )}
+                  classesAfterBreak[6]?.[11]?.courseCode &&
+                  (classesAfterBreak[6]?.[11]?.courseCode ? (
+                    <td
+                      onClick={() =>
+                        document.getElementById("teacher_assign").showModal()
+                      }
+                      colSpan={3}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    >
+                      {classesAfterBreak[6]?.[11]?.courseCode && (
+                        <>
+                          {classesAfterBreak[6]?.[11]?.courseCode} (
+                          {classesAfterBreak[6]?.[11]?.courseTitle}){" "}
+                          {classesAfterBreak[6]?.[11]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  ) : (
+                    <td
+                      colSpan={3}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    >
+                      {classesAfterBreak[6]?.[11]?.courseCode && (
+                        <>
+                          {classesAfterBreak[6]?.[11]?.courseCode} (
+                          {classesAfterBreak[6]?.[11]?.courseTitle}){" "}
+                          {classesAfterBreak[6]?.[11]?.teacher?.sortForm ?? ""}
+                        </>
+                      )}
+                    </td>
+                  ))}
               </tr>
             );
           })}
       </table>
+      <TeacherAssign></TeacherAssign>
     </TableWrapper>
   );
 };

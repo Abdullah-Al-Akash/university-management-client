@@ -13,6 +13,14 @@
 .teacher_modal:focus {
   outline: none;
 }
+.my-inp{
+    @apply rounded-lg px-4 py-3 outline-none focus:border-l-2 focus:border-purple-500  w-full text-black;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .my-inp:focus{
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+  }
 
 
 .my-inp {

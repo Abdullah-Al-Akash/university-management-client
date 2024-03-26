@@ -47,7 +47,9 @@ const App = () => {
     //       : "";
     // }
     fetch(
-      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${selectShift === 'Regular' ? regularDayTab : eveningDayTab}&shift=${selectShift}`
+      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${
+        selectShift === "Regular" ? regularDayTab : eveningDayTab
+      }&shift=${selectShift}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -60,12 +62,17 @@ const App = () => {
       });
   }, [regularDayTab, eveningDayTab, selectShift]);
 
-
   if (loading) {
-    return <div className="h-screen bg-slate-200 flex items-center justify-center">
-      <span className="animate-spin h-5 w-5 mr-3 border-2 border-l-red-500 border-r-green-500 border-t-white border-b-black  rounded-full "></span>
-      <h2 className="font-bold text-xl">Loading <span className="text-green-500">.</span><span className="text-red-500">.</span><span className="text-black">.</span></h2>
-    </div>;
+    return (
+      <div className="h-screen bg-slate-200 flex items-center justify-center">
+        <span className="animate-spin h-5 w-5 mr-3 border-2 border-l-red-500 border-r-green-500 border-t-white border-b-black  rounded-full "></span>
+        <h2 className="font-bold text-xl">
+          Loading <span className="text-green-500">.</span>
+          <span className="text-red-500">.</span>
+          <span className="text-black">.</span>
+        </h2>
+      </div>
+    );
   }
 
   return (

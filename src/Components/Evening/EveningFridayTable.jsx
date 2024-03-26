@@ -131,6 +131,11 @@ const EveningFridayTable = ({ data, loading }) => {
         {!loading &&
           data?.map((item, index) => {
             const { _id, batch, courses, room, sem, yearSem } = item;
+            const classesBeforeBreak = courses.slice(0, 4);
+
+            console.log(classesBeforeBreak, "Class Before Break");
+
+            const classesAfterBreak = courses.slice(4, 11);
 
             return (
               <tr key={_id}>
@@ -162,32 +167,37 @@ const EveningFridayTable = ({ data, loading }) => {
                 {/* First Two Class */}
                 <td
                   colSpan={`${
-                    courses?.["1"]?.courseCode === courses?.["2"]?.courseCode
+                    classesBeforeBreak[0]?.[1]?.courseCode ===
+                    classesBeforeBreak[1]?.[2]?.courseCode
                       ? "6"
                       : "3"
                   }`}
                   className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                 >
-                  {courses?.["1"]?.courseCode && (
+                  {classesBeforeBreak[0]?.[1]?.courseCode && (
                     <>
-                      {courses?.["1"]?.courseCode} (
-                      {courses?.["1"]?.courseTitle}) {courses?.["1"]?.teacher}
+                      {classesBeforeBreak[0]?.[1]?.courseCode} (
+                      {classesBeforeBreak[0]?.[1]?.courseTitle}){" "}
+                      {classesBeforeBreak[0]?.[1]?.teacher?.sortForm ?? ""}
                     </>
                   )}
                 </td>
-                {courses?.["1"]?.courseCode !== courses?.["2"]?.courseCode ? (
+                {classesBeforeBreak[0]?.[1]?.courseCode !==
+                classesBeforeBreak[1]?.[2]?.courseCode ? (
                   <td
                     colSpan={`${
-                      courses?.["2"]?.courseCode === courses?.["3"]?.courseCode
+                      classesBeforeBreak[1]?.[2]?.courseCode ===
+                      classesBeforeBreak[2]?.[3]?.courseCode
                         ? "6"
                         : "3"
                     }`}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses?.["2"]?.courseCode && (
+                    {classesBeforeBreak[1]?.[2]?.courseCode && (
                       <>
-                        {courses?.["2"]?.courseCode} (
-                        {courses?.["2"]?.courseTitle}) {courses?.["2"]?.teacher}
+                        {classesBeforeBreak[1]?.[2]?.courseCode} (
+                        {classesBeforeBreak[1]?.[2]?.courseTitle}){" "}
+                        {classesBeforeBreak[1]?.[2]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>
@@ -197,28 +207,32 @@ const EveningFridayTable = ({ data, loading }) => {
                 {/* Second Two Class */}
                 <td
                   colSpan={`${
-                    courses?.["3"]?.courseCode === courses?.["4"]?.courseCode
+                    classesBeforeBreak[2]?.[3]?.courseCode ===
+                    classesBeforeBreak[3]?.[4]?.courseCode
                       ? "6"
                       : "3"
                   }`}
                   className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                 >
-                  {courses?.["3"]?.courseCode && (
+                  {classesBeforeBreak[2]?.[3]?.courseCode && (
                     <>
-                      {courses?.["3"]?.courseCode} (
-                      {courses?.["3"]?.courseTitle}) {courses?.["3"]?.teacher}
+                      {classesBeforeBreak[2]?.[3]?.courseCode} (
+                      {classesBeforeBreak[2]?.[3]?.courseTitle}){" "}
+                      {classesBeforeBreak[2]?.[3]?.teacher?.sortForm ?? ""}
                     </>
                   )}
                 </td>
-                {courses?.["3"]?.courseCode !== courses?.["4"]?.courseCode ? (
+                {classesBeforeBreak[2]?.[3]?.courseCode !==
+                classesBeforeBreak[3]?.[4]?.courseCode ? (
                   <td
                     colSpan={3}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses?.["4"]?.courseCode && (
+                    {classesBeforeBreak[3]?.[4]?.courseCode && (
                       <>
-                        {courses?.["4"]?.courseCode} (
-                        {courses?.["4"]?.courseTitle}) {courses?.["4"]?.teacher}
+                        {classesBeforeBreak[3]?.[4]?.courseCode} (
+                        {classesBeforeBreak[3]?.[4]?.courseTitle}){" "}
+                        {classesBeforeBreak[3]?.[4]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>
@@ -235,43 +249,49 @@ const EveningFridayTable = ({ data, loading }) => {
                 {/* Number 5 */}
                 <td
                   colSpan={`${
-                    courses?.["5"]?.courseCode === courses?.["6"]?.courseCode
+                    classesAfterBreak[0]?.[5]?.courseCode ===
+                    classesAfterBreak[1]?.[6]?.courseCode
                       ? "6"
                       : "3"
                   }`}
                   className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                 >
-                  {courses?.["5"]?.courseCode && (
+                  {classesAfterBreak[0]?.[5]?.courseCode && (
                     <>
-                      {courses?.["5"]?.courseCode} (
-                      {courses?.["5"]?.courseTitle}) {courses?.["5"]?.teacher}
+                      {classesAfterBreak[0]?.[5]?.courseCode} (
+                      {classesAfterBreak[0]?.[5]?.courseTitle}){" "}
+                      {classesAfterBreak[0]?.[5]?.teacher?.sortForm ?? ""}
                     </>
                   )}
                 </td>
                 <td
                   colSpan={`${
-                    courses?.["6"]?.courseCode === courses?.["7"]?.courseCode
+                    classesAfterBreak[1]?.[6]?.courseCode ===
+                    classesAfterBreak[2]?.[7]?.courseCode
                       ? "6"
                       : "3"
                   }`}
                   className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                 >
-                  {courses?.["6"]?.courseCode && (
+                  {classesAfterBreak[1]?.[6]?.courseCode && (
                     <>
-                      {courses?.["6"]?.courseCode} (
-                      {courses?.["6"]?.courseTitle}) {courses?.["6"]?.teacher}
+                      {classesAfterBreak[1]?.[6]?.courseCode} (
+                      {classesAfterBreak[1]?.[6]?.courseTitle}){" "}
+                      {classesAfterBreak[1]?.[6]?.teacher?.sortForm ?? ""}
                     </>
                   )}
                 </td>
-                {courses?.["6"]?.courseCode !== courses?.["7"]?.courseCode && (
+                {classesAfterBreak[1]?.[6]?.courseCode !==
+                  classesAfterBreak[2]?.[7]?.courseCode && (
                   <td
                     colSpan={3}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses?.["7"]?.courseCode && (
+                    {classesAfterBreak[2]?.[7]?.courseCode && (
                       <>
-                        {courses?.["7"]?.courseCode} (
-                        {courses?.["7"]?.courseTitle}) {courses?.["7"]?.teacher}
+                        {classesAfterBreak[2]?.[7]?.courseCode} (
+                        {classesAfterBreak[2]?.[7]?.courseTitle}){" "}
+                        {classesAfterBreak[2]?.[7]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>
@@ -281,58 +301,64 @@ const EveningFridayTable = ({ data, loading }) => {
 
                 <td
                   colSpan={`${
-                    courses?.["8"]?.courseCode === courses?.["9"]?.courseCode
+                    classesAfterBreak[3]?.[8]?.courseCode ===
+                    classesAfterBreak[4]?.[9]?.courseCode
                       ? "6"
                       : "3"
                   }`}
                   className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                 >
-                  {courses?.["8"]?.courseCode && (
+                  {classesAfterBreak[3]?.[8]?.courseCode && (
                     <>
-                      {courses?.["8"]?.courseCode} (
-                      {courses?.["8"]?.courseTitle}) {courses?.["8"]?.teacher}
+                      {classesAfterBreak[3]?.[8]?.courseCode} (
+                      {classesAfterBreak[3]?.[8]?.courseTitle}){" "}
+                      {classesAfterBreak[3]?.[8]?.teacher?.sortForm ?? ""}
                     </>
                   )}
                 </td>
-                {courses?.["8"]?.courseCode !== courses?.["9"]?.courseCode && (
+                {classesAfterBreak[3]?.[8]?.courseCode !==
+                  classesAfterBreak[4]?.[9]?.courseCode && (
                   <td
                     colSpan={3}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses?.["9"]?.courseCode && (
+                    {classesAfterBreak[4]?.[9]?.courseCode && (
                       <>
-                        {courses?.["9"]?.courseCode} (
-                        {courses?.["9"]?.courseTitle}) {courses?.["9"]?.teacher}
+                        {classesAfterBreak[4]?.[9]?.courseCode} (
+                        {classesAfterBreak[4]?.[9]?.courseTitle}){" "}
+                        {classesAfterBreak[4]?.[9]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>
                 )}
                 <td
                   colSpan={`${
-                    courses?.["10"]?.courseCode === courses?.["11"]?.courseCode
+                    classesAfterBreak[5]?.[10]?.courseCode ===
+                    classesAfterBreak[6]?.[11]?.courseCode
                       ? "6"
                       : "3"
                   }`}
                   className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                 >
-                  {courses?.["10"]?.courseCode && (
+                  {classesAfterBreak[5]?.[10]?.courseCode && (
                     <>
-                      {courses?.["10"]?.courseCode} (
-                      {courses?.["10"]?.courseTitle}) {courses?.["10"]?.teacher}
+                      {classesAfterBreak[5]?.[10]?.courseCode} (
+                      {classesAfterBreak[5]?.[10]?.courseTitle}){" "}
+                      {classesAfterBreak[5]?.[10]?.teacher?.sortForm ?? ""}
                     </>
                   )}
                 </td>
-                {courses?.["10"]?.courseCode !==
-                  courses?.["11"]?.courseCode && (
+                {classesAfterBreak[5]?.[10]?.courseCode !==
+                  classesAfterBreak[6]?.[11]?.courseCode && (
                   <td
                     colSpan={3}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses?.["11"]?.courseCode && (
+                    {classesAfterBreak[6]?.[11]?.courseCode && (
                       <>
-                        {courses?.["11"]?.courseCode} (
-                        {courses?.["11"]?.courseTitle}){" "}
-                        {courses?.["11"]?.teacher}
+                        {classesAfterBreak[6]?.[11]?.courseCode} (
+                        {classesAfterBreak[6]?.[11]?.courseTitle}){" "}
+                        {classesAfterBreak[6]?.[11]?.teacher?.sortForm ?? ""}
                       </>
                     )}
                   </td>

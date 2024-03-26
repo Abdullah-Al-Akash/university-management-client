@@ -55,7 +55,7 @@ const App = () => {
       .then((data) => {
         setData(data);
         setLoading(false);
-        console.log(data.data);
+        // console.log(data.data);
       })
       .catch((e) => {
         console.log(e);

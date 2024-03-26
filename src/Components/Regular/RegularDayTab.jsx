@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 const RegularDayTab = ({ setRegularDayTab, regularDayTab }) => {
-  console.log(regularDayTab);
+  // console.log(regularDayTab);
   return (
     <div className="flex gap-3 items-center mt-5">
 

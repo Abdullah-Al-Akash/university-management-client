@@ -6,7 +6,7 @@ const TeacherAssign = ({ courseId }) => {
   console.log(courseId, "modal");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [teacher, setAllTeacher] = useState([]);
+  const [allReacher, setAllTeacher] = useState([]);
   const [loading, setLoading] = useState(true);
   // Function to handle search logic
   const handleSearch = () => {
@@ -18,13 +18,15 @@ const TeacherAssign = ({ courseId }) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const filteredResults = data
           .slice(0, 4)
           .filter((teacher) =>
-          teacher.playerName.toLowerCase().includes(searchQuery?.toLowerCase())
+            teacher.playerName
+              .toLowerCase()
+              .includes(searchQuery?.toLowerCase())
           );
         setAllTeacher(data.data);
+        console.log(data);
         setLoading(false);
         if (filteredResults) {
           setSearchResults(filteredResults);
@@ -33,6 +35,7 @@ const TeacherAssign = ({ courseId }) => {
         }
       });
   };
+
   return (
     <dialog id="teacher_assign" className="modal">
       <div className="modal-box max-h-[50vh]">
@@ -47,18 +50,16 @@ const TeacherAssign = ({ courseId }) => {
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyUp={handleSearch}
               onFocus={() => {
-                setSearchResults(teacher);
+                setSearchResults(allReacher);
               }}
             />
           </div>
           {loading
             ? "Loading..."
-            : searchResults.length > 0 && (
+            : teacher.length > 0 && (
                 <ul className="">
                   <div className="bg-white p-[24px] flex flex-col gap-[8px] w-full rounded-[8px]">
-                    {searchResults.map((player) => {
-                      const { _id, image, playerName, ClubName, shooting } =
-                        player || {};
+                    {allReacher.map((teacher) => {
                       return (
                         <div
                           key={_id}

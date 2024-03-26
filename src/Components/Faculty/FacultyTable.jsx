@@ -5,7 +5,7 @@ const FacultyTable = () => {
   const navigate = useNavigate();
   return (
     <div className="container mx-auto">
-      <button className="btn btn-primary" onClick={() => navigate(-1)}>back</button>
+      <button className="b" onClick={() => navigate(-1)}>back</button>
       <TableWrapper maxWidth="max-w-[600px] mx-auto" borderStyle="">
         <table
           border={1}

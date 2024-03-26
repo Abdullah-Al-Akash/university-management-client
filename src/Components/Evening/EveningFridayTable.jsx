@@ -195,7 +195,7 @@ const EveningFridayTable = ({ data, loading }) => {
                         ? "6"
                         : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
                     {classesBeforeBreak[0]?.[1]?.courseCode && (
                       <>
@@ -219,7 +219,7 @@ const EveningFridayTable = ({ data, loading }) => {
                           ? "6"
                           : "3"
                       }`}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                     >
                       {classesBeforeBreak[1]?.[2]?.courseCode && (
                         <>
@@ -300,7 +300,7 @@ const EveningFridayTable = ({ data, loading }) => {
                         document.getElementById("teacher_assign").showModal()
                       }
                       colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                     >
                       {classesBeforeBreak[3]?.[4]?.courseCode && (
                         <>
@@ -423,7 +423,7 @@ const EveningFridayTable = ({ data, loading }) => {
                         document.getElementById("teacher_assign").showModal()
                       }
                       colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                     >
                       {classesAfterBreak[2]?.[7]?.courseCode && (
                         <>
@@ -498,7 +498,7 @@ const EveningFridayTable = ({ data, loading }) => {
                         document.getElementById("teacher_assign").showModal()
                       }
                       colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                     >
                       {classesAfterBreak[4]?.[9]?.courseCode && (
                         <>
@@ -570,7 +570,7 @@ const EveningFridayTable = ({ data, loading }) => {
                         document.getElementById("teacher_assign").showModal()
                       }
                       colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                     >
                       {classesAfterBreak[6]?.[11]?.courseCode && (
                         <>

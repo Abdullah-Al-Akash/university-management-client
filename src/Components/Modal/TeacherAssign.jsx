@@ -9,14 +9,13 @@ const TeacherAssign = ({ courseId, rowIndex: index }) => {
   const [selectedTeacherName, setSelectedTeacherName] = useState({});
   const [loading, setLoading] = useState(true);
   const [selectTeacher, setSelectTeacher] = useState({});
+  const url = `https://routine-management-system-backend.onrender.com/api/v1`;
   // Function to handle search logic
   const handleSearch = () => {
     // Perform search logic based on searchQuery
     // Update searchResults state with matching players
     // For example:
-    fetch(
-      "https://routine-management-system-backend.onrender.com/api/v1/teacher"
-    )
+    fetch(`${url}/teacher`)
       .then((res) => res.json())
       .then((data) => {
         const filteredResults = data.data.filter((teacher) => {
@@ -52,6 +51,26 @@ const TeacherAssign = ({ courseId, rowIndex: index }) => {
   };
   const handleSubmit = () => {
     console.log(selectTeacher);
+    fetch(`${url}/teacher/assign`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(selectTeacher),
+    })
+      .then((response) => {
+        console.log(response);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Item updated successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error updating item:", error);
+      });
   };
   return (
     <dialog id="teacher_assign" className="modal">
@@ -65,17 +84,17 @@ const TeacherAssign = ({ courseId, rowIndex: index }) => {
               value={searchQuery}
               onChange={(e) => {
                 setSelectedTeacherName({});
-                setSelectTeacher({})
+                setSelectTeacher({});
                 setSearchQuery(e.target.value);
               }}
               onKeyUp={() => {
                 setSelectedTeacherName({});
-                setSelectTeacher({})
+                setSelectTeacher({});
                 handleSearch();
               }}
               onFocus={() => {
                 handleSearch();
-                setSelectTeacher({})
+                setSelectTeacher({});
               }}
             />
           </div>

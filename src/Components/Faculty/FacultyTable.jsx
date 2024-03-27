@@ -16,7 +16,9 @@ const FacultyTable = () => {
         >
           <FaBackward /> <span>back</span>
         </button>
-        <button  onClick={() => document.getElementById("uploadFaculties").showModal()}>
+        <button
+          onClick={() => document.getElementById("uploadFaculties").showModal()}
+        >
           {" "}
           <a
             href="#_"

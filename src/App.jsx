@@ -95,7 +95,6 @@ const App = () => {
           data={data.data}
           loading={loading}
           selectShift={selectShift}
-          regularDayTab={regularDayTab}
           setControl={setControl}
           control={control}
         ></EveningFridayTable>

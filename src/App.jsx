@@ -98,7 +98,14 @@ const App = () => {
         !selectBatch &&
         selectShift === "Evening" &&
         eveningDayTab != "Friday" && (
-          <EveningTable data={data.data} loading={loading} />
+          <EveningTable
+            data={data.data}
+            loading={loading}
+            selectShift={selectShift}
+            eveningDayTab={eveningDayTab}
+            setControl={setControl}
+            control={control}
+          />
         )
       )}
 

@@ -17,6 +17,7 @@ const App = () => {
   const [selectShift, setSelectShift] = useState("Regular");
   const [regularDayTab, setRegularDayTab] = useState("Saturday");
   const [eveningDayTab, setEveningDayTab] = useState("Thursday");
+  const [control, setControl] = useState(false);
   /*  
   api : "https://routine-management-system-backend.onrender.com/api/v1/routine?day=Saturday&shift=Regular"
   */
@@ -60,7 +61,7 @@ const App = () => {
       .catch((e) => {
         console.log(e);
       });
-  }, [regularDayTab, eveningDayTab, selectShift]);
+  }, [regularDayTab, eveningDayTab, selectShift, control]);
 
   return (
     <div className="container mx-auto">
@@ -74,7 +75,15 @@ const App = () => {
 
       {/* Regular batch table */}
       {!selectBatch && selectShift === "Regular" && (
-        <RegularTable data={data.data} loading={loading}></RegularTable>
+        <RegularTable
+          eveningDayTab={eveningDayTab}
+          data={data.data}
+          loading={loading}
+          selectShift={selectShift}
+          regularDayTab={regularDayTab}
+          setControl={setControl}
+          control={control}
+        ></RegularTable>
       )}
 
       {/* Evening batch table  Friday*/}
@@ -113,9 +122,8 @@ const App = () => {
         ></EveningDayTab>
       )}
 
-
       {/* Modal */}
-      <AddNewBatchModal/>
+      <AddNewBatchModal />
     </div>
   );
 };

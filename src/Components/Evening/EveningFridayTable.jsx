@@ -192,7 +192,7 @@ const EveningFridayTable = ({
                         ? "6"
                         : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                   >
                     {classesBeforeBreak[0]?.courseCode && (
                       <>
@@ -286,7 +286,7 @@ const EveningFridayTable = ({
                         ? "6"
                         : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                   >
                     {classesBeforeBreak[2]?.courseCode && (
                       <>
@@ -377,7 +377,7 @@ const EveningFridayTable = ({
                         ? "6"
                         : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                   >
                     {classesAfterBreak[0]?.courseCode && (
                       <>
@@ -421,7 +421,7 @@ const EveningFridayTable = ({
                         ? "6"
                         : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                   >
                     {classesAfterBreak[1]?.courseCode && (
                       <>
@@ -504,7 +504,7 @@ const EveningFridayTable = ({
                         ? "6"
                         : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                   >
                     {classesAfterBreak[3]?.courseCode && (
                       <>
@@ -584,7 +584,7 @@ const EveningFridayTable = ({
                         ? "6"
                         : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                   >
                     {classesAfterBreak[5]?.courseCode && (
                       <>
@@ -638,7 +638,7 @@ const EveningFridayTable = ({
                   ) : (
                     <td
                       colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                     >
                       {classesAfterBreak[6]?.courseCode && (
                         <>

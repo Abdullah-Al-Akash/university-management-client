@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { FaXmark } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
-const AddNewBatchModal = () => {
+const AddNewBatchModal = ({ setControl, control }) => {
   <button className="text-red-500 text-2xl" onClick={() => reset()}>
     <FaXmark />
   </button>;
@@ -16,7 +17,7 @@ const AddNewBatchModal = () => {
     const { confirm } = form;
     if (confirm) {
       fetch(
-        `https://routine-management-system-backend.onrender.com/api/routine/add-new-batch`,
+        `https://routine-management-system-backend.onrender.com/api/v1/routine/add-new-batch`,
         {
           method: "PATCH",
           headers: {
@@ -27,7 +28,24 @@ const AddNewBatchModal = () => {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          if (data?.success) {
+            setControl(!control);
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: data?.massage,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          } else {
+            Swal.fire({
+              position: "top-center",
+              icon: "error",
+              title: data?.massage,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
         });
     }
   };

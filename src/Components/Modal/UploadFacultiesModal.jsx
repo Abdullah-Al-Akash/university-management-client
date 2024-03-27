@@ -46,7 +46,7 @@ const UploadFacultiesModal = () => {
 
       const dataArray = JSON.parse(textAreaValue);
 
-      const response = await fetch(`${url}teacher/insert-teachers`, {
+      const response = await fetch(`${url}/teacher/insert-teachers`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -106,7 +106,7 @@ const UploadFacultiesModal = () => {
   };
 
   return (
-    <dialog id="uploadRoutine" className="modal">
+    <dialog id="uploadFaculties" className="modal">
       <div className="modal-box flex">
         <div className="mt-3 pe-2">
           <div className="line-numbers">{renderLineNumbers()}</div>
@@ -129,7 +129,7 @@ const UploadFacultiesModal = () => {
               className="bg-orange-300 px-10 py-3 rounded-lg font-medium"
               disabled={error}
             >
-              Upload Routine
+              Upload Faculties
             </button>
           </div>
         </form>

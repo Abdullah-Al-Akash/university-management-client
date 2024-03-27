@@ -2,7 +2,16 @@
 import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
-const TeacherAssign = ({ courseId, rowIndex: index }) => {
+import Swal from "sweetalert2";
+const TeacherAssign = ({
+  courseId,
+  rowIndex: index,
+  selectShift,
+  regularDayTab,
+  eveningDayTab,
+  setControl,
+  control,
+}) => {
   console.log(courseId, index, "modal");
   const [searchQuery, setSearchQuery] = useState("");
   const [allReacher, setAllTeacher] = useState([]);
@@ -43,6 +52,8 @@ const TeacherAssign = ({ courseId, rowIndex: index }) => {
       routineId,
       teacherId,
       rowIndex,
+      shift: selectShift,
+      day: selectShift === "Regular" ? regularDayTab : eveningDayTab,
     };
     setSelectTeacher(obj);
     setSelectedTeacherName({ name });
@@ -50,7 +61,6 @@ const TeacherAssign = ({ courseId, rowIndex: index }) => {
     setSearchQuery("");
   };
   const handleSubmit = () => {
-    console.log(selectTeacher);
     fetch(`${url}/teacher/assign`, {
       method: "PATCH",
       headers: {
@@ -66,7 +76,24 @@ const TeacherAssign = ({ courseId, rowIndex: index }) => {
         return response.json();
       })
       .then((data) => {
-        console.log("Item updated successfully:", data);
+        if (data?.success) {
+          setControl(!control);
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: data?.massage,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire({
+            position: "top-center",
+            icon: "error",
+            title: data?.massage,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       })
       .catch((error) => {
         console.error("Error updating item:", error);
@@ -77,7 +104,7 @@ const TeacherAssign = ({ courseId, rowIndex: index }) => {
       <div className="modal-box max-h-[50vh] ">
         <div className="flex flex-col gap-2 justify-start items-start">
           <div className="h-[46px] mt-[18px] md:mt-auto relative overflow-hidden shadow-lg  rounded-[6px] w-full p">
-            <FiSearch className=" text-[#636363] text-[18px] left-[17px] absolute top-1/2 -translate-y-1/2" />
+            <FiSearch className="text-[#636363] text-[18px] left-[17px] absolute top-1/2 -translate-y-1/2" />
             <input
               className="my-inp teacher_modal "
               placeholder="Search Individual Player"
@@ -137,7 +164,7 @@ const TeacherAssign = ({ courseId, rowIndex: index }) => {
             </ul>
           )}
           <button onClick={handleSubmit} className="my-btn-one">
-            Submit
+            Assign
           </button>
         </div>
         <div className="modal-action fixed top-0 right-1 mt-0">

@@ -3,6 +3,8 @@ import TableWrapper from "../../Shared/TableWrapper";
 
 const FacultyTable = () => {
   const navigate = useNavigate();
+  const url = `https://routine-management-system-backend.onrender.com/api/v1/teacher/get-individual-routine/65ffba1e6f7f8bf209a05e00`;
+  
   return (
     <div className="container mx-auto">
       <button className="b" onClick={() => navigate(-1)}>back</button>

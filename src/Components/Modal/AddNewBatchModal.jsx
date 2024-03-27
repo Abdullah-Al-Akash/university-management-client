@@ -5,7 +5,8 @@ import { FaXmark } from "react-icons/fa6";
 
 const AddNewBatchModal = () => {
 
-    const { register, handleSubmit, formState:{errors} } = useForm(); // initialize the hook
+                        <button className="text-red-500 text-2xl" onClick={()=> reset()}><FaXmark /></button>
+    const { register, handleSubmit, reset, watch, formState:{errors} } = useForm(); // initialize the hook
     const addNewBatchHandler = (form) => {
         const {confirm} = form
         console.log(confirm);
@@ -29,17 +30,17 @@ const AddNewBatchModal = () => {
                             })}
                             className="my-inp"
                         />
-                        {errors.confirm?.message && <span className="text-red-500">*{errors.confirm?.message}</span>}
+                        {/* {errors.confirm?.message && <span className="text-red-500">*{errors.confirm?.message}</span>} */}
                     </div>
 
-                    <button type="submit" className="my-btn-one">Submit</button>
+                    <button type="submit" className={`my-btn-one ${watch('confirm') != 'Confirm' && '!opacity-35'}`} disabled={watch('confirm')!= 'Confirm'}>Submit</button>
                 </form>
 
 
                 <div className="modal-action absolute top-0 right-1 mt-0">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
-                        <button className="text-red-500 text-2xl"><FaXmark /></button>
+                        <button className="text-red-500 text-2xl" onClick={()=> reset()}><FaXmark /></button>
                     </form>
                 </div>
             </div>

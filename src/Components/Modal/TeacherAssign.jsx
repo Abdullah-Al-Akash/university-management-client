@@ -12,7 +12,6 @@ const TeacherAssign = ({
   setControl,
   control,
 }) => {
-  console.log(courseId, index, "modal");
   const [searchQuery, setSearchQuery] = useState("");
   const [allReacher, setAllTeacher] = useState([]);
   const [selectedTeacherName, setSelectedTeacherName] = useState({});
@@ -55,6 +54,7 @@ const TeacherAssign = ({
       shift: selectShift,
       day: selectShift === "Regular" ? regularDayTab : eveningDayTab,
     };
+    console.log(obj, "teacher assign");
     setSelectTeacher(obj);
     setSelectedTeacherName({ name });
     setAllTeacher([]);
@@ -76,6 +76,7 @@ const TeacherAssign = ({
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         if (data?.success) {
           setControl(!control);
           Swal.fire({

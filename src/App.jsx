@@ -50,8 +50,7 @@ const App = () => {
     //       : "";
     // }
     fetch(
-      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${
-        selectShift === "Regular" ? regularDayTab : eveningDayTab
+      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${selectShift === "Regular" ? regularDayTab : eveningDayTab
       }&shift=${selectShift}`
     )
       .then((res) => res.json())
@@ -78,11 +77,11 @@ const App = () => {
       {/* Regular batch table */}
       {!selectBatch && selectShift === "Regular" && (
         <RegularTable
-          eveningDayTab={eveningDayTab}
           data={data.data}
           loading={loading}
           selectShift={selectShift}
           regularDayTab={regularDayTab}
+          eveningDayTab={eveningDayTab}
           setControl={setControl}
           control={control}
         ></RegularTable>
@@ -90,8 +89,8 @@ const App = () => {
 
       {/* Evening batch table  Friday*/}
       {!selectBatch &&
-      selectShift === "Evening" &&
-      eveningDayTab === "Friday" ? (
+        selectShift === "Evening" &&
+        eveningDayTab === "Friday" ? (
         <EveningFridayTable
           eveningDayTab={eveningDayTab}
           data={data.data}
@@ -109,6 +108,7 @@ const App = () => {
             loading={loading}
             selectShift={selectShift}
             eveningDayTab={eveningDayTab}
+            regularDayTab={regularDayTab}
             setControl={setControl}
             control={control}
           />

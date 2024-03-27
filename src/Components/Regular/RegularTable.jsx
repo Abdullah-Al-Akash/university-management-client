@@ -148,7 +148,7 @@ const RegularTable = ({
                       <>
                         {courses["0"]?.courseCode} {courses["0"]?.courseTitle}{" "}
                         {courses["0"]?.teacher?.sortForm
-                          ? `${courses["0"]?.teacher?.sortForm}`
+                          ? `(${courses["0"]?.teacher?.sortForm})`
                           : ""}
                       </>
                     )}
@@ -162,7 +162,7 @@ const RegularTable = ({
                       <>
                         {courses["0"]?.courseCode} {courses["0"]?.courseTitle}{" "}
                         {courses["0"]?.teacher?.sortForm
-                          ? `${courses["0"]?.teacher?.sortForm}`
+                          ? `(${courses["0"]?.teacher?.sortForm})`
                           : ""}
                       </>
                     )}
@@ -184,7 +184,7 @@ const RegularTable = ({
                       <>
                         {courses["1"]?.courseCode} {courses["1"]?.courseTitle}{" "}
                         {courses["1"]?.teacher?.sortForm
-                          ? `${courses["1"]?.teacher?.sortForm}`
+                          ? `(${courses["1"]?.teacher?.sortForm})`
                           : ""}
                       </>
                     )}
@@ -198,7 +198,7 @@ const RegularTable = ({
                       <>
                         {courses["1"]?.courseCode} {courses["1"]?.courseTitle}{" "}
                         {courses["1"]?.teacher?.sortForm
-                          ? `${courses["1"]?.teacher?.sortForm}`
+                          ? `(${courses["1"]?.teacher?.sortForm})`
                           : ""}
                       </>
                     )}
@@ -226,7 +226,7 @@ const RegularTable = ({
                       <>
                         {courses["2"]?.courseCode} {courses["2"]?.courseTitle}{" "}
                         {courses["2"]?.teacher?.sortForm
-                          ? `${courses["2"]?.teacher?.sortForm}`
+                          ? `(${courses["2"]?.teacher?.sortForm})`
                           : ""}
                       </>
                     )}
@@ -246,7 +246,7 @@ const RegularTable = ({
                       <>
                         {courses["2"]?.courseCode} {courses["2"]?.courseTitle}{" "}
                         {courses["2"]?.teacher?.sortForm
-                          ? `${courses["2"]?.teacher?.sortForm}`
+                          ? `(${courses["2"]?.teacher?.sortForm})`
                           : ""}
                       </>
                     )}
@@ -286,7 +286,7 @@ const RegularTable = ({
                       <>
                         {courses["3"]?.courseCode} {courses["3"]?.courseTitle}{" "}
                         {courses["3"]?.teacher?.sortForm
-                          ? `${courses["3"]?.teacher?.sortForm}`
+                          ? `(${courses["3"]?.teacher?.sortForm})`
                           : ""}
                       </>
                     )}
@@ -302,7 +302,7 @@ const RegularTable = ({
                       <>
                         {courses["3"]?.courseCode} {courses["3"]?.courseTitle}{" "}
                         {courses["3"]?.teacher?.sortForm
-                          ? `${courses["3"]?.teacher?.sortForm}`
+                          ? `(${courses["3"]?.teacher?.sortForm})`
                           : ""}
                       </>
                     )}

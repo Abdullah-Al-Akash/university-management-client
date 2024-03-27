@@ -2,7 +2,15 @@ import { useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 import TeacherAssign from "../Modal/TeacherAssign";
 
-const EveningFridayTable = ({ data, loading }) => {
+const EveningFridayTable = ({
+  data,
+  loading,
+  selectShift,
+  regularDayTab,
+  eveningDayTab,
+  setControl,
+  control,
+}) => {
   const [courseId, setCourseId] = useState("");
   const [rowIndex, setRowIndex] = useState(null);
   console.log(data, "From Friday");
@@ -678,7 +686,15 @@ const EveningFridayTable = ({ data, loading }) => {
             );
           })}
       </table>
-      <TeacherAssign></TeacherAssign>
+      <TeacherAssign
+        courseId={courseId}
+        rowIndex={rowIndex}
+        selectShift={selectShift}
+        regularDayTab={regularDayTab}
+        eveningDayTab={eveningDayTab}
+        setControl={setControl}
+        control={control}
+      ></TeacherAssign>
     </TableWrapper>
   );
 };

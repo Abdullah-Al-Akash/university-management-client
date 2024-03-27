@@ -18,6 +18,7 @@ const TeacherAssign = ({
   const [loading, setLoading] = useState(true);
   const [selectTeacher, setSelectTeacher] = useState({});
   const url = `https://routine-management-system-backend.onrender.com/api/v1`;
+  
   // Function to handle search logic
   const handleSearch = () => {
     // Perform search logic based on searchQuery
@@ -26,7 +27,7 @@ const TeacherAssign = ({
     fetch(`${url}/teacher`)
       .then((res) => res.json())
       .then((data) => {
-        const filteredResults = data.data.filter((teacher) => {
+        const filteredResults = data.data?.filter((teacher) => {
           return teacher.fullName
             .toLowerCase()
             .includes(searchQuery?.toLowerCase());
@@ -43,6 +44,7 @@ const TeacherAssign = ({
         }
       });
   };
+
   const handleTeacherAssign = (id, name) => {
     const teacherId = id;
     const rowIndex = index;
@@ -60,6 +62,7 @@ const TeacherAssign = ({
     setAllTeacher([]);
     setSearchQuery("");
   };
+
   const handleSubmit = () => {
     fetch(`${url}/teacher/assign`, {
       method: "PATCH",
@@ -68,35 +71,31 @@ const TeacherAssign = ({
       },
       body: JSON.stringify(selectTeacher),
     })
-      .then((response) => {
-        console.log(response);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data?.success) {
           setControl(!control);
           Swal.fire({
+            title: data?.message,
             position: "top-center",
             icon: "success",
-            title: data?.massage,
             showConfirmButton: false,
             timer: 1500,
           });
         } else {
+          setControl(!control);
           Swal.fire({
+            title: data?.message,
             position: "top-center",
             icon: "error",
-            title: data?.massage,
             showConfirmButton: false,
             timer: 1500,
           });
         }
       })
       .catch((error) => {
+        setControl(!control);
         console.error("Error updating item:", error);
       });
   };
@@ -155,7 +154,7 @@ const TeacherAssign = ({
                         <span className="text-orange-500">{fullName}</span>
                       </h2>
                       <h2>
-                        <span className="font-semibold">Nick Name: </span>
+                        <span className="font-semibold">Short Name: </span>
                         <span className="text-orange-500">{sortForm}</span>
                       </h2>
                     </div>

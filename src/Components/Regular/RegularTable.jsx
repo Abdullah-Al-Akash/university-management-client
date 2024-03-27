@@ -103,7 +103,7 @@ const RegularTable = ({
 
           {data?.map((item, index) => {
             const { batch, courses, room, sem, yearSem, _id } = item;
-
+            console.log(courses, 'from batch regular', batch);
             return (
               <tr key={index}>
                 <td
@@ -272,7 +272,7 @@ const RegularTable = ({
                   <td
                     onClick={() => {
                       setCourseId(_id);
-                      setRowIndex(courses["4"]?.rowIndex);
+                      setRowIndex(courses["3"]?.rowIndex);
                     }}
                     onDoubleClick={() => {
                       document.getElementById("teacher_assign").showModal();

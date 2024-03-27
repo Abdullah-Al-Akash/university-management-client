@@ -7,9 +7,9 @@ import Loading from "../../Shared/Loading";
 const RegularTable = ({ data, loading }) => {
   const [courseId, setCourseId] = useState("");
   const [rowIndex, setRowIndex] = useState(null);
-  console.log(courseId, "table");
-  if(loading){
-    return <Loading></Loading>
+  console.log(data, "table");
+  if (loading) {
+    return <Loading></Loading>;
   }
   return (
     <>
@@ -95,7 +95,7 @@ const RegularTable = ({ data, loading }) => {
 
           {data?.map((item, index) => {
             const { batch, courses, room, sem, yearSem } = item;
-            // console.log(courses["1"]);
+            console.log(courses["1"]);
             return (
               <tr key={index}>
                 <td
@@ -124,7 +124,7 @@ const RegularTable = ({ data, loading }) => {
                 >
                   {room}
                 </td>
-                {courses["0"]?.["1"]?.courseTitle ? (
+                {courses["0"]?.courseTitle ? (
                   <td
                     colSpan={3}
                     onClick={() => {
@@ -134,10 +134,9 @@ const RegularTable = ({ data, loading }) => {
                     }}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                   >
-                    {courses["0"]?.["1"]?.courseCode && (
+                    {courses["0"]?.courseCode && (
                       <>
-                        {courses["0"]?.["1"]?.courseCode}{" "}
-                        {courses["0"]?.["1"]?.courseTitle}{" "}
+                        {courses["0"]?.courseCode} {courses["0"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
@@ -146,15 +145,14 @@ const RegularTable = ({ data, loading }) => {
                     colSpan={3}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses["0"]?.["1"]?.courseCode && (
+                    {courses["0"]?.courseCode && (
                       <>
-                        {courses["0"]?.["1"]?.courseCode}{" "}
-                        {courses["0"]?.["1"]?.courseTitle}{" "}
+                        {courses["0"]?.courseCode} {courses["0"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
                 )}
-                {courses["1"]?.["2"]?.courseTitle ? (
+                {courses["1"]?.courseTitle ? (
                   <td
                     colSpan={3}
                     onClick={() => {
@@ -164,10 +162,9 @@ const RegularTable = ({ data, loading }) => {
                     }}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                   >
-                    {courses["1"]?.["2"]?.courseCode && (
+                    {courses["1"]?.courseCode && (
                       <>
-                        {courses["1"]?.["2"]?.courseCode}{" "}
-                        {courses["1"]?.["2"]?.courseTitle}{" "}
+                        {courses["1"]?.courseCode} {courses["1"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
@@ -176,20 +173,17 @@ const RegularTable = ({ data, loading }) => {
                     colSpan={3}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
                   >
-                    {courses["1"]?.["2"]?.courseCode && (
+                    {courses["1"]?.courseCode && (
                       <>
-                        {courses["1"]?.["2"]?.courseCode}{" "}
-                        {courses["1"]?.["2"]?.courseTitle}{" "}
+                        {courses["1"]?.courseCode} {courses["1"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
                 )}
-                {courses["2"]?.["3"]?.courseTitle ? (
+                {courses["2"]?.courseTitle ? (
                   <td
                     colSpan={
-                      courses["2"]?.["3"]?.courseTitle?.includes("Sessional")
-                        ? 2
-                        : 1
+                      courses["2"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }
                     onClick={() => {
                       setCourseId(courses["2"]?._id);
@@ -197,43 +191,39 @@ const RegularTable = ({ data, loading }) => {
                       document.getElementById("teacher_assign").showModal();
                     }}
                     className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
-                      courses?.["3"]?.courseTitle?.includes("Sessional")
+                      courses["2"]?.courseTitle?.includes("Sessional")
                         ? "border-r-0"
                         : ""
                     }`}
                   >
-                    {courses["2"]?.["3"]?.courseCode && (
+                    {courses["2"]?.courseCode && (
                       <>
-                        {courses["2"]?.["3"]?.courseCode}{" "}
-                        {courses["2"]?.["3"]?.courseTitle}{" "}
+                        {courses["2"]?.courseCode} {courses["2"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
                 ) : (
                   <td
                     colSpan={
-                      courses["2"]?.["3"]?.courseTitle?.includes("Sessional")
-                        ? 2
-                        : 1
+                      courses["2"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }
                     className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] ${
-                      courses?.["3"]?.courseTitle?.includes("Sessional")
+                      courses["2"]?.courseTitle?.includes("Sessional")
                         ? "border-r-0"
                         : ""
                     }`}
                   >
-                    {courses["2"]?.["3"]?.courseCode && (
+                    {courses["2"]?.courseCode && (
                       <>
-                        {courses["2"]?.["3"]?.courseCode}{" "}
-                        {courses["2"]?.["3"]?.courseTitle}{" "}
+                        {courses["2"]?.courseCode} {courses["2"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>
                 )}
-                {!courses["2"]?.["3"]?.courseTitle?.includes("Sessional") && (
+                {!courses["2"]?.courseTitle?.includes("Sessional") && (
                   <td
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] ${
-                      courses["3"]?.["3"]?.courseTitle?.includes("Sessional")
+                      courses["3"]?.courseTitle?.includes("Sessional")
                         ? "border-l-0"
                         : ""
                     }`}
@@ -246,7 +236,7 @@ const RegularTable = ({ data, loading }) => {
                   {index === 6 ? "E" : ""} {index === 7 ? "A" : ""}{" "}
                   {index === 8 ? "K" : ""}
                 </td>
-                {courses["3"]?.["4"]?.courseTitle ? (
+                {courses["3"]?.courseTitle ? (
                   <td
                     onClick={() => {
                       setCourseId(courses["3"]?._id);
@@ -255,15 +245,12 @@ const RegularTable = ({ data, loading }) => {
                     }}
                     className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
                     colSpan={
-                      courses["3"]?.["4"]?.courseTitle?.includes("Sessional")
-                        ? 2
-                        : 1
+                      courses["3"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }
                   >
-                    {courses["3"]?.["4"]?.courseCode && (
+                    {courses["3"]?.courseCode && (
                       <>
-                        {courses["3"]?.["4"]?.courseCode}{" "}
-                        {courses["3"]?.["4"]?.courseTitle}{" "}
+                        {courses["3"]?.courseCode} {courses["3"]?.courseTitle}{" "}
                       </>
                     )}
                   </td>

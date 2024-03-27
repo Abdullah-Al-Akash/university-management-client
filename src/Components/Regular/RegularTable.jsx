@@ -138,6 +138,8 @@ const RegularTable = ({
                     onClick={() => {
                       setCourseId(_id);
                       setRowIndex(courses["0"]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
                       document.getElementById("teacher_assign").showModal();
                     }}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
@@ -172,6 +174,8 @@ const RegularTable = ({
                     onClick={() => {
                       setCourseId(_id);
                       setRowIndex(courses["1"]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
                       document.getElementById("teacher_assign").showModal();
                     }}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
@@ -208,6 +212,8 @@ const RegularTable = ({
                     onClick={() => {
                       setCourseId(_id);
                       setRowIndex(courses["2"]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
                       document.getElementById("teacher_assign").showModal();
                     }}
                     className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
@@ -267,6 +273,8 @@ const RegularTable = ({
                     onClick={() => {
                       setCourseId(_id);
                       setRowIndex(courses["4"]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
                       document.getElementById("teacher_assign").showModal();
                     }}
                     className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}

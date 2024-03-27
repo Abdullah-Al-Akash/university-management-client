@@ -23,7 +23,7 @@ const App = () => {
   */
   useEffect(() => {
     setLoading(true);
-    console.log(selectShift, "from inside useEffect from app.jsx");
+    // console.log(selectShift, "from inside useEffect from app.jsx");
     // let url;
     // if (selectShift === "regular") {
     //   url =

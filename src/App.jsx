@@ -9,6 +9,8 @@ import RegularTable from "./Components/Regular/RegularTable";
 import EveningTable from "./Components/Evening/EveningTable";
 import EveningFridayTable from "./Components/Evening/EveningFridayTable";
 import AddNewBatchModal from "./Components/Modal/AddNewBatchModal";
+import UploadRoutine from "./Components/Modal/UploadRoutine";
+import UploadFacultiesModal from "./Components/Modal/UploadFacultiesModal";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -134,7 +136,9 @@ const App = () => {
       )}
 
       {/* Modal */}
-      <AddNewBatchModal />
+      <AddNewBatchModal setControl={setControl} control={control} />
+      <UploadRoutine></UploadRoutine>
+
     </div>
   );
 };

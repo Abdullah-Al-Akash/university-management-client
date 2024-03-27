@@ -2,7 +2,14 @@ import { useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 import TeacherAssign from "../Modal/TeacherAssign";
 
-const EveningFridayTable = ({ data, loading }) => {
+const EveningFridayTable = ({
+  data,
+  loading,
+  selectShift,
+  eveningDayTab,
+  setControl,
+  control,
+}) => {
   const [courseId, setCourseId] = useState("");
   const [rowIndex, setRowIndex] = useState(null);
   console.log(data, "From Friday");
@@ -172,14 +179,12 @@ const EveningFridayTable = ({ data, loading }) => {
                 {classesBeforeBreak[0]?.courseTitle ? (
                   <td
                     onClick={() => {
-                      if (
-                        classesBeforeBreak[0]?.courseCode ||
-                        classesBeforeBreak[0]?.courseTitle
-                      ) {
-                        setCourseId(classesBeforeBreak[0]?._id);
-                        setRowIndex(classesBeforeBreak[0]?.rowIndex);
-                        document.getElementById("teacher_assign").showModal();
-                      }
+                      setCourseId(_id);
+                      console.log(_id);
+                      setRowIndex(classesBeforeBreak[0]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
+                      document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
                       classesBeforeBreak[0]?.courseCode ===
@@ -221,14 +226,11 @@ const EveningFridayTable = ({ data, loading }) => {
                   courses[1].courseTitle ? (
                     <td
                       onClick={() => {
-                        if (
-                          classesBeforeBreak[1]?.courseCode ||
-                          classesBeforeBreak[1]?.courseTitle
-                        ) {
-                          setCourseId(classesBeforeBreak[1]?._id);
-                          setRowIndex(classesBeforeBreak[1]?.rowIndex);
-                          document.getElementById("teacher_assign").showModal();
-                        }
+                        setCourseId(_id);
+                        setRowIndex(classesBeforeBreak[1]?.rowIndex);
+                      }}
+                      onDoubleClick={() => {
+                        document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={`${
                         classesBeforeBreak[1]?.courseCode ===
@@ -272,14 +274,11 @@ const EveningFridayTable = ({ data, loading }) => {
                 {classesBeforeBreak[2]?.courseTitle ? (
                   <td
                     onClick={() => {
-                      if (
-                        classesBeforeBreak[2]?.courseCode ||
-                        classesBeforeBreak[2]?.courseTitle
-                      ) {
-                        setCourseId(classesBeforeBreak[2]?._id);
-                        setRowIndex(classesBeforeBreak[2]?.rowIndex);
-                        document.getElementById("teacher_assign").showModal();
-                      }
+                      setCourseId(_id);
+                      setRowIndex(classesBeforeBreak[2]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
+                      document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
                       classesBeforeBreak[2]?.courseCode ===
@@ -321,14 +320,11 @@ const EveningFridayTable = ({ data, loading }) => {
                   classesBeforeBreak[3]?.courseTitle ? (
                     <td
                       onClick={() => {
-                        if (
-                          classesBeforeBreak[3]?.courseCode ||
-                          classesBeforeBreak[3]?.courseTitle
-                        ) {
-                          setCourseId(classesBeforeBreak[3]?._id);
-                          setRowIndex(classesBeforeBreak[3]?.rowIndex);
-                          document.getElementById("teacher_assign").showModal();
-                        }
+                        setCourseId(_id);
+                        setRowIndex(classesBeforeBreak[3]?.rowIndex);
+                      }}
+                      onDoubleClick={() => {
+                        document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={3}
                       className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
@@ -369,14 +365,11 @@ const EveningFridayTable = ({ data, loading }) => {
                 {classesAfterBreak[0]?.courseTitle ? (
                   <td
                     onClick={() => {
-                      if (
-                        classesAfterBreak[0]?.courseCode ||
-                        classesAfterBreak[0]?.courseTitle
-                      ) {
-                        setCourseId(classesAfterBreak[0]?._id);
-                        setRowIndex(classesAfterBreak[0]?.rowIndex);
-                        document.getElementById("teacher_assign").showModal();
-                      }
+                      setCourseId(_id);
+                      setRowIndex(classesAfterBreak[0]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
+                      document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
                       classesAfterBreak[0]?.courseCode ===
@@ -416,14 +409,11 @@ const EveningFridayTable = ({ data, loading }) => {
                 {classesAfterBreak[1]?.courseCode ? (
                   <td
                     onClick={() => {
-                      if (
-                        classesAfterBreak[1]?.courseCode ||
-                        classesAfterBreak[1]?.courseTitle
-                      ) {
-                        setCourseId(classesAfterBreak[1]?._id);
-                        setRowIndex(classesAfterBreak[1]?.rowIndex);
-                        document.getElementById("teacher_assign").showModal();
-                      }
+                      setCourseId(_id);
+                      setRowIndex(classesAfterBreak[1]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
+                      document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
                       classesAfterBreak[1]?.courseCode ===
@@ -465,14 +455,11 @@ const EveningFridayTable = ({ data, loading }) => {
                   (classesAfterBreak[2]?.courseCode ? (
                     <td
                       onClick={() => {
-                        if (
-                          classesAfterBreak[2]?.courseCode ||
-                          classesAfterBreak[2]?.courseTitle
-                        ) {
-                          setCourseId(classesAfterBreak[2]?._id);
-                          setRowIndex(classesAfterBreak[2]?.rowIndex);
-                          document.getElementById("teacher_assign").showModal();
-                        }
+                        setCourseId(_id);
+                        setRowIndex(classesAfterBreak[2]?.rowIndex);
+                      }}
+                      onDoubleClick={() => {
+                        document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={3}
                       className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
@@ -505,14 +492,11 @@ const EveningFridayTable = ({ data, loading }) => {
                 {classesAfterBreak[3]?.courseCode ? (
                   <td
                     onClick={() => {
-                      if (
-                        classesAfterBreak[3]?.courseCode ||
-                        classesAfterBreak[3]?.courseTitle
-                      ) {
-                        setCourseId(classesAfterBreak[3]?._id);
-                        setRowIndex(classesAfterBreak[3]?.rowIndex);
-                        document.getElementById("teacher_assign").showModal();
-                      }
+                      setCourseId(_id);
+                      setRowIndex(classesAfterBreak[3]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
+                      document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
                       classesAfterBreak[3]?.courseCode ===
@@ -554,14 +538,11 @@ const EveningFridayTable = ({ data, loading }) => {
                   (classesAfterBreak[4]?.courseCode ? (
                     <td
                       onClick={() => {
-                        if (
-                          classesAfterBreak[4]?.courseCode ||
-                          classesAfterBreak[4]?.courseTitle
-                        ) {
-                          setCourseId(classesAfterBreak[4]?._id);
-                          setRowIndex(classesAfterBreak[4]?.rowIndex);
-                          document.getElementById("teacher_assign").showModal();
-                        }
+                        setCourseId(_id);
+                        setRowIndex(classesAfterBreak[4]?.rowIndex);
+                      }}
+                      onDoubleClick={() => {
+                        document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={3}
                       className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
@@ -591,14 +572,11 @@ const EveningFridayTable = ({ data, loading }) => {
                 {classesAfterBreak[5]?.courseCode ? (
                   <td
                     onClick={() => {
-                      if (
-                        classesAfterBreak[5]?.courseCode ||
-                        classesAfterBreak[5]?.courseTitle
-                      ) {
-                        setCourseId(classesAfterBreak[5]?._id);
-                        setRowIndex(classesAfterBreak[5]?.rowIndex);
-                        document.getElementById("teacher_assign").showModal();
-                      }
+                      setCourseId(_id);
+                      setRowIndex(classesAfterBreak[5]?.rowIndex);
+                    }}
+                    onDoubleClick={() => {
+                      document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
                       classesAfterBreak[5]?.courseCode ===
@@ -640,14 +618,11 @@ const EveningFridayTable = ({ data, loading }) => {
                   (classesAfterBreak[6]?.courseCode ? (
                     <td
                       onClick={() => {
-                        if (
-                          classesAfterBreak[6]?.courseCode ||
-                          classesAfterBreak[6]?.courseTitle
-                        ) {
-                          setCourseId(classesAfterBreak[6]?._id);
-                          setRowIndex(classesAfterBreak[6]?.rowIndex);
-                          document.getElementById("teacher_assign").showModal();
-                        }
+                        setCourseId(_id);
+                        setRowIndex(classesAfterBreak[6]?.rowIndex);
+                      }}
+                      onDoubleClick={() => {
+                        document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={3}
                       className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
@@ -678,7 +653,14 @@ const EveningFridayTable = ({ data, loading }) => {
             );
           })}
       </table>
-      <TeacherAssign></TeacherAssign>
+      <TeacherAssign
+        courseId={courseId}
+        rowIndex={rowIndex}
+        selectShift={selectShift}
+        eveningDayTab={eveningDayTab}
+        setControl={setControl}
+        control={control}
+      ></TeacherAssign>
     </TableWrapper>
   );
 };

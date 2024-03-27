@@ -91,8 +91,12 @@ const App = () => {
       selectShift === "Evening" &&
       eveningDayTab === "Friday" ? (
         <EveningFridayTable
+          eveningDayTab={eveningDayTab}
           data={data.data}
           loading={loading}
+          selectShift={selectShift}
+          setControl={setControl}
+          control={control}
         ></EveningFridayTable>
       ) : (
         !selectBatch &&

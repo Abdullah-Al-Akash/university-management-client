@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBackward, FaDownload } from "react-icons/fa";
 import TableWrapper from "../../Shared/TableWrapper";
 import UploadFacultiesModal from "../Modal/UploadFacultiesModal";
+import Loading from "../../Shared/Loading";
 
 const FacultyTable = () => {
   const navigate = useNavigate();
@@ -27,7 +28,6 @@ const FacultyTable = () => {
       });
   }, []);
 
-  const FacultyName = allFaculty?.find((faculty) => faculty?._id === facultyId);
 
   // const downloadPDF = () => {
   //   setLoader(true);
@@ -68,7 +68,7 @@ const FacultyTable = () => {
 
       <div className="text-end my-3">
         {loading ? (
-          <p>Loading...</p>
+          <Loading/>
         ) : (
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">

@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import html2pdf from "html2pdf.js";
 import { FaBackward } from "react-icons/fa6";
+import Loading from "./Shared/Loading";
 
 // const FacultyTable = () => {
 //   const data = [
@@ -18,16 +19,20 @@ const FacultyDetails = () => {
   const navigate = useNavigate()
 
   const [facultyTimes, setFacultyTimes] = useState({});
+  const [facultyTimesLoading, setFacultyTimesLoading] = useState(false)
 
   useEffect(() => {
+    setFacultyTimesLoading(true)
     fetch(
       `https://routine-management-system-backend.onrender.com/api/v1/teacher/get-individual-routine/${id}`
     )
       .then((res) => res.json())
       .then((data) => {
+        setFacultyTimesLoading(false)
         setFacultyTimes(data?.data);
       })
       .catch((err) => {
+        setFacultyTimesLoading(false)
         console.error(err);
       });
   }, [id]);
@@ -52,6 +57,16 @@ const FacultyDetails = () => {
   };
 
   // console.log({ times: facultyTimes.times?.classesTimes?.classesTimes });
+
+  console.log(facultyTimes, 'all data');
+  const combinedClassesTimes = facultyTimes.times?.reduce((acc, currentValue) => {
+    return acc.concat(currentValue.classesTimes);
+  }, []);
+  console.log(combinedClassesTimes, 'combine classes');
+
+  if(facultyTimesLoading){
+    return <Loading/>
+  }
 
   return (
     <main className="w-[900px] mx-auto p-4 space-y-2">
@@ -180,13 +195,15 @@ const FacultyDetails = () => {
                 Cr
               </td>
               <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                Cr Hr
+                Day
               </td>
               <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
                 Batch & Year-Semester
               </td>
             </tr>
-            {facultyTimes.times?.map((item, i) => {
+
+            {combinedClassesTimes?.map((item, i) => {
+              console.log(item, 'faculty time item');
               return (
                 <tr key={i}>
                   <td className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap">
@@ -194,22 +211,22 @@ const FacultyDetails = () => {
                   </td>
 
                   <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    Course Code
+                    {item?.courseCode}
                   </td>
                   <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    Course Title
+                    {item?.courseTitle}
                   </td>
                   <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
                     CSE(REG)
                   </td>
                   <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    Cr
+                    {item?.credit}
                   </td>
                   <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    Cr Hr
+                    Day
                   </td>
                   <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    Batch & Year-Semester
+                    {item?.batch}th {item?.yearSem}
                   </td>
                 </tr>
               );

@@ -347,7 +347,7 @@ const RegularTable = ({
                       setCourseCredit(courses["2"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["2"]?.rowIndex || swapClass?.secondRowIndex === courses["2"]?.rowIndex) && 'bg-purple-500'} ${
+                    className={`px-[16px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["2"]?.rowIndex || swapClass?.secondRowIndex === courses["2"]?.rowIndex) && 'bg-purple-500'} ${
                       courses["2"]?.courseTitle?.includes("Sessional")
                         ? "border-r-0"
                         : ""

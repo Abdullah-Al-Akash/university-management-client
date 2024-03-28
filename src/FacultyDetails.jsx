@@ -67,10 +67,12 @@ const FacultyDetails = () => {
   );
   console.log(combinedClassesTimes, "combine classes");
 
-  const totalCredit = combinedClassesTimes?.reduce((total, item) => {
-    console.log(total, item?.credit);
-    return total + item?.credit ? item?.credit : 0;
-  }, 0);
+  const totalCredit = combinedClassesTimes?.reduce(
+    (accumulator, currentValue) =>
+      accumulator + (currentValue.credit ? currentValue.credit : 0),
+    0
+  );
+
   if (facultyTimesLoading) {
     return <Loading />;
   }

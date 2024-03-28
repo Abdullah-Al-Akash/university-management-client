@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 import TeacherAssign from "../Modal/TeacherAssign";
 import Loading from "../../Shared/Loading";
+import Swal from "sweetalert2";
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
 
 const RegularTable = ({
   data,
@@ -15,8 +17,124 @@ const RegularTable = ({
 }) => {
   const [courseId, setCourseId] = useState("");
   const [rowIndex, setRowIndex] = useState(null);
-  console.log(data, "table");
-  if (loading) {
+  const [timeSlot, setTimeSlot] = useState([]);
+  const [loadingTime, setLoadingTime] = useState(false);
+  const [courseCredit, setCourseCredit] = useState(null);
+  // swapClass
+  const [swapClass, setSwapClass] = useState({});
+  //   Class swapping handler
+  const classSwappingHandler = () => {
+    fetch(
+      "https://routine-management-system-backend.onrender.com/api/v1/routine/swap",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstRowIndex: swapClass?.firstRowIndex,
+          secondRowIndex: swapClass?.secondRowIndex,
+          routineId: swapClass?.routineId,
+        }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setControl(!control);
+        setSwapClass({});
+        Swal.fire({
+          title: data?.message,
+          position: "top-center",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        setControl(!control);
+        setSwapClass({});
+        Swal.fire({
+          title: data?.message,
+          position: "top-center",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
+
+  // Handle click td
+  const handleClickTD = (routineId, rowIndex, credit) => {
+    const isSessional = credit % 1 !== 0;
+
+    setSwapClass((prevState) => {
+        // If routineId is different, select the class
+        if (prevState.routineId !== routineId) {
+            return {
+                routineId: routineId,
+                firstRowIndex: rowIndex,
+                firstRowCredit: credit, // Store the credit of the first selected class
+                secondRowIndex: null, // Reset secondRowIndex
+            };
+        } else {
+            // If routineId is the same, deselect the class
+            if (
+                prevState.firstRowIndex === rowIndex ||
+                prevState.secondRowIndex === rowIndex
+            ) {
+                // If the clicked class is already selected, deselect it
+                return {
+                    ...prevState,
+                    firstRowIndex:
+                        prevState.firstRowIndex === rowIndex
+                            ? null
+                            : prevState.firstRowIndex,
+                    secondRowIndex:
+                        prevState.secondRowIndex === rowIndex
+                            ? null
+                            : prevState.secondRowIndex,
+                };
+            } else if (prevState.firstRowIndex === null) {
+                // If neither firstRowIndex nor secondRowIndex matches, set firstRowIndex
+                return {
+                    ...prevState,
+                    firstRowIndex: rowIndex,
+                    firstRowCredit: credit, // Store the credit of the first selected class
+                };
+            } else if (
+                prevState.secondRowIndex === null &&
+                ((isSessional && prevState.firstRowCredit % 1 !== 0) || // If first class is sessional
+                (!isSessional && prevState.firstRowCredit % 1 === 0)) // If first class is not sessional
+            ) {
+                // If firstRowIndex is already set but secondRowIndex is not,
+                // and the selected class is either sessional or normal,
+                // and the credit of the first selected class matches the second class
+                return {
+                    ...prevState,
+                    secondRowIndex: rowIndex,
+                };
+            }
+        }
+        return prevState; // Return prevState if no state update is needed
+    });
+};
+
+  
+  useEffect(() => {
+    setLoadingTime(true);
+    fetch(
+      "https://routine-management-system-backend.onrender.com/api/v1/times/get-times-slots?day=Saturday&shift=Regular"
+    )
+      .then((res) => res.json())
+      .then((data) => setTimeSlot(data?.data), setLoadingTime(false))
+      .catch((err) => {
+        setLoadingTime(false);
+        console.log(err);
+      });
+  }, []);
+  if (loading || loadingTime) {
     return <Loading></Loading>;
   }
   return (
@@ -62,38 +180,45 @@ const RegularTable = ({
               rowSpan={2}
               colSpan={3}
             >
-              09.00-10.20AM
+              {timeSlot[0]?.startTime}-{timeSlot[0]?.endTime}
+              {timeSlot[0]?.period}
             </td>
             <td
               className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
               rowSpan={2}
               colSpan={3}
             >
-              10.30-11.50AM
+              {timeSlot[1]?.startTime}-{timeSlot[1]?.endTime}
+              {timeSlot[1]?.period}
             </td>
 
             <td
               className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
               colSpan={2}
             >
-              12.00-02.00PM
+              {timeSlot[2]?.sessionalStartTime}-{timeSlot[2]?.sessionalEndTime}
+              {timeSlot[2]?.period}
             </td>
             <td className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"></td>
             <td
               className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
               colSpan={2}
             >
-              02.00-04.00PM
+              {timeSlot[3]?.sessionalStartTime}-{timeSlot[3]?.sessionalEndTime}
+              {timeSlot[3]?.period}
             </td>
           </tr>
+
           <tr>
             <td className="text-[14px] border-[#000] border-2 relative !z-[-1] border-b-[1px] border-r-[1px] whitespace-nowrap text-[#000] p-[16px] text-center">
-              12.00-01.20PM
+              {timeSlot[2]?.startTime}-{timeSlot[2]?.endTime}
+              {timeSlot[2]?.period}
             </td>
             <td className="text-[14px] border-[#000] border-2 relative !z-[-1] border-b-[1px] border-r-[1px] whitespace-nowrap text-[#000] p-[16px] text-center"></td>
             <td className="text-[14px] border-[#000] border-2 border-r-[1px] text-[#000] p-[16px] text-center  border-b-0"></td>
             <td className="text-[14px] border-[#000] border-2 relative !z-[-1] border-b-[1px] border-r-[1px] whitespace-nowrap text-[#000] p-[16px] text-center">
-              02.00-03.20PM
+              {timeSlot[3]?.startTime}-{timeSlot[3]?.endTime}
+              {timeSlot[3]?.period}
             </td>
             <td className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center"></td>
           </tr>
@@ -103,7 +228,7 @@ const RegularTable = ({
 
           {data?.map((item, index) => {
             const { batch, courses, room, sem, yearSem, _id } = item;
-            console.log(courses, 'from batch regular', batch);
+            // console.log(courses, "from batch regular", batch);
             return (
               <tr key={index}>
                 <td
@@ -136,13 +261,15 @@ const RegularTable = ({
                   <td
                     colSpan={3}
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(courses["0"]?.rowIndex);
+                      handleClickTD(_id, courses[0]?.rowIndex, courses[0]?.credit);
                     }}
                     onDoubleClick={() => {
+                      setRowIndex(courses["0"]?.rowIndex);
+                      setCourseId(_id);
+                      setCourseCredit(courses["0"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["0"]?.rowIndex || swapClass?.secondRowIndex === courses["0"]?.rowIndex) && 'bg-purple-500'}`}
                   >
                     {courses["0"]?.courseCode && (
                       <>
@@ -156,7 +283,7 @@ const RegularTable = ({
                 ) : (
                   <td
                     colSpan={3}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                   >
                     {courses["0"]?.courseCode && (
                       <>
@@ -172,13 +299,15 @@ const RegularTable = ({
                   <td
                     colSpan={3}
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(courses["1"]?.rowIndex);
+                      handleClickTD(_id, courses[1]?.rowIndex, courses[1]?.credit);
                     }}
                     onDoubleClick={() => {
+                      setCourseId(_id);
+                      setRowIndex(courses["1"]?.rowIndex);
+                      setCourseCredit(courses["1"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["1"]?.rowIndex || swapClass?.secondRowIndex === courses["1"]?.rowIndex) && 'bg-purple-500'}`}
                   >
                     {courses["1"]?.courseCode && (
                       <>
@@ -192,7 +321,7 @@ const RegularTable = ({
                 ) : (
                   <td
                     colSpan={3}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                   >
                     {courses["1"]?.courseCode && (
                       <>
@@ -210,13 +339,15 @@ const RegularTable = ({
                       courses["2"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(courses["2"]?.rowIndex);
+                      handleClickTD(_id, courses["2"]?.rowIndex, courses["2"]?.credit);
                     }}
                     onDoubleClick={() => {
+                      setCourseId(_id);
+                      setRowIndex(courses["2"]?.rowIndex);
+                      setCourseCredit(courses["2"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
+                    className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["2"]?.rowIndex || swapClass?.secondRowIndex === courses["2"]?.rowIndex) && 'bg-purple-500'} ${
                       courses["2"]?.courseTitle?.includes("Sessional")
                         ? "border-r-0"
                         : ""
@@ -227,7 +358,8 @@ const RegularTable = ({
                         {courses["2"]?.courseCode} {courses["2"]?.courseTitle}{" "}
                         {courses["2"]?.teacher?.sortForm
                           ? `(${courses["2"]?.teacher?.sortForm})`
-                          : ""}
+                          : ""}{" "}
+                        {courses["2"]?.room ? courses["2"]?.room : ""}
                       </>
                     )}
                   </td>
@@ -271,13 +403,15 @@ const RegularTable = ({
                 {courses["3"]?.courseTitle ? (
                   <td
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(courses["3"]?.rowIndex);
+                      handleClickTD(_id, courses[3]?.rowIndex, courses[3]?.credit);
                     }}
                     onDoubleClick={() => {
+                      setCourseId(_id);
+                      setRowIndex(courses["3"]?.rowIndex);
+                      setCourseCredit(courses["3"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["3"]?.rowIndex || swapClass?.secondRowIndex === courses["3"]?.rowIndex) && 'bg-purple-500'}`}
                     colSpan={
                       courses["3"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }
@@ -288,6 +422,7 @@ const RegularTable = ({
                         {courses["3"]?.teacher?.sortForm
                           ? `(${courses["3"]?.teacher?.sortForm})`
                           : ""}
+                        {courses["3"]?.room ? courses["3"]?.room : ""}
                       </>
                     )}
                   </td>
@@ -317,6 +452,20 @@ const RegularTable = ({
             );
           })}
         </table>
+        {/* Swapping btn */}
+        {swapClass.firstRowIndex && swapClass.secondRowIndex && (
+          <div className="h-screen w-full bg-slate-500 bg-opacity-75 flex items-center justify-center absolute left-0 top-0">
+            <button className="my-btn-one" onClick={classSwappingHandler}>
+              Swap <FaArrowRightArrowLeft />
+            </button>
+            <button
+              className="my-btn-one ml-4"
+              onClick={() => setSwapClass({})}
+            >
+              Reset
+            </button>
+          </div>
+        )}
       </TableWrapper>
       <TeacherAssign
         courseId={courseId}
@@ -326,6 +475,7 @@ const RegularTable = ({
         eveningDayTab={eveningDayTab}
         setControl={setControl}
         control={control}
+        courseCredit={courseCredit}
       />
     </>
   );

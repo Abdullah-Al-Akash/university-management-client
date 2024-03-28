@@ -10,7 +10,6 @@ import EveningTable from "./Components/Evening/EveningTable";
 import EveningFridayTable from "./Components/Evening/EveningFridayTable";
 import AddNewBatchModal from "./Components/Modal/AddNewBatchModal";
 import UploadRoutine from "./Components/Modal/UploadRoutine";
-import UploadFacultiesModal from "./Components/Modal/UploadFacultiesModal";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -25,32 +24,10 @@ const App = () => {
   */
   useEffect(() => {
     setLoading(true);
-    // console.log(selectShift, "from inside useEffect from app.jsx");
-    // let url;
-    // if (selectShift === "regular") {
-    //   url =
-    //     regularDayTab == "Tuesday"
-    //       ? "Tuesday.json"
-    //       : regularDayTab == "Wednesday"
-    //       ? "Wednesday-routine.json"
-    //       : regularDayTab == "Thursday"
-    //       ? "Thursday-routine.json"
-    //       : regularDayTab == "Saturday"
-    //       ? "Saturday-routine.json"
-    //       : regularDayTab == "Sunday" && "Sunday-ragular.json";
-    // } else if (selectShift === "evening") {
-    //   // TODO : Need to update for friday
-    //   url =
-    //     eveningDayTab === "Thursday"
-    //       ? "EveningThursday.json"
-    //       : eveningDayTab === "Saturday"
-    //       ? "EveningSaturday.json"
-    //       : eveningDayTab === "Friday"
-    //       ? "EveningFriday.json"
-    //       : "";
-    // }
+
     fetch(
-      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${selectShift === "Regular" ? regularDayTab : eveningDayTab
+      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${
+        selectShift === "Regular" ? regularDayTab : eveningDayTab
       }&shift=${selectShift}`
     )
       .then((res) => res.json())
@@ -89,8 +66,8 @@ const App = () => {
 
       {/* Evening batch table  Friday*/}
       {!selectBatch &&
-        selectShift === "Evening" &&
-        eveningDayTab === "Friday" ? (
+      selectShift === "Evening" &&
+      eveningDayTab === "Friday" ? (
         <EveningFridayTable
           eveningDayTab={eveningDayTab}
           data={data.data}
@@ -137,8 +114,7 @@ const App = () => {
 
       {/* Modal */}
       <AddNewBatchModal setControl={setControl} control={control} />
-      <UploadRoutine></UploadRoutine>
-
+      <UploadRoutine control={control} setControl={setControl}></UploadRoutine>
     </div>
   );
 };

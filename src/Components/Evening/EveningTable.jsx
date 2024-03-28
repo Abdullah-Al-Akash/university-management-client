@@ -16,95 +16,123 @@ const EveningTable = ({
 }) => {
     const [courseId, setCourseId] = useState("");
     const [rowIndex, setRowIndex] = useState(null);
-    const [swapClass, setSwapClass] = useState({})
+    const [courseCredit, setCourseCredit] = useState(null);
+    const [swapClass, setSwapClass] = useState({});
 
-    const [timeSlot, setTimeSlot] = useState([])
-    const [timeSlotLoading, setTimeSlotLoading] = useState(false)
-
-
+    const [timeSlot, setTimeSlot] = useState([]);
+    const [timeSlotLoading, setTimeSlotLoading] = useState(false);
 
     useEffect(() => {
-        setTimeSlotLoading(true)
+        setTimeSlotLoading(true);
         fetch(
             "https://routine-management-system-backend.onrender.com/api/v1/times/get-times-slots?day=Saturday&shift=Evening"
         )
             .then((res) => res.json())
-            .then((data) => {setTimeSlot(data?.data); setTimeSlotLoading(false)})
+            .then((data) => {
+                setTimeSlot(data?.data);
+                setTimeSlotLoading(false);
+            })
             .catch((err) => {
                 console.log(err);
-                setTimeSlotLoading(false)
+                setTimeSlotLoading(false);
             });
     }, []);
-
-console.log(timeSlot, 'timeslot');
-
     if (loading || timeSlotLoading) {
         return <Loading></Loading>;
     }
 
     //   Class swapping handler
     const classSwappingHandler = () => {
-        fetch('https://routine-management-system-backend.onrender.com/api/v1/routine/swap', {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': "application/json"
-            },
-            body: JSON.stringify({ firstRowIndex: swapClass?.firstRowIndex, secondRowIndex: swapClass?.secondRowIndex, routineId: swapClass?.routineId })
-        }).then(res => res.json()).then(data => {
-            console.log(data);
-            setControl(!control)
-            setSwapClass({})
-            Swal.fire({
-                title: data?.message,
-                position: "top-center",
-                icon: "success",
-                showConfirmButton: false,
-                timer: 1500,
+        fetch(
+            "https://routine-management-system-backend.onrender.com/api/v1/routine/swap",
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    firstRowIndex: swapClass?.firstRowIndex,
+                    secondRowIndex: swapClass?.secondRowIndex,
+                    routineId: swapClass?.routineId,
+                }),
+            }
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setControl(!control);
+                setSwapClass({});
+                Swal.fire({
+                    title: data?.message,
+                    position: "top-center",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            })
+            .catch((e) => {
+                console.log(e);
+                setControl(!control);
+                setSwapClass({});
+                Swal.fire({
+                    title: data?.message,
+                    position: "top-center",
+                    icon: "error",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             });
-        }).catch(e => {
-            console.log(e);
-            setControl(!control)
-            setSwapClass({})
-            Swal.fire({
-                title: data?.message,
-                position: "top-center",
-                icon: "error",
-                showConfirmButton: false,
-                timer: 1500,
-            });
-        })
-    }
+    };
 
     // Handle click td
-    const handleClickTD = (routineId, rowIndex) => {
-        setSwapClass(prevState => {
+    const handleClickTD = (routineId, rowIndex, credit) => {
+        const isSessional = credit % 1 !== 0;
+
+        setSwapClass((prevState) => {
             // If routineId is different, select the class
             if (prevState.routineId !== routineId) {
                 return {
                     routineId: routineId,
                     firstRowIndex: rowIndex,
-                    secondRowIndex: null // Reset secondRowIndex
+                    firstRowCredit: credit, // Store the credit of the first selected class
+                    secondRowIndex: null, // Reset secondRowIndex
                 };
             } else {
                 // If routineId is the same, deselect the class
-                if (prevState.firstRowIndex === rowIndex || prevState.secondRowIndex === rowIndex) {
+                if (
+                    prevState.firstRowIndex === rowIndex ||
+                    prevState.secondRowIndex === rowIndex
+                ) {
                     // If the clicked class is already selected, deselect it
                     return {
                         ...prevState,
-                        firstRowIndex: prevState.firstRowIndex === rowIndex ? null : prevState.firstRowIndex,
-                        secondRowIndex: prevState.secondRowIndex === rowIndex ? null : prevState.secondRowIndex
+                        firstRowIndex:
+                            prevState.firstRowIndex === rowIndex
+                                ? null
+                                : prevState.firstRowIndex,
+                        secondRowIndex:
+                            prevState.secondRowIndex === rowIndex
+                                ? null
+                                : prevState.secondRowIndex,
                     };
                 } else if (prevState.firstRowIndex === null) {
                     // If neither firstRowIndex nor secondRowIndex matches, set firstRowIndex
                     return {
                         ...prevState,
-                        firstRowIndex: rowIndex
+                        firstRowIndex: rowIndex,
+                        firstRowCredit: credit, // Store the credit of the first selected class
                     };
-                } else if (prevState.secondRowIndex === null) {
-                    // If firstRowIndex is already set but secondRowIndex is not, set secondRowIndex
+                } else if (
+                    prevState.secondRowIndex === null &&
+                    ((isSessional && prevState.firstRowCredit % 1 !== 0) || // If first class is sessional
+                        (!isSessional && prevState.firstRowCredit % 1 === 0)) // If first class is not sessional
+                ) {
+                    // If firstRowIndex is already set but secondRowIndex is not,
+                    // and the selected class is either sessional or normal,
+                    // and the credit of the first selected class matches the second class
                     return {
                         ...prevState,
-                        secondRowIndex: rowIndex
+                        secondRowIndex: rowIndex,
                     };
                 }
             }
@@ -123,11 +151,11 @@ console.log(timeSlot, 'timeslot');
                         <th className="border-2 border-black p-3">Year/Sem</th>
                         <th className="border-2 border-black p-3">Sem No.</th>
                         <th className="border-2 border-black p-3">Room No.</th>
-                        <th className="border-2 border-black p-3"> {timeSlot[0]?.startTime}{timeSlot[0]?.period} - {timeSlot[0]?.endTime}{timeSlot[0]?.period} </th>
-                        <th className="border-2 border-black p-3">{timeSlot[1]?.startTime}{timeSlot[1]?.period} - {timeSlot[1]?.endTime}{timeSlot[1]?.period}</th>
+                        <th className="border-2 border-black p-3"> {timeSlot[0]?.startTime} {timeSlot[0]?.period} - {timeSlot[0]?.endTime} {timeSlot[0]?.period} </th>
+                        <th className="border-2 border-black p-3">{timeSlot[1]?.startTime} {timeSlot[1]?.period} - {timeSlot[1]?.endTime} {timeSlot[1]?.period}</th>
                         <th className="border-2 border-black border-b-0 p-3"></th>
-                        <th className="border-2 border-black p-3">{timeSlot[2]?.startTime}{timeSlot[2]?.period} - {timeSlot[2]?.endTime}{timeSlot[2]?.period}</th>
-                        <th className="border-2 border-black p-3">{timeSlot[3]?.startTime}{timeSlot[3]?.period} - {timeSlot[3]?.endTime}{timeSlot[3]?.period}</th>
+                        <th className="border-2 border-black p-3">{timeSlot[2]?.startTime} {timeSlot[2]?.period} - {timeSlot[2]?.endTime} {timeSlot[2]?.period}</th>
+                        <th className="border-2 border-black p-3">{timeSlot[3]?.startTime} {timeSlot[3]?.period} - {timeSlot[3]?.endTime} {timeSlot[3]?.period}</th>
                     </tr>
                 </thead>
 
@@ -153,7 +181,7 @@ console.log(timeSlot, 'timeslot');
                                             onClick={() => {
                                                 if (classesBeforeBreak[0]?.courseCode ||
                                                     classesBeforeBreak[0]?.courseTitle) {
-                                                    handleClickTD(elem?._id, classesBeforeBreak[0]?.rowIndex)
+                                                    handleClickTD(elem?._id, classesBeforeBreak[0]?.rowIndex, classesBeforeBreak[0]?.credit)
                                                 }
                                             }}
                                             onDoubleClick={() => {
@@ -163,6 +191,7 @@ console.log(timeSlot, 'timeslot');
                                                 ) {
                                                     setCourseId(_id);
                                                     setRowIndex(classesBeforeBreak[0]?.rowIndex);
+                                                    setCourseCredit(classesBeforeBreak[0]?.credit);
                                                     document
                                                         .getElementById("teacher_assign")
                                                         .showModal();
@@ -173,7 +202,7 @@ console.log(timeSlot, 'timeslot');
                                             {`${classesBeforeBreak[0]?.courseCode ?? ""} ${classesBeforeBreak[0]?.courseTitle
                                                 ? `(${classesBeforeBreak[0]?.courseTitle})`
                                                 : ""
-                                                } ${classesBeforeBreak[0]?.teacher?.sortForm ?? ""}`}
+                                                } ${classesBeforeBreak[0]?.teacher?.sortForm ?? ""} ${classesBeforeBreak[0]?.room ?? ''}`}
                                         </td>
                                     ) : (
                                         classesBeforeBreak?.map((classBeforeBreak, ind) => (
@@ -182,7 +211,7 @@ console.log(timeSlot, 'timeslot');
                                                 key={ind}
                                                 onClick={() => {
                                                     if (classBeforeBreak?.courseCode || classBeforeBreak?.courseTitle) {
-                                                        handleClickTD(elem?._id, classBeforeBreak?.rowIndex)
+                                                        handleClickTD(elem?._id, classBeforeBreak?.rowIndex, classBeforeBreak?.credit)
                                                     }
                                                 }
                                                 }
@@ -190,6 +219,7 @@ console.log(timeSlot, 'timeslot');
                                                     if (classBeforeBreak?.courseCode || classBeforeBreak?.courseTitle) {
                                                         setCourseId(_id);
                                                         setRowIndex(classBeforeBreak?.rowIndex);
+                                                        setCourseCredit(classBeforeBreak?.credit);
                                                         document
                                                             .getElementById("teacher_assign")
                                                             .showModal();
@@ -217,7 +247,7 @@ console.log(timeSlot, 'timeslot');
                                             onClick={() => {
                                                 if (classesAfterBreak[0]?.courseCode ||
                                                     classesAfterBreak[0]?.courseTitle) {
-                                                    handleClickTD(elem?._id, classesAfterBreak[0]?.rowIndex)
+                                                    handleClickTD(elem?._id, classesAfterBreak[0]?.rowIndex, classesAfterBreak[0]?.credit)
                                                 }
                                             }
                                             }
@@ -228,6 +258,7 @@ console.log(timeSlot, 'timeslot');
                                                 ) {
                                                     setCourseId(_id);
                                                     setRowIndex(classesAfterBreak[0]?.rowIndex);
+                                                    setCourseCredit(classesAfterBreak[0]?.credit);
                                                     document
                                                         .getElementById("teacher_assign")
                                                         .showModal();
@@ -239,7 +270,7 @@ console.log(timeSlot, 'timeslot');
                                             {`${classesAfterBreak[0]?.courseCode ?? ""} ${classesAfterBreak[0]?.courseTitle
                                                 ? `(${classesAfterBreak[0]?.courseTitle})`
                                                 : ""
-                                                } ${classesAfterBreak[0]?.teacher?.sortForm ?? ""}`}
+                                                } ${classesAfterBreak[0]?.teacher?.sortForm ?? ""} ${classesAfterBreak[0]?.room ?? ''}`}
                                         </td>
                                     ) : (
                                         classesAfterBreak?.map((classAfterBreak, ind) => (
@@ -247,7 +278,7 @@ console.log(timeSlot, 'timeslot');
                                                 key={ind}
                                                 onClick={() => {
                                                     if (classAfterBreak?.courseCode || classAfterBreak?.courseTitle) {
-                                                        handleClickTD(elem?._id, classAfterBreak?.rowIndex)
+                                                        handleClickTD(elem?._id, classAfterBreak?.rowIndex, classAfterBreak?.credit)
                                                     }
                                                 }
                                                 }
@@ -255,6 +286,7 @@ console.log(timeSlot, 'timeslot');
                                                     if (classAfterBreak?.courseCode || classAfterBreak?.courseTitle) {
                                                         setCourseId(_id);
                                                         setRowIndex(classAfterBreak?.rowIndex);
+                                                        setCourseCredit(classAfterBreak?.credit);
                                                         document
                                                             .getElementById("teacher_assign")
                                                             .showModal();
@@ -276,8 +308,12 @@ console.log(timeSlot, 'timeslot');
             {/* Swapping btn */}
             {swapClass.firstRowIndex && swapClass.secondRowIndex && (
                 <div className="h-screen w-full bg-slate-500 bg-opacity-75 flex items-center justify-center absolute left-0 top-0">
-                    <button className="my-btn-one" onClick={classSwappingHandler}>Swap <FaArrowRightArrowLeft /></button>
-                    <button className="my-btn-one ml-4" onClick={() => setSwapClass({})}>Reset</button>
+                    <button className="my-btn-one" onClick={classSwappingHandler}>
+                        Swap <FaArrowRightArrowLeft />
+                    </button>
+                    <button className="my-btn-one ml-4" onClick={() => setSwapClass({})}>
+                        Reset
+                    </button>
                 </div>
             )}
 
@@ -290,6 +326,7 @@ console.log(timeSlot, 'timeslot');
                 eveningDayTab={eveningDayTab}
                 setControl={setControl}
                 control={control}
+                courseCredit={courseCredit}
             />
         </TableWrapper>
     );

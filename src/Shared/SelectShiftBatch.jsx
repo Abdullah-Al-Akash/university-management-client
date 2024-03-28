@@ -37,7 +37,7 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
         </button>
 
         {/* All faculty */}
-        <Link to="/faculty">
+        <Link to="/all-faculties">
           <button>
             {" "}
             <a

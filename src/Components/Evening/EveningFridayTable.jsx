@@ -63,13 +63,16 @@ const EveningFridayTable = ({
   };
 
   // Handle click td
-  const handleClickTD = (routineId, rowIndex) => {
+  const handleClickTD = (routineId, rowIndex, credit) => {
+    const isSessional = credit % 1 !== 0;
+
     setSwapClass((prevState) => {
       // If routineId is different, select the class
       if (prevState.routineId !== routineId) {
         return {
           routineId: routineId,
           firstRowIndex: rowIndex,
+          firstRowCredit: credit, // Store the credit of the first selected class
           secondRowIndex: null, // Reset secondRowIndex
         };
       } else {
@@ -95,9 +98,16 @@ const EveningFridayTable = ({
           return {
             ...prevState,
             firstRowIndex: rowIndex,
+            firstRowCredit: credit, // Store the credit of the first selected class
           };
-        } else if (prevState.secondRowIndex === null) {
-          // If firstRowIndex is already set but secondRowIndex is not, set secondRowIndex
+        } else if (
+          prevState.secondRowIndex === null &&
+          ((isSessional && prevState.firstRowCredit % 1 !== 0) || // If first class is sessional
+            (!isSessional && prevState.firstRowCredit % 1 === 0)) // If first class is not sessional
+        ) {
+          // If firstRowIndex is already set but secondRowIndex is not,
+          // and the selected class is either sessional or normal,
+          // and the credit of the first selected class matches the second class
           return {
             ...prevState,
             secondRowIndex: rowIndex,
@@ -107,6 +117,9 @@ const EveningFridayTable = ({
       return prevState; // Return prevState if no state update is needed
     });
   };
+
+  console.log(swapClass, 'swapClass');
+  console.log(data, 'data');
 
   if (loading) {
     return <Loading></Loading>;
@@ -118,10 +131,10 @@ const EveningFridayTable = ({
         className="table-auto font-bold text-center border-2 border-[#000] table-ui w-full text-white"
         cellPadding="0"
         cellSpacing={0}
-        //   style={{
-        //     position: "relative", // Ensure table remains on top of watermark
-        //     zIndex: 1, // Set higher z-index to keep table above watermark
-        //   }}
+      //   style={{
+      //     position: "relative", // Ensure table remains on top of watermark
+      //     zIndex: 1, // Set higher z-index to keep table above watermark
+      //   }}
       >
         <thead>
           <tr>
@@ -273,200 +286,141 @@ const EveningFridayTable = ({
                 >
                   {room}
                 </td>
+
                 {/* First Two Class */}
-                {classesBeforeBreak[0]?.courseTitle ? (
-                  <td
-                    onClick={() => {
+                <td
+                  onClick={() => {
+                    if (classesBeforeBreak[0]?.courseCode ||
+                      classesBeforeBreak[0]?.courseTitle) {
+                      handleClickTD(_id, classesBeforeBreak[0]?.rowIndex, classesBeforeBreak[0]?.credit);
+                    }
+                  }}
+                  onDoubleClick={() => {
+                    if (classesBeforeBreak[0]?.courseCode ||
+                      classesBeforeBreak[0]?.courseTitle) {
                       setCourseId(_id);
-                      handleClickTD(_id, classesBeforeBreak[0]?.rowIndex);
                       setRowIndex(classesBeforeBreak[0]?.rowIndex);
-                    }}
-                    onDoubleClick={() => {
                       setCourseCredit(classesBeforeBreak[0]?.credit);
                       document.getElementById("teacher_assign").showModal();
-                    }}
-                    colSpan={`${
-                      classesBeforeBreak[0]?.courseCode ===
-                      classesBeforeBreak[1]?.courseCode
-                        ? "6"
-                        : "3"
+                    }
+                  }}
+                  colSpan={`${classesBeforeBreak[0]?.courseCode ===
+                    classesBeforeBreak[1]?.courseCode
+                    ? "6"
+                    : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
-                  >
-                    {classesBeforeBreak[0]?.courseCode && (
-                      <>
-                        {classesBeforeBreak[0]?.courseCode} (
-                        {classesBeforeBreak[0]?.courseTitle}){" "}
-                        {classesBeforeBreak[0]?.teacher?.sortForm ?? ""}
-                        {classesBeforeBreak[0]?.room ?? ""}
-                      </>
-                    )}
-                  </td>
-                ) : (
-                  <td
-                    colSpan={`${
-                      classesBeforeBreak[0]?.courseCode ===
-                      classesBeforeBreak[1]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                  >
-                    {classesBeforeBreak[0]?.courseCode && (
-                      <>
-                        {classesBeforeBreak[0]?.courseCode} (
-                        {classesBeforeBreak[0]?.courseTitle}){" "}
-                        {classesBeforeBreak[0]?.teacher?.sortForm ?? ""}
-                        {classesBeforeBreak[0]?.room ?? ""}
-                      </>
-                    )}
-                  </td>
-                )}
+                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesBeforeBreak[0]?.rowIndex || swapClass?.secondRowIndex === classesBeforeBreak[0]?.rowIndex) && 'bg-purple-500'}`}
+                >
+                  {classesBeforeBreak[0]?.courseCode && (
+                    <>
+                      {classesBeforeBreak[0]?.courseCode} (
+                      {classesBeforeBreak[0]?.courseTitle}){" "}
+                      {classesBeforeBreak[0]?.teacher?.sortForm ?? ""}
+                      {classesBeforeBreak[0]?.room ?? ""}
+                    </>
+                  )}
+                </td>
+
                 {classesBeforeBreak[0]?.courseCode !==
-                classesBeforeBreak[1]?.courseCode ? (
-                  courses[1].courseTitle ? (
-                    <td
-                      onClick={() => {
-                        setCourseId(_id);
-                        setRowIndex(classesBeforeBreak[1]?.rowIndex);
-                        handleClickTD(_id, classesBeforeBreak[1]?.rowIndex);
-                      }}
-                      onDoubleClick={() => {
-                        setCourseCredit(classesBeforeBreak[1]?.credit);
-                        document.getElementById("teacher_assign").showModal();
-                      }}
-                      colSpan={`${
-                        classesBeforeBreak[1]?.courseCode ===
-                        classesBeforeBreak[2]?.courseCode
-                          ? "6"
-                          : "3"
-                      }`}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
-                    >
-                      {classesBeforeBreak[1]?.courseCode && (
-                        <>
-                          {classesBeforeBreak[1]?.courseCode} (
-                          {classesBeforeBreak[1]?.courseTitle}){" "}
-                          {classesBeforeBreak[1]?.teacher?.sortForm ?? ""}
-                          {classesBeforeBreak[1]?.room ?? ""}
-                        </>
-                      )}
-                    </td>
-                  ) : (
-                    <td
-                      colSpan={`${
-                        classesBeforeBreak[1]?.courseCode ===
-                        classesBeforeBreak[2]?.courseCode
-                          ? "6"
-                          : "3"
-                      }`}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                    >
-                      {classesBeforeBreak[1]?.courseCode && (
-                        <>
-                          {classesBeforeBreak[1]?.courseCode} (
-                          {classesBeforeBreak[1]?.courseTitle}){" "}
-                          {classesBeforeBreak[1]?.teacher?.sortForm ?? ""}
-                          {classesBeforeBreak[1]?.room ?? ""}
-                        </>
-                      )}
-                    </td>
-                  )
-                ) : (
-                  ""
-                )}
-                {/* Second Two Class */}
-                {classesBeforeBreak[2]?.courseTitle ? (
+                  classesBeforeBreak[1]?.courseCode ?
                   <td
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(classesBeforeBreak[2]?.rowIndex);
-                      handleClickTD(_id, classesBeforeBreak[2]?.rowIndex);
+                      if (classesBeforeBreak[1]?.courseCode ||
+                        classesBeforeBreak[1]?.courseTitle) {
+                        handleClickTD(_id, classesBeforeBreak[1]?.rowIndex, classesBeforeBreak[1]?.credit);
+                      }
                     }}
                     onDoubleClick={() => {
+                      if (classesBeforeBreak[1]?.courseCode ||
+                        classesBeforeBreak[1]?.courseTitle) {
+                        setCourseId(_id);
+                        setRowIndex(classesBeforeBreak[1]?.rowIndex);
+                        setCourseCredit(classesBeforeBreak[1]?.credit);
+                        document.getElementById("teacher_assign").showModal();
+                      }
+                    }}
+                    colSpan={`${classesBeforeBreak[1]?.courseCode ===
+                      classesBeforeBreak[2]?.courseCode
+                      ? "6"
+                      : "3"
+                      }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer  ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesBeforeBreak[1]?.rowIndex || swapClass?.secondRowIndex === classesBeforeBreak[1]?.rowIndex) && 'bg-purple-500'}`}
+                  >
+                    {classesBeforeBreak[1]?.courseCode && (
+                      <>
+                        {classesBeforeBreak[1]?.courseCode} (
+                        {classesBeforeBreak[1]?.courseTitle}){" "}
+                        {classesBeforeBreak[1]?.teacher?.sortForm ?? ""}
+                        {classesBeforeBreak[1]?.room ?? ""}
+                      </>
+                    )}
+                  </td> : (
+                    ""
+                  )}
+                {/* Second Two Class */}
+                <td
+                  onClick={() => {
+                    if (classesBeforeBreak[2]?.courseTitle || classesBeforeBreak[2]?.courseCode) {
+                      handleClickTD(_id, classesBeforeBreak[2]?.rowIndex, classesBeforeBreak[2]?.credit);
+                    }
+
+                  }}
+                  onDoubleClick={() => {
+                    if (classesBeforeBreak[2]?.courseTitle || classesBeforeBreak[2]?.courseCode) {
+                      setCourseId(_id);
+                      setRowIndex(classesBeforeBreak[2]?.rowIndex);
                       setCourseCredit(classesBeforeBreak[2]?.credit);
                       document.getElementById("teacher_assign").showModal();
-                    }}
-                    colSpan={`${
-                      classesBeforeBreak[2]?.courseCode ===
-                      classesBeforeBreak[3]?.courseCode
-                        ? "6"
-                        : "3"
+                    }
+                  }}
+                  colSpan={`${classesBeforeBreak[2]?.courseCode ===
+                    classesBeforeBreak[3]?.courseCode
+                    ? "6"
+                    : "3"
                     }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
-                  >
-                    {classesBeforeBreak[2]?.courseCode && (
-                      <>
-                        {classesBeforeBreak[2]?.courseCode} (
-                        {classesBeforeBreak[2]?.courseTitle}){" "}
-                        {classesBeforeBreak[2]?.teacher?.sortForm ?? ""}
-                        {classesBeforeBreak[2]?.room ?? ""}
-                      </>
-                    )}
-                  </td>
-                ) : (
-                  <td
-                    colSpan={`${
-                      classesBeforeBreak[2]?.courseCode ===
-                      classesBeforeBreak[3]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
-                  >
-                    {classesBeforeBreak[2]?.courseCode && (
-                      <>
-                        {classesBeforeBreak[2]?.courseCode} (
-                        {classesBeforeBreak[2]?.courseTitle}){" "}
-                        {classesBeforeBreak[2]?.teacher?.sortForm ?? ""}
-                        {classesBeforeBreak[2]?.room ?? ""}
-                      </>
-                    )}
-                  </td>
-                )}
+                  className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer  ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesBeforeBreak[2]?.rowIndex || swapClass?.secondRowIndex === classesBeforeBreak[2]?.rowIndex) && 'bg-purple-500'}`}
+                >
+                  {classesBeforeBreak[2]?.courseCode && (
+                    <>
+                      {classesBeforeBreak[2]?.courseCode} (
+                      {classesBeforeBreak[2]?.courseTitle}){" "}
+                      {classesBeforeBreak[2]?.teacher?.sortForm ?? ""}
+                      {classesBeforeBreak[2]?.room ?? ""}
+                    </>
+                  )}
+                </td>
                 {classesBeforeBreak[2]?.courseCode !==
-                classesBeforeBreak[3]?.courseCode ? (
-                  classesBeforeBreak[3]?.courseTitle ? (
-                    <td
-                      onClick={() => {
+                  classesBeforeBreak[3]?.courseCode ?
+                  <td
+
+                    onClick={() => {
+                      if (classesBeforeBreak[3]?.courseTitle || classesBeforeBreak[3]?.courseCode) {
+                        handleClickTD(_id, classesBeforeBreak[3]?.rowIndex, classesBeforeBreak[3]?.credit);
+                      }
+                    }}
+                    onDoubleClick={() => {
+                      if (classesBeforeBreak[3]?.courseTitle || classesBeforeBreak[3]?.courseCode) {
                         setCourseId(_id);
                         setRowIndex(classesBeforeBreak[3]?.rowIndex);
-                        handleClickTD(_id, classesBeforeBreak[3]?.rowIndex);
-                      }}
-                      onDoubleClick={() => {
                         setCourseCredit(classesBeforeBreak[3]?.credit);
                         document.getElementById("teacher_assign").showModal();
-                      }}
-                      colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
-                    >
-                      {classesBeforeBreak[3]?.courseCode && (
-                        <>
-                          {classesBeforeBreak[3]?.courseCode} (
-                          {classesBeforeBreak[3]?.courseTitle}){" "}
-                          {classesBeforeBreak[3]?.teacher?.sortForm ?? ""}
-                          {classesBeforeBreak[3]?.room ?? ""}
-                        </>
-                      )}
-                    </td>
-                  ) : (
-                    <td
-                      colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                    >
-                      {classesBeforeBreak[3]?.courseCode && (
-                        <>
-                          {classesBeforeBreak[3]?.courseCode} (
-                          {classesBeforeBreak[3]?.courseTitle}){" "}
-                          {classesBeforeBreak[3]?.teacher?.sortForm ?? ""}
-                          {classesBeforeBreak[3]?.room ?? ""}
-                        </>
-                      )}
-                    </td>
-                  )
-                ) : (
-                  ""
-                )}
+                      }
+                    }}
+                    colSpan={3}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer  ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesBeforeBreak[3]?.rowIndex || swapClass?.secondRowIndex === classesBeforeBreak[3]?.rowIndex) && 'bg-purple-500'}`}
+                  >
+                    {classesBeforeBreak[3]?.courseCode && (
+                      <>
+                        {classesBeforeBreak[3]?.courseCode} (
+                        {classesBeforeBreak[3]?.courseTitle}){" "}
+                        {classesBeforeBreak[3]?.teacher?.sortForm ?? ""}
+                        {classesBeforeBreak[3]?.room ?? ""}
+                      </>
+                    )}
+                  </td> : (
+                    ""
+                  )}
+
                 <td className="px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 border-t-0 border-b-0 text-[20px]">
                   {" "}
                   {index === 4 ? "B" : ""} {index === 5 ? "R" : ""}{" "}
@@ -475,24 +429,26 @@ const EveningFridayTable = ({
                 </td>
                 {/* After Half Period */}
                 {/* Number 5 */}
-                {classesAfterBreak[0]?.courseTitle ? (
                   <td
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(classesAfterBreak[0]?.rowIndex);
-                      handleClickTD(_id, classesAfterBreak[0]?.rowIndex);
+                      if(classesAfterBreak[0]?.courseTitle || classesAfterBreak[0]?.courseCode){
+                        handleClickTD(_id, classesAfterBreak[0]?.rowIndex, classesAfterBreak[0]?.credit);
+                      }
                     }}
                     onDoubleClick={() => {
-                      setCourseCredit(classesAfterBreak[0]?.credit);
-                      document.getElementById("teacher_assign").showModal();
+                      if(classesAfterBreak[0]?.courseTitle || classesAfterBreak[0]?.courseCode){
+                        setCourseId(_id);
+                        setRowIndex(classesAfterBreak[0]?.rowIndex);
+                        setCourseCredit(classesAfterBreak[0]?.credit);
+                        document.getElementById("teacher_assign").showModal();
+                      }
                     }}
-                    colSpan={`${
-                      classesAfterBreak[0]?.courseCode ===
+                    colSpan={`${classesAfterBreak[0]?.courseCode ===
                       classesAfterBreak[1]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                      ? "6"
+                      : "3"
+                      }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer  ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesAfterBreak[0]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[0]?.rowIndex) && 'bg-purple-500'}`}
                   >
                     {classesAfterBreak[0]?.courseCode && (
                       <>
@@ -503,44 +459,27 @@ const EveningFridayTable = ({
                       </>
                     )}
                   </td>
-                ) : (
-                  <td
-                    colSpan={`${
-                      classesAfterBreak[0]?.courseCode ===
-                      classesAfterBreak[1]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
-                  >
-                    {classesAfterBreak[0]?.courseCode && (
-                      <>
-                        {classesAfterBreak[0]?.courseCode} (
-                        {classesAfterBreak[0]?.courseTitle}){" "}
-                        {classesAfterBreak[0]?.teacher?.sortForm ?? ""}
-                        {classesAfterBreak[0]?.room ?? ""}
-                      </>
-                    )}
-                  </td>
-                )}
-                {classesAfterBreak[1]?.courseCode ? (
+
                   <td
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(classesAfterBreak[1]?.rowIndex);
-                      handleClickTD(_id, classesAfterBreak[1]?.rowIndex);
+                      if(classesAfterBreak[1]?.courseCode || classesAfterBreak[1]?.courseCode){
+                        handleClickTD(_id, classesAfterBreak[1]?.rowIndex, classesAfterBreak[1]?.credit);
+                      }
                     }}
                     onDoubleClick={() => {
-                      setCourseCredit(classesAfterBreak[1]?.credit);
-                      document.getElementById("teacher_assign").showModal();
+                      if(classesAfterBreak[1]?.courseCode || classesAfterBreak[1]?.courseTitle){
+                        setCourseId(_id);
+                        setRowIndex(classesAfterBreak[1]?.rowIndex);
+                        setCourseCredit(classesAfterBreak[1]?.credit);
+                        document.getElementById("teacher_assign").showModal();
+                      }
                     }}
-                    colSpan={`${
-                      classesAfterBreak[1]?.courseCode ===
+                    colSpan={`${classesAfterBreak[1]?.courseCode ===
                       classesAfterBreak[2]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                      ? "6"
+                      : "3"
+                      }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesAfterBreak[1]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[1]?.rowIndex) && 'bg-purple-500'}`}
                   >
                     {classesAfterBreak[1]?.courseCode && (
                       <>
@@ -551,41 +490,25 @@ const EveningFridayTable = ({
                       </>
                     )}
                   </td>
-                ) : (
-                  <td
-                    colSpan={`${
-                      classesAfterBreak[1]?.courseCode ===
-                      classesAfterBreak[2]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                  >
-                    {classesAfterBreak[1]?.courseCode && (
-                      <>
-                        {classesAfterBreak[1]?.courseCode} (
-                        {classesAfterBreak[1]?.courseTitle}){" "}
-                        {classesAfterBreak[1]?.teacher?.sortForm ?? ""}
-                        {classesAfterBreak[1]?.room ?? ""}
-                      </>
-                    )}
-                  </td>
-                )}
                 {classesAfterBreak[1]?.courseCode !==
                   classesAfterBreak[2]?.courseCode &&
-                  (classesAfterBreak[2]?.courseCode ? (
+                   (
                     <td
                       onClick={() => {
-                        setCourseId(_id);
-                        setRowIndex(classesAfterBreak[2]?.rowIndex);
-                        handleClickTD(_id, classesAfterBreak[2]?.rowIndex);
+                        if(classesAfterBreak[2]?.courseCode || classesAfterBreak[2]?.courseTitle){
+                          handleClickTD(_id, classesAfterBreak[2]?.rowIndex, classesAfterBreak[2]?.credit);
+                        }
                       }}
                       onDoubleClick={() => {
-                        setCourseCredit(classesAfterBreak[2]?.credit);
-                        document.getElementById("teacher_assign").showModal();
-                      }}
+                        if(classesAfterBreak[2]?.courseCode || classesAfterBreak[2]?.courseTitle){
+                          setCourseId(_id);
+                          setRowIndex(classesAfterBreak[2]?.rowIndex);
+                          setCourseCredit(classesAfterBreak[2]?.credit);
+                          document.getElementById("teacher_assign").showModal();
+                        }
+                        }}
                       colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesAfterBreak[2]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[2]?.rowIndex) && 'bg-purple-500'}`}
                     >
                       {classesAfterBreak[2]?.courseCode && (
                         <>
@@ -595,43 +518,30 @@ const EveningFridayTable = ({
                           {classesAfterBreak[2]?.room ?? ""}
                         </>
                       )}
-                    </td>
-                  ) : (
-                    <td
-                      colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                    >
-                      {classesAfterBreak[2]?.courseCode && (
-                        <>
-                          {classesAfterBreak[2]?.courseCode} (
-                          {classesAfterBreak[2]?.courseTitle}){" "}
-                          {classesAfterBreak[2]?.teacher?.sortForm ?? ""}
-                          {classesAfterBreak[2]?.room ?? ""}
-                        </>
-                      )}
-                    </td>
-                  ))}
+                    </td>)}
 
                 {/* 7 and 8 */}
 
-                {classesAfterBreak[3]?.courseCode ? (
                   <td
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(classesAfterBreak[3]?.rowIndex);
-                      handleClickTD(_id, classesAfterBreak[3]?.rowIndex);
+                      if(classesAfterBreak[3]?.courseCode || classesAfterBreak[3]?.courseTitle){
+                        handleClickTD(_id, classesAfterBreak[3]?.rowIndex, classesAfterBreak[3]?.credit);
+                      }
                     }}
                     onDoubleClick={() => {
-                      setCourseCredit(classesAfterBreak[3]?.credit);
-                      document.getElementById("teacher_assign").showModal();
+                      if(classesAfterBreak[3]?.courseCode || classesAfterBreak[3]?.courseTitle){
+                        setCourseId(_id);
+                        setRowIndex(classesAfterBreak[3]?.rowIndex);
+                        setCourseCredit(classesAfterBreak[3]?.credit);
+                        document.getElementById("teacher_assign").showModal();
+                      }
                     }}
-                    colSpan={`${
-                      classesAfterBreak[3]?.courseCode ===
+                    colSpan={`${classesAfterBreak[3]?.courseCode ===
                       classesAfterBreak[4]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                      ? "6"
+                      : "3"
+                      }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesAfterBreak[3]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[3]?.rowIndex) && 'bg-purple-500'}`}
                   >
                     {classesAfterBreak[3]?.courseCode && (
                       <>
@@ -642,41 +552,25 @@ const EveningFridayTable = ({
                       </>
                     )}
                   </td>
-                ) : (
-                  <td
-                    colSpan={`${
-                      classesAfterBreak[3]?.courseCode ===
-                      classesAfterBreak[4]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                  >
-                    {classesAfterBreak[3]?.courseCode && (
-                      <>
-                        {classesAfterBreak[3]?.courseCode} (
-                        {classesAfterBreak[3]?.courseTitle}){" "}
-                        {classesAfterBreak[3]?.teacher?.sortForm ?? ""}
-                        {classesAfterBreak[3]?.room ?? ""}
-                      </>
-                    )}
-                  </td>
-                )}
                 {classesAfterBreak[3]?.courseCode !==
                   classesAfterBreak[4]?.courseCode &&
-                  (classesAfterBreak[4]?.courseCode ? (
                     <td
+
                       onClick={() => {
-                        setCourseId(_id);
-                        setRowIndex(classesAfterBreak[4]?.rowIndex);
-                        handleClickTD(_id, classesAfterBreak[4]?.rowIndex);
+                        if(classesAfterBreak[4]?.courseCode || classesAfterBreak[4]?.courseTitle){
+                          handleClickTD(_id, classesAfterBreak[4]?.rowIndex, classesAfterBreak[4]?.credit);
+                        }
                       }}
                       onDoubleClick={() => {
-                        setCourseCredit(classesAfterBreak[4]?.credit);
-                        document.getElementById("teacher_assign").showModal();
+                        if(classesAfterBreak[4]?.courseCode || classesAfterBreak[4]?.courseTitle){
+                          setCourseId(_id);
+                          setRowIndex(classesAfterBreak[4]?.rowIndex);
+                          setCourseCredit(classesAfterBreak[4]?.credit);
+                          document.getElementById("teacher_assign").showModal();
+                        }
                       }}
                       colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesAfterBreak[4]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[4]?.rowIndex) && 'bg-purple-500'}`}
                     >
                       {classesAfterBreak[4]?.courseCode && (
                         <>
@@ -686,40 +580,28 @@ const EveningFridayTable = ({
                           {classesAfterBreak[4]?.room ?? ""}
                         </>
                       )}
-                    </td>
-                  ) : (
-                    <td
-                      colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                    >
-                      {classesAfterBreak[4]?.courseCode && (
-                        <>
-                          {classesAfterBreak[4]?.courseCode} (
-                          {classesAfterBreak[4]?.courseTitle}){" "}
-                          {classesAfterBreak[4]?.teacher?.sortForm ?? ""}
-                          {classesAfterBreak[4]?.room ?? ""}
-                        </>
-                      )}
-                    </td>
-                  ))}
-                {classesAfterBreak[5]?.courseCode ? (
+                    </td>}
+
                   <td
                     onClick={() => {
-                      setCourseId(_id);
-                      setRowIndex(classesAfterBreak[5]?.rowIndex);
-                      handleClickTD(_id, classesAfterBreak[5]?.rowIndex);
+                      if(classesAfterBreak[5]?.courseCode || classesAfterBreak[5]?.courseTitle){
+                        handleClickTD(_id, classesAfterBreak[5]?.rowIndex, classesAfterBreak[5]?.credit);
+                      }
                     }}
                     onDoubleClick={() => {
-                      setCourseCredit(classesAfterBreak[5]?.credit);
-                      document.getElementById("teacher_assign").showModal();
+                      if(classesAfterBreak[5]?.courseCode || classesAfterBreak[5]?.courseTitle){
+                        setCourseCredit(classesAfterBreak[5]?.credit);
+                        setCourseId(_id);
+                        setRowIndex(classesAfterBreak[5]?.rowIndex);
+                        document.getElementById("teacher_assign").showModal();
+                      }
                     }}
-                    colSpan={`${
-                      classesAfterBreak[5]?.courseCode ===
+                    colSpan={`${classesAfterBreak[5]?.courseCode ===
                       classesAfterBreak[6]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                      ? "6"
+                      : "3"
+                      }`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesAfterBreak[5]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[5]?.rowIndex) && 'bg-purple-500'}`}
                   >
                     {classesAfterBreak[5]?.courseCode && (
                       <>
@@ -730,41 +612,25 @@ const EveningFridayTable = ({
                       </>
                     )}
                   </td>
-                ) : (
-                  <td
-                    colSpan={`${
-                      classesAfterBreak[5]?.courseCode ===
-                      classesAfterBreak[6]?.courseCode
-                        ? "6"
-                        : "3"
-                    }`}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
-                  >
-                    {classesAfterBreak[5]?.courseCode && (
-                      <>
-                        {classesAfterBreak[5]?.courseCode} (
-                        {classesAfterBreak[5]?.courseTitle}){" "}
-                        {classesAfterBreak[5]?.teacher?.sortForm ?? ""}
-                        {classesAfterBreak[5]?.room ?? ""}
-                      </>
-                    )}
-                  </td>
-                )}
+
                 {classesAfterBreak[5]?.courseCode !==
                   classesAfterBreak[6]?.courseCode &&
-                  (classesAfterBreak[6]?.courseCode ? (
                     <td
                       onClick={() => {
-                        setCourseId(_id);
-                        setRowIndex(classesAfterBreak[6]?.rowIndex);
-                        handleClickTD(_id, classesAfterBreak[6]?.rowIndex);
+                        if(classesAfterBreak[6]?.courseCode || classesAfterBreak[6]?.courseTitle){
+                          handleClickTD(_id, classesAfterBreak[6]?.rowIndex, classesAfterBreak[6]?.credit);
+                        }
                       }}
                       onDoubleClick={() => {
-                        setCourseCredit(classesAfterBreak[6]?.credit);
-                        document.getElementById("teacher_assign").showModal();
+                        if(classesAfterBreak[6]?.courseCode || classesAfterBreak[6]?.courseTitle){
+                          setCourseId(_id);
+                          setRowIndex(classesAfterBreak[6]?.rowIndex);
+                          setCourseCredit(classesAfterBreak[6]?.credit);
+                          document.getElementById("teacher_assign").showModal();
+                        }
                       }}
                       colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === classesAfterBreak[6]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[6]?.rowIndex) && 'bg-purple-500'}`}
                     >
                       {classesAfterBreak[6]?.courseCode && (
                         <>
@@ -774,26 +640,12 @@ const EveningFridayTable = ({
                           {classesAfterBreak[6]?.room ?? ""}
                         </>
                       )}
-                    </td>
-                  ) : (
-                    <td
-                      colSpan={3}
-                      className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
-                    >
-                      {classesAfterBreak[6]?.courseCode && (
-                        <>
-                          {classesAfterBreak[6]?.courseCode} (
-                          {classesAfterBreak[6]?.courseTitle}){" "}
-                          {classesAfterBreak[6]?.teacher?.sortForm ?? ""}
-                          {classesAfterBreak[6]?.room ?? ""}
-                        </>
-                      )}
-                    </td>
-                  ))}
+                    </td>}
               </tr>
             );
           })}
       </table>
+      
       {/* Swapping btn */}
       {swapClass.firstRowIndex && swapClass.secondRowIndex && (
         <div className="h-screen w-full bg-slate-500 bg-opacity-75 flex items-center justify-center absolute left-0 top-0">

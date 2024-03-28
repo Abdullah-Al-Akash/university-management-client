@@ -66,50 +66,62 @@ const RegularTable = ({
   };
 
   // Handle click td
-  const handleClickTD = (routineId, rowIndex) => {
+  const handleClickTD = (routineId, rowIndex, credit) => {
+    const isSessional = credit % 1 !== 0;
+
     setSwapClass((prevState) => {
-      // If routineId is different, select the class
-      if (prevState.routineId !== routineId) {
-        return {
-          routineId: routineId,
-          firstRowIndex: rowIndex,
-          secondRowIndex: null, // Reset secondRowIndex
-        };
-      } else {
-        // If routineId is the same, deselect the class
-        if (
-          prevState.firstRowIndex === rowIndex ||
-          prevState.secondRowIndex === rowIndex
-        ) {
-          // If the clicked class is already selected, deselect it
-          return {
-            ...prevState,
-            firstRowIndex:
-              prevState.firstRowIndex === rowIndex
-                ? null
-                : prevState.firstRowIndex,
-            secondRowIndex:
-              prevState.secondRowIndex === rowIndex
-                ? null
-                : prevState.secondRowIndex,
-          };
-        } else if (prevState.firstRowIndex === null) {
-          // If neither firstRowIndex nor secondRowIndex matches, set firstRowIndex
-          return {
-            ...prevState,
-            firstRowIndex: rowIndex,
-          };
-        } else if (prevState.secondRowIndex === null) {
-          // If firstRowIndex is already set but secondRowIndex is not, set secondRowIndex
-          return {
-            ...prevState,
-            secondRowIndex: rowIndex,
-          };
+        // If routineId is different, select the class
+        if (prevState.routineId !== routineId) {
+            return {
+                routineId: routineId,
+                firstRowIndex: rowIndex,
+                firstRowCredit: credit, // Store the credit of the first selected class
+                secondRowIndex: null, // Reset secondRowIndex
+            };
+        } else {
+            // If routineId is the same, deselect the class
+            if (
+                prevState.firstRowIndex === rowIndex ||
+                prevState.secondRowIndex === rowIndex
+            ) {
+                // If the clicked class is already selected, deselect it
+                return {
+                    ...prevState,
+                    firstRowIndex:
+                        prevState.firstRowIndex === rowIndex
+                            ? null
+                            : prevState.firstRowIndex,
+                    secondRowIndex:
+                        prevState.secondRowIndex === rowIndex
+                            ? null
+                            : prevState.secondRowIndex,
+                };
+            } else if (prevState.firstRowIndex === null) {
+                // If neither firstRowIndex nor secondRowIndex matches, set firstRowIndex
+                return {
+                    ...prevState,
+                    firstRowIndex: rowIndex,
+                    firstRowCredit: credit, // Store the credit of the first selected class
+                };
+            } else if (
+                prevState.secondRowIndex === null &&
+                ((isSessional && prevState.firstRowCredit % 1 !== 0) || // If first class is sessional
+                (!isSessional && prevState.firstRowCredit % 1 === 0)) // If first class is not sessional
+            ) {
+                // If firstRowIndex is already set but secondRowIndex is not,
+                // and the selected class is either sessional or normal,
+                // and the credit of the first selected class matches the second class
+                return {
+                    ...prevState,
+                    secondRowIndex: rowIndex,
+                };
+            }
         }
-      }
-      return prevState; // Return prevState if no state update is needed
+        return prevState; // Return prevState if no state update is needed
     });
-  };
+};
+
+  
   useEffect(() => {
     setLoadingTime(true);
     fetch(
@@ -196,6 +208,7 @@ const RegularTable = ({
               {timeSlot[3]?.period}
             </td>
           </tr>
+
           <tr>
             <td className="text-[14px] border-[#000] border-2 relative !z-[-1] border-b-[1px] border-r-[1px] whitespace-nowrap text-[#000] p-[16px] text-center">
               {timeSlot[2]?.startTime}-{timeSlot[2]?.endTime}
@@ -248,15 +261,15 @@ const RegularTable = ({
                   <td
                     colSpan={3}
                     onClick={() => {
-                      handleClickTD(_id, courses[0]?.rowIndex);
-                      setCourseId(_id);
-                      setRowIndex(courses["0"]?.rowIndex);
+                      handleClickTD(_id, courses[0]?.rowIndex, courses[0]?.credit);
                     }}
                     onDoubleClick={() => {
+                      setRowIndex(courses["0"]?.rowIndex);
+                      setCourseId(_id);
                       setCourseCredit(courses["0"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["0"]?.rowIndex || swapClass?.secondRowIndex === courses["0"]?.rowIndex) && 'bg-purple-500'}`}
                   >
                     {courses["0"]?.courseCode && (
                       <>
@@ -286,15 +299,15 @@ const RegularTable = ({
                   <td
                     colSpan={3}
                     onClick={() => {
-                      handleClickTD(_id, courses[1]?.rowIndex);
-                      setCourseId(_id);
-                      setRowIndex(courses["1"]?.rowIndex);
+                      handleClickTD(_id, courses[1]?.rowIndex, courses[1]?.credit);
                     }}
                     onDoubleClick={() => {
+                      setCourseId(_id);
+                      setRowIndex(courses["1"]?.rowIndex);
                       setCourseCredit(courses["1"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer `}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["1"]?.rowIndex || swapClass?.secondRowIndex === courses["1"]?.rowIndex) && 'bg-purple-500'}`}
                   >
                     {courses["1"]?.courseCode && (
                       <>
@@ -326,15 +339,15 @@ const RegularTable = ({
                       courses["2"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }
                     onClick={() => {
-                      handleClickTD(_id, courses["2"]?.rowIndex);
-                      setCourseId(_id);
-                      setRowIndex(courses["2"]?.rowIndex);
+                      handleClickTD(_id, courses["2"]?.rowIndex, courses["2"]?.credit);
                     }}
                     onDoubleClick={() => {
+                      setCourseId(_id);
+                      setRowIndex(courses["2"]?.rowIndex);
                       setCourseCredit(courses["2"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
+                    className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["2"]?.rowIndex || swapClass?.secondRowIndex === courses["2"]?.rowIndex) && 'bg-purple-500'} ${
                       courses["2"]?.courseTitle?.includes("Sessional")
                         ? "border-r-0"
                         : ""
@@ -390,15 +403,15 @@ const RegularTable = ({
                 {courses["3"]?.courseTitle ? (
                   <td
                     onClick={() => {
-                      handleClickTD(_id, courses[3]?.rowIndex);
-                      setCourseId(_id);
-                      setRowIndex(courses["3"]?.rowIndex);
+                      handleClickTD(_id, courses[3]?.rowIndex, courses[3]?.credit);
                     }}
                     onDoubleClick={() => {
+                      setCourseId(_id);
+                      setRowIndex(courses["3"]?.rowIndex);
                       setCourseCredit(courses["3"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${swapClass?.routineId === _id && (swapClass?.firstRowIndex === courses["3"]?.rowIndex || swapClass?.secondRowIndex === courses["3"]?.rowIndex) && 'bg-purple-500'}`}
                     colSpan={
                       courses["3"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }

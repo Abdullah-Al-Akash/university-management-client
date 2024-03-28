@@ -21,6 +21,7 @@ const FacultyDetails = () => {
   const [facultyTimes, setFacultyTimes] = useState({});
   const [facultyTimesLoading, setFacultyTimesLoading] = useState(false)
 
+  
   useEffect(() => {
     setFacultyTimesLoading(true)
     fetch(

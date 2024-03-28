@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import "./UploadRoutine.css";
+import Swal from "sweetalert2";
 const UploadRoutine = ({ setControl, control }) => {
   const [error, setError] = useState(null);
   const [lineCount, setLineCount] = useState(10);
@@ -60,6 +61,15 @@ const UploadRoutine = ({ setControl, control }) => {
         // Reset textarea value after successful upload
         e.target.elements.routineByJSON.value = "";
         setControl(!control);
+        const modal = document.getElementById("uploadRoutine");
+        modal.close();
+        Swal.fire({
+          title: "Upload Routine Successfully!",
+          position: "top-center",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       } else {
         setControl(!control);
         throw new Error("Failed to upload routine");
@@ -136,7 +146,7 @@ const UploadRoutine = ({ setControl, control }) => {
           <div className="text-right">
             <button
               type="submit"
-              className="bg-orange-300 px-10 py-3 rounded-lg font-medium"
+              className="mt-2 bg-purple-500 hover:bg-purple-800 hover:text-white px-10 py-3 rounded-lg font-medium "
               disabled={error}
             >
               Upload Routine

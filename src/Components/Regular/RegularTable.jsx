@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 import TeacherAssign from "../Modal/TeacherAssign";
 import Loading from "../../Shared/Loading";
@@ -15,8 +15,23 @@ const RegularTable = ({
 }) => {
   const [courseId, setCourseId] = useState("");
   const [rowIndex, setRowIndex] = useState(null);
-  console.log(data, "table");
-  if (loading) {
+  const [timeSlot, setTimeSlot] = useState([]);
+  const [loadingTime, setLoadingTime] = useState(false);
+
+  useEffect(() => {
+    setLoadingTime(true);
+    fetch(
+      "https://routine-management-system-backend.onrender.com/api/v1/times/get-times-slots?day=Saturday&shift=Regular"
+    )
+      .then((res) => res.json())
+      .then((data) => setTimeSlot(data?.data), setLoadingTime(false))
+      .catch((err) => {
+        setLoadingTime(false);
+        console.log(err);
+      });
+      
+  }, []);
+  if (loading || loadingTime) {
     return <Loading></Loading>;
   }
   return (
@@ -62,38 +77,44 @@ const RegularTable = ({
               rowSpan={2}
               colSpan={3}
             >
-              09.00-10.20AM
+              {timeSlot[0]?.startTime}-{timeSlot[0]?.endTime}
+              {timeSlot[0]?.period}
             </td>
             <td
               className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
               rowSpan={2}
               colSpan={3}
             >
-              10.30-11.50AM
+              {timeSlot[1]?.startTime}-{timeSlot[1]?.endTime}
+              {timeSlot[1]?.period}
             </td>
 
             <td
               className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
               colSpan={2}
             >
-              12.00-02.00PM
+              {timeSlot[2]?.sessionalStartTime}-{timeSlot[2]?.sessionalEndTime}
+              {timeSlot[2]?.period}
             </td>
             <td className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"></td>
             <td
               className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
               colSpan={2}
             >
-              02.00-04.00PM
+              {timeSlot[3]?.sessionalStartTime}-{timeSlot[3]?.sessionalEndTime}
+              {timeSlot[3]?.period}
             </td>
           </tr>
           <tr>
             <td className="text-[14px] border-[#000] border-2 relative !z-[-1] border-b-[1px] border-r-[1px] whitespace-nowrap text-[#000] p-[16px] text-center">
-              12.00-01.20PM
+              {timeSlot[2]?.startTime}-{timeSlot[2]?.endTime}
+              {timeSlot[2]?.period}
             </td>
             <td className="text-[14px] border-[#000] border-2 relative !z-[-1] border-b-[1px] border-r-[1px] whitespace-nowrap text-[#000] p-[16px] text-center"></td>
             <td className="text-[14px] border-[#000] border-2 border-r-[1px] text-[#000] p-[16px] text-center  border-b-0"></td>
             <td className="text-[14px] border-[#000] border-2 relative !z-[-1] border-b-[1px] border-r-[1px] whitespace-nowrap text-[#000] p-[16px] text-center">
-              02.00-03.20PM
+              {timeSlot[3]?.startTime}-{timeSlot[3]?.endTime}
+              {timeSlot[3]?.period}
             </td>
             <td className="text-[14px] border-[#000] border-2 border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center"></td>
           </tr>
@@ -103,7 +124,7 @@ const RegularTable = ({
 
           {data?.map((item, index) => {
             const { batch, courses, room, sem, yearSem, _id } = item;
-            console.log(courses, 'from batch regular', batch);
+            console.log(courses, "from batch regular", batch);
             return (
               <tr key={index}>
                 <td

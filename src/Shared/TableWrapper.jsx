@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 const TableWrapper = ({ children, minWidth, borderStyle }) => {
-  console.log(minWidth);
+  // console.log(minWidth);
     return (
       <section
         className={`overflow-x-auto custom-table-class`}

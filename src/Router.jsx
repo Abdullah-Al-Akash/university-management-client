@@ -8,7 +8,7 @@ export const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/faculty",
+    path: "/all-faculties",
     element: <FacultyTable />,
   },
 ]);

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
-
+import "./UploadRoutine.css";
 const UploadRoutine = () => {
   const [error, setError] = useState(null);
   const [lineCount, setLineCount] = useState(10);
@@ -94,7 +94,7 @@ const UploadRoutine = () => {
           : "line-number";
       const style =
         error && error.includes(`line ${i}`)
-          ? { backgroundColor: "red", borderRadius: "5px" }
+          ? { backgroundColor: "red", borderRadius: "5px", color: "white" }
           : {};
       lineNumberArray.push(
         <div key={i} className={lineNumberClassName} style={style}>
@@ -108,19 +108,26 @@ const UploadRoutine = () => {
   return (
     <dialog id="uploadRoutine" className="modal">
       <div className="modal-box flex">
-        <div className="mt-3 pe-2">
-          <div className="line-numbers">{renderLineNumbers()}</div>
-        </div>
-        <form className="flex-grow" onSubmit={handleUploadRoutine}>
-          <div className="textarea-container">
-            <textarea
-              name="routineByJSON"
-              placeholder="Please Write JSON Format"
-              className="w-full resize-none border outline-dark border-gray-400 p-3 rounded-lg"
-              style={textareaStyle}
-              rows={lineCount} // Set number of rows dynamically
-              onChange={handleInputChange}
-            ></textarea>
+        <form
+          className="textarea-container flex-grow"
+          onSubmit={handleUploadRoutine}
+        >
+          <div className="overflow-y-auto h-[550px] border outline-dark border-gray-400">
+            <div className="flex min-h-[550p] ">
+              <div className="mt-[10px] ps-2 ">
+                <div className="line-numbers leading-[20.9px] text-[18px] text-center">
+                  {renderLineNumbers()}
+                </div>
+              </div>
+              <textarea
+                name="routineByJSON"
+                placeholder="Please Write JSON Format"
+                className="w-full resize-none  p-3 rounded-lg min-h-[550px] leading-[24.9px] text-[18px] border-0 !outline-none"
+                style={textareaStyle}
+                rows={lineCount} // Set number of rows dynamically
+                onChange={handleInputChange}
+              ></textarea>
+            </div>
           </div>
           {error && <p className="text-red-500">{error}</p>}
           <div className="text-right">

@@ -50,17 +50,19 @@ const AddNewBatchModal = ({ setControl, control }) => {
     }
   };
 
-  console.log(errors, 12);
 
   return (
     <dialog id="add_new_batch_modal" className="modal">
-      <div className="modal-box">
-        <form className="space-y-4" onSubmit={handleSubmit(addNewBatchHandler)}>
+      <div className="modal-box ">
+        <form
+          className="space-y-4 w-full"
+          onSubmit={handleSubmit(addNewBatchHandler)}
+        >
           <label htmlFor="confirm" className="font-semibold">
             Please type <span className="font-bold">Confirm</span> to add new
             batch
           </label>
-          <div className="space-y-2">
+          <div className="space-y-2 w-full">
             <input
               type="text"
               placeholder="Confirm"

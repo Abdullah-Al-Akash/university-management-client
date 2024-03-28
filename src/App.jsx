@@ -114,7 +114,7 @@ const App = () => {
 
       {/* Modal */}
       <AddNewBatchModal setControl={setControl} control={control} />
-      <UploadRoutine></UploadRoutine>
+      <UploadRoutine control={control} setControl={setControl}></UploadRoutine>
     </div>
   );
 };

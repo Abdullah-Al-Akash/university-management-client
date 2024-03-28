@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import "./UploadRoutine.css";
-const UploadRoutine = () => {
+const UploadRoutine = ({ setControl, control }) => {
   const [error, setError] = useState(null);
   const [lineCount, setLineCount] = useState(10);
   const [textareaStyle, setTextareaStyle] = useState({
     outlineColor: "black",
   });
+
   const url = `https://routine-management-system-backend.onrender.com/api/v1`;
 
   useEffect(() => {
@@ -58,7 +59,9 @@ const UploadRoutine = () => {
         console.log("Routine uploaded successfully");
         // Reset textarea value after successful upload
         e.target.elements.routineByJSON.value = "";
+        setControl(!control);
       } else {
+        setControl(!control);
         throw new Error("Failed to upload routine");
       }
     } catch (error) {

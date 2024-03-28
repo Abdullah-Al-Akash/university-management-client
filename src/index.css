@@ -35,5 +35,5 @@
 
 
 .my-btn-one {
-  @apply bg-purple-500 border-2 border-transparent text-slate-100 rounded py-3 px-6 hover:bg-slate-100 hover:text-purple-500 hover:border-2 hover:border-purple-500 font-semibold
+  @apply bg-purple-500 border-2 border-transparent text-slate-100 rounded py-3 px-6 hover:bg-slate-100 hover:text-purple-500 hover:border-2 hover:border-purple-500 font-semibold flex items-center justify-center gap-1
 }

@@ -1,0 +1,241 @@
+import { useEffect, useState } from "react";
+
+import { useParams } from "react-router-dom";
+
+import html2pdf from "html2pdf.js";
+
+// const FacultyTable = () => {
+//   const data = [
+//     { id: 1, name: "John Doe", job: "Software Engineer", color: "Blue" },
+//     { id: 2, name: "Jane Smith", job: "Data Scientist", color: "Red" },
+//     { id: 3, name: "Alice Johnson", job: "UI/UX Designer", color: "Green" },
+//   ];
+// };
+
+const FacultyDetails = () => {
+  const { id } = useParams();
+
+  const [facultyTimes, setFacultyTimes] = useState({});
+
+  useEffect(() => {
+    fetch(
+      `https://routine-management-system-backend.onrender.com/api/v1/teacher/get-individual-routine/${id}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setFacultyTimes(data?.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, [id]);
+
+  console.log("facultyTimes:", facultyTimes);
+  const data = [
+    { id: 1, name: "John Doe", job: "Software Engineer", color: "Blue" },
+    { id: 2, name: "Jane Smith", job: "Data Scientist", color: "Red" },
+    { id: 3, name: "Alice Johnson", job: "UI/UX Designer", color: "Green" },
+  ];
+
+  const handleDownload = () => {
+    alert("h");
+    const dataContainer = document.getElementById("download-container");
+    const opt = {
+      margin: 0.2,
+      filename: "Leads.pdf",
+      image: { type: "jpeg", quality: 100 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+    html2pdf().from(dataContainer).set(opt).save();
+  };
+
+  console.log({ times: facultyTimes.times?.classesTimes?.classesTimes });
+
+  return (
+    <main className="w-[900px] mx-auto ">
+      <button onClick={handleDownload} id="download">
+        Download
+      </button>
+      <section id="download-container">
+        <table
+          border={1}
+          className=" font-medium text-center  border-[#000] mx-auto w-full"
+          cellPadding="0"
+          cellSpacing={0}
+        >
+          <tr>
+            <td
+              className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
+              rowSpan={2}
+              colSpan={1}
+            >
+              Day
+            </td>
+
+            <td
+              className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap"
+              colSpan={6}
+            >
+              Time
+            </td>
+          </tr>
+          <tr>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
+              9:0-10:20am
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
+              10:30-11:50am
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
+              12:00-1:20pm
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
+              2:00-3:20pm
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
+              5:30-7:10pm
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
+              6:20-7:10pm
+            </td>
+          </tr>
+
+          {[
+            "Sunday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ].map((day, i) => {
+            const time = facultyTimes.times?.find((item) => item.day === day);
+            console.log({ time });
+            return (
+              <tr key={i}>
+                <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
+                  {day}
+                </td>
+
+                {time?.classesTimes.map((item, i) => {
+                  return (
+                    <td
+                      key={i}
+                      className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap"
+                    >
+                      {item?.startTime}-{item?.endTime}
+                      <br />
+                      <span>{item?.courseCode}</span>
+                    </td>
+                  );
+                })}
+
+                {Array.from(
+                  { length: 7 - ((time?.classesTimes?.length || 0) + 1) },
+                  (v, i) => (
+                    <td
+                      key={i}
+                      className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
+                    ></td>
+                  )
+                )}
+              </tr>
+            );
+          })}
+        </table>
+
+        <div className="mt-[40px]">
+          <table
+            border={1}
+            className="table-auto font-medium text-center  border-[#000] mx-auto w-full"
+            cellPadding="0"
+            cellSpacing={0}
+          >
+            {/* table head */}
+            <tr>
+              <td className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                Serial No
+              </td>
+
+              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                Course Code
+              </td>
+              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                Course Title
+              </td>
+              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                Program
+              </td>
+              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                Cr
+              </td>
+              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                Cr Hr
+              </td>
+              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                Batch & Year-Semester
+              </td>
+            </tr>
+            {facultyTimes.times?.map((item, i) => {
+              return (
+                <tr key={i}>
+                  <td className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                    {i + 1}
+                  </td>
+
+                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                    Course Code
+                  </td>
+                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                    Course Title
+                  </td>
+                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                    CSE(REG)
+                  </td>
+                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                    Cr
+                  </td>
+                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                    Cr Hr
+                  </td>
+                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
+                    Batch & Year-Semester
+                  </td>
+                </tr>
+              );
+            })}
+            {/* table footer */}
+            <tr>
+              <td
+                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
+                colSpan={4}
+              >
+                Total Credits & Minutes
+              </td>
+              <td
+                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
+                colSpan={1}
+              >
+                Total cr
+              </td>
+              <td
+                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
+                colSpan={1}
+              >
+                Total cr Hr
+              </td>
+              <td
+                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
+                colSpan={1}
+              >
+                Total cr Hr
+              </td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default FacultyDetails;

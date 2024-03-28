@@ -143,10 +143,10 @@ const UploadRoutine = ({ setControl, control }) => {
             </div>
           </div>
           {error && <p className="text-red-500">{error}</p>}
-          <div className="text-right">
+          <div className="flex justify-end mt-2">
             <button
               type="submit"
-              className="mt-2 bg-purple-500 hover:bg-purple-800 hover:text-white px-10 py-3 rounded-lg font-medium "
+              className="my-btn-one"
               disabled={error}
             >
               Upload Routine

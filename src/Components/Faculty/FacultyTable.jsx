@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FaBackward, FaDownload } from "react-icons/fa";
 import TableWrapper from "../../Shared/TableWrapper";
@@ -70,39 +70,36 @@ const FacultyTable = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <select
-            name=""
-            className="outline-none bg-slate-200 p-2 cursor-pointer"
-            id=""
-            onChange={(e) => setFacultyId(e.target.value)}
-          >
-            {allFaculty?.map((faculty) => {
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+             {allFaculty?.map((faculty, ind) => {
               const { fullName, _id } = faculty;
               return (
-                <option className="cursor-pointer" key={_id} value={_id}>
-                  {fullName}
-                </option>
-              );
-            })}
-          </select>
+                <div key={ind} className="rounded bg-slate-100 border shadow p-2 space-y-2 flex items-center justify-center flex-col">
+                  <h2 className="font-semibold">{fullName}</h2>
+                <Link to={`/individual-faculty/${_id}`}><button className="my-btn-one-outline ">See table</button></Link>
+                </div>
+                // <option className="cursor-pointer" key={_id} value={_id}>
+                //   {fullName}
+                // </option>
+             )})}
+          </div>
+          // <select
+          //   name=""
+          //   className="outline-none bg-slate-200 p-2 cursor-pointer"
+          //   id=""
+          //   onChange={(e) => setFacultyId(e.target.value)}
+          // >
+          //   {allFaculty?.map((faculty) => {
+          //     const { fullName, _id } = faculty;
+          //     return (
+          //       <option className="cursor-pointer" key={_id} value={_id}>
+          //         {fullName}
+          //       </option>
+          //     );
+          //   })}
+          // </select>
         )}
-      </div>
-
-      <div className="flex justify-between">
-        <button
-          // onClick={downloadPDF}
-          disabled={loader}
-          className="brand-btn flex items-center gap-2 px-4 py-2"
-        >
-          {loader ? <span>Downloading...</span> : <span>Download</span>}
-          <FaDownload />
-        </button>
-      </div>
-
-      <div className="actual-receipt">
-        {/* <PDFViewer style={{ width: "100%", height: "100vh" }}> */}
-        <MyDocument facultyName={FacultyName} allFaculty={allFaculty} />
-        {/* </PDFViewer> */}
       </div>
 
       <UploadFacultiesModal />

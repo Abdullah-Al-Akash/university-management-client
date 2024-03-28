@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import html2pdf from "html2pdf.js";
+import { FaBackward } from "react-icons/fa6";
 
 // const FacultyTable = () => {
 //   const data = [
@@ -14,6 +15,7 @@ import html2pdf from "html2pdf.js";
 
 const FacultyDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
 
   const [facultyTimes, setFacultyTimes] = useState({});
 
@@ -38,7 +40,6 @@ const FacultyDetails = () => {
   ];
 
   const handleDownload = () => {
-    alert("h");
     const dataContainer = document.getElementById("download-container");
     const opt = {
       margin: 0.2,
@@ -50,13 +51,22 @@ const FacultyDetails = () => {
     html2pdf().from(dataContainer).set(opt).save();
   };
 
-  console.log({ times: facultyTimes.times?.classesTimes?.classesTimes });
+  // console.log({ times: facultyTimes.times?.classesTimes?.classesTimes });
 
   return (
-    <main className="w-[900px] mx-auto ">
-      <button onClick={handleDownload} id="download">
-        Download
-      </button>
+    <main className="w-[900px] mx-auto p-4 space-y-2">
+
+      <div className="flex items-center gap-4">
+        <button
+          className="flex items-center gap-2 font-medium"
+          onClick={() => navigate(-1)}
+        >
+          <FaBackward /> <span>back</span>
+        </button>
+        <button onClick={handleDownload} id="download" className="my-btn-one">
+          Download
+        </button>
+      </div>
       <section id="download-container">
         <table
           border={1}

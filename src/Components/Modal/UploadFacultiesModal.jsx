@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 
 const UploadFacultiesModal = () => {
@@ -109,7 +109,7 @@ const UploadFacultiesModal = () => {
     <dialog id="uploadFaculties" className="modal">
       <div className="modal-box flex">
         <form className="flex-grow" onSubmit={handleUploadRoutine}>
-        <div className="overflow-y-auto h-[550px] border outline-dark border-gray-400">
+          <div className="overflow-y-auto h-[550px] border outline-dark border-gray-400">
             <div className="flex min-h-[550p] ">
               <div className="mt-[10px] ps-2 ">
                 <div className="line-numbers leading-[20.9px] text-[18px] text-center">

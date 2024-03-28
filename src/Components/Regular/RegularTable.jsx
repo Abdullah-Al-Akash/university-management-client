@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 import TeacherAssign from "../Modal/TeacherAssign";
 import Loading from "../../Shared/Loading";
+import Swal from "sweetalert2";
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
 
 const RegularTable = ({
   data,
@@ -17,7 +19,97 @@ const RegularTable = ({
   const [rowIndex, setRowIndex] = useState(null);
   const [timeSlot, setTimeSlot] = useState([]);
   const [loadingTime, setLoadingTime] = useState(false);
+  const [courseCredit, setCourseCredit] = useState(null);
+  // swapClass
+  const [swapClass, setSwapClass] = useState({});
+  //   Class swapping handler
+  const classSwappingHandler = () => {
+    fetch(
+      "https://routine-management-system-backend.onrender.com/api/v1/routine/swap",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstRowIndex: swapClass?.firstRowIndex,
+          secondRowIndex: swapClass?.secondRowIndex,
+          routineId: swapClass?.routineId,
+        }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setControl(!control);
+        setSwapClass({});
+        Swal.fire({
+          title: data?.message,
+          position: "top-center",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+        setControl(!control);
+        setSwapClass({});
+        Swal.fire({
+          title: data?.message,
+          position: "top-center",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
 
+  // Handle click td
+  const handleClickTD = (routineId, rowIndex) => {
+    setSwapClass((prevState) => {
+      // If routineId is different, select the class
+      if (prevState.routineId !== routineId) {
+        return {
+          routineId: routineId,
+          firstRowIndex: rowIndex,
+          secondRowIndex: null, // Reset secondRowIndex
+        };
+      } else {
+        // If routineId is the same, deselect the class
+        if (
+          prevState.firstRowIndex === rowIndex ||
+          prevState.secondRowIndex === rowIndex
+        ) {
+          // If the clicked class is already selected, deselect it
+          return {
+            ...prevState,
+            firstRowIndex:
+              prevState.firstRowIndex === rowIndex
+                ? null
+                : prevState.firstRowIndex,
+            secondRowIndex:
+              prevState.secondRowIndex === rowIndex
+                ? null
+                : prevState.secondRowIndex,
+          };
+        } else if (prevState.firstRowIndex === null) {
+          // If neither firstRowIndex nor secondRowIndex matches, set firstRowIndex
+          return {
+            ...prevState,
+            firstRowIndex: rowIndex,
+          };
+        } else if (prevState.secondRowIndex === null) {
+          // If firstRowIndex is already set but secondRowIndex is not, set secondRowIndex
+          return {
+            ...prevState,
+            secondRowIndex: rowIndex,
+          };
+        }
+      }
+      return prevState; // Return prevState if no state update is needed
+    });
+  };
   useEffect(() => {
     setLoadingTime(true);
     fetch(
@@ -29,7 +121,6 @@ const RegularTable = ({
         setLoadingTime(false);
         console.log(err);
       });
-      
   }, []);
   if (loading || loadingTime) {
     return <Loading></Loading>;
@@ -124,7 +215,7 @@ const RegularTable = ({
 
           {data?.map((item, index) => {
             const { batch, courses, room, sem, yearSem, _id } = item;
-            console.log(courses, "from batch regular", batch);
+            // console.log(courses, "from batch regular", batch);
             return (
               <tr key={index}>
                 <td
@@ -157,10 +248,12 @@ const RegularTable = ({
                   <td
                     colSpan={3}
                     onClick={() => {
+                      handleClickTD(_id, courses[0]?.rowIndex);
                       setCourseId(_id);
                       setRowIndex(courses["0"]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(courses["0"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
@@ -177,7 +270,7 @@ const RegularTable = ({
                 ) : (
                   <td
                     colSpan={3}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                   >
                     {courses["0"]?.courseCode && (
                       <>
@@ -193,13 +286,15 @@ const RegularTable = ({
                   <td
                     colSpan={3}
                     onClick={() => {
+                      handleClickTD(_id, courses[1]?.rowIndex);
                       setCourseId(_id);
                       setRowIndex(courses["1"]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(courses["1"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer `}
                   >
                     {courses["1"]?.courseCode && (
                       <>
@@ -213,7 +308,7 @@ const RegularTable = ({
                 ) : (
                   <td
                     colSpan={3}
-                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px]`}
+                    className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] `}
                   >
                     {courses["1"]?.courseCode && (
                       <>
@@ -231,10 +326,12 @@ const RegularTable = ({
                       courses["2"]?.courseTitle?.includes("Sessional") ? 2 : 1
                     }
                     onClick={() => {
+                      handleClickTD(_id, courses["2"]?.rowIndex);
                       setCourseId(_id);
                       setRowIndex(courses["2"]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(courses["2"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     className={`px-[16px] border-r-[0px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
@@ -248,7 +345,8 @@ const RegularTable = ({
                         {courses["2"]?.courseCode} {courses["2"]?.courseTitle}{" "}
                         {courses["2"]?.teacher?.sortForm
                           ? `(${courses["2"]?.teacher?.sortForm})`
-                          : ""}
+                          : ""}{" "}
+                        {courses["2"]?.room ? courses["2"]?.room : ""}
                       </>
                     )}
                   </td>
@@ -292,10 +390,12 @@ const RegularTable = ({
                 {courses["3"]?.courseTitle ? (
                   <td
                     onClick={() => {
+                      handleClickTD(_id, courses[3]?.rowIndex);
                       setCourseId(_id);
                       setRowIndex(courses["3"]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(courses["3"]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer`}
@@ -309,6 +409,7 @@ const RegularTable = ({
                         {courses["3"]?.teacher?.sortForm
                           ? `(${courses["3"]?.teacher?.sortForm})`
                           : ""}
+                        {courses["3"]?.room ? courses["3"]?.room : ""}
                       </>
                     )}
                   </td>
@@ -338,6 +439,20 @@ const RegularTable = ({
             );
           })}
         </table>
+        {/* Swapping btn */}
+        {swapClass.firstRowIndex && swapClass.secondRowIndex && (
+          <div className="h-screen w-full bg-slate-500 bg-opacity-75 flex items-center justify-center absolute left-0 top-0">
+            <button className="my-btn-one" onClick={classSwappingHandler}>
+              Swap <FaArrowRightArrowLeft />
+            </button>
+            <button
+              className="my-btn-one ml-4"
+              onClick={() => setSwapClass({})}
+            >
+              Reset
+            </button>
+          </div>
+        )}
       </TableWrapper>
       <TeacherAssign
         courseId={courseId}
@@ -347,6 +462,7 @@ const RegularTable = ({
         eveningDayTab={eveningDayTab}
         setControl={setControl}
         control={control}
+        courseCredit={courseCredit}
       />
     </>
   );

@@ -16,24 +16,23 @@ import Loading from "./Shared/Loading";
 
 const FacultyDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [facultyTimes, setFacultyTimes] = useState({});
-  const [facultyTimesLoading, setFacultyTimesLoading] = useState(false)
+  const [facultyTimesLoading, setFacultyTimesLoading] = useState(false);
 
-  
   useEffect(() => {
-    setFacultyTimesLoading(true)
+    setFacultyTimesLoading(true);
     fetch(
       `https://routine-management-system-backend.onrender.com/api/v1/teacher/get-individual-routine/${id}`
     )
       .then((res) => res.json())
       .then((data) => {
-        setFacultyTimesLoading(false)
+        setFacultyTimesLoading(false);
         setFacultyTimes(data?.data);
       })
       .catch((err) => {
-        setFacultyTimesLoading(false)
+        setFacultyTimesLoading(false);
         console.error(err);
       });
   }, [id]);
@@ -59,19 +58,24 @@ const FacultyDetails = () => {
 
   // console.log({ times: facultyTimes.times?.classesTimes?.classesTimes });
 
-  console.log(facultyTimes, 'all data');
-  const combinedClassesTimes = facultyTimes.times?.reduce((acc, currentValue) => {
-    return acc.concat(currentValue.classesTimes);
-  }, []);
-  console.log(combinedClassesTimes, 'combine classes');
+  console.log(facultyTimes, "all data");
+  const combinedClassesTimes = facultyTimes.times?.reduce(
+    (acc, currentValue) => {
+      return acc.concat(currentValue.classesTimes);
+    },
+    []
+  );
+  console.log(combinedClassesTimes, "combine classes");
 
-  if(facultyTimesLoading){
-    return <Loading/>
+  const totalCredit = combinedClassesTimes?.reduce((total, item) => {
+    console.log(total, item?.credit);
+    return total + item?.credit ? item?.credit : 0;
+  }, 0);
+  if (facultyTimesLoading) {
+    return <Loading />;
   }
-
   return (
     <main className="w-[900px] mx-auto p-4 space-y-2">
-
       <div className="flex items-center gap-4">
         <button
           className="flex items-center gap-2 font-medium"
@@ -204,7 +208,7 @@ const FacultyDetails = () => {
             </tr>
 
             {combinedClassesTimes?.map((item, i) => {
-              console.log(item, 'faculty time item');
+              console.log(item, "faculty time item");
               return (
                 <tr key={i}>
                   <td className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap">
@@ -244,7 +248,8 @@ const FacultyDetails = () => {
                 className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
                 colSpan={1}
               >
-                Total cr
+                Total cr {totalCredit}
+                {/* {JSON.stringify(combinedClassesTimes)} */}
               </td>
               <td
                 className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"

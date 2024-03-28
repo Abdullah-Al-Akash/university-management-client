@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import Swal from "sweetalert2";
 
-const UploadFacultiesModal = () => {
+// eslint-disable-next-line react/prop-types
+const UploadFacultiesModal = ({ setControl, control }) => {
   const [error, setError] = useState(null);
   const [lineCount, setLineCount] = useState(10);
   const [textareaStyle, setTextareaStyle] = useState({
@@ -59,6 +60,7 @@ const UploadFacultiesModal = () => {
         console.log("Routine uploaded successfully");
         const modal = document.getElementById("uploadFaculties");
         modal.close();
+        setControl(!control);
         Swal.fire({
           position: "top-center",
           icon: "success",
@@ -138,12 +140,7 @@ const UploadFacultiesModal = () => {
           </div>
           {error && <p className="text-red-500">{error}</p>}
           <div className="flex justify-end mt-2">
-            <button
-              type="submit"
-              className="my-btn-one"
-
-              disabled={error}
-            >
+            <button type="submit" className="my-btn-one" disabled={error}>
               Upload Faculties
             </button>
           </div>

@@ -38,11 +38,6 @@ const FacultyDetails = () => {
   }, [id]);
 
   console.log("facultyTimes:", facultyTimes);
-  const data = [
-    { id: 1, name: "John Doe", job: "Software Engineer", color: "Blue" },
-    { id: 2, name: "Jane Smith", job: "Data Scientist", color: "Red" },
-    { id: 3, name: "Alice Johnson", job: "UI/UX Designer", color: "Green" },
-  ];
 
   const handleDownload = () => {
     const dataContainer = document.getElementById("download-container");

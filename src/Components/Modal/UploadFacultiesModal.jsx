@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const UploadFacultiesModal = () => {
   const [error, setError] = useState(null);
@@ -56,6 +57,15 @@ const UploadFacultiesModal = () => {
 
       if (response.ok) {
         console.log("Routine uploaded successfully");
+        const modal = document.getElementById("uploadFaculties");
+        modal.close();
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Faculty Upload Successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         // Reset textarea value after successful upload
         e.target.elements.routineByJSON.value = "";
       } else {
@@ -130,7 +140,7 @@ const UploadFacultiesModal = () => {
           <div className="text-right">
             <button
               type="submit"
-              className="bg-orange-300 px-10 py-3 rounded-lg font-medium"
+              className="mt-2 bg-orange-400 hover:bg-orange-500 hover:text-white px-10 py-3 rounded-lg font-medium "
               disabled={error}
             >
               Upload Faculties

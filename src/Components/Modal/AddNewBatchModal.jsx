@@ -30,10 +30,12 @@ const AddNewBatchModal = ({ setControl, control }) => {
         .then((data) => {
           if (data?.success) {
             setControl(!control);
+            const modal = document.getElementById("add_new_batch_modal");
+            modal.close();
             Swal.fire({
               position: "top-center",
               icon: "success",
-              title: data?.massage,
+              title: "New Batch Added!",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -49,7 +51,6 @@ const AddNewBatchModal = ({ setControl, control }) => {
         });
     }
   };
-
 
   return (
     <dialog id="add_new_batch_modal" className="modal">

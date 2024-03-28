@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TableWrapper from "../../Shared/TableWrapper";
 import TeacherAssign from "../Modal/TeacherAssign";
+import Loading from "../../Shared/Loading";
 
 const EveningFridayTable = ({
   data,
@@ -12,7 +13,11 @@ const EveningFridayTable = ({
 }) => {
   const [courseId, setCourseId] = useState("");
   const [rowIndex, setRowIndex] = useState(null);
-  console.log(data, "From Friday");
+  const [courseCredit, setCourseCredit] = useState(null);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <TableWrapper>
       <table
@@ -184,6 +189,7 @@ const EveningFridayTable = ({
                       setRowIndex(classesBeforeBreak[0]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(classesBeforeBreak[0]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
@@ -199,6 +205,7 @@ const EveningFridayTable = ({
                         {classesBeforeBreak[0]?.courseCode} (
                         {classesBeforeBreak[0]?.courseTitle}){" "}
                         {classesBeforeBreak[0]?.teacher?.sortForm ?? ""}
+                        {classesBeforeBreak[0]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -217,6 +224,7 @@ const EveningFridayTable = ({
                         {classesBeforeBreak[0]?.courseCode} (
                         {classesBeforeBreak[0]?.courseTitle}){" "}
                         {classesBeforeBreak[0]?.teacher?.sortForm ?? ""}
+                        {classesBeforeBreak[0]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -230,6 +238,7 @@ const EveningFridayTable = ({
                         setRowIndex(classesBeforeBreak[1]?.rowIndex);
                       }}
                       onDoubleClick={() => {
+                        setCourseCredit(classesBeforeBreak[1]?.credit);
                         document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={`${
@@ -245,6 +254,7 @@ const EveningFridayTable = ({
                           {classesBeforeBreak[1]?.courseCode} (
                           {classesBeforeBreak[1]?.courseTitle}){" "}
                           {classesBeforeBreak[1]?.teacher?.sortForm ?? ""}
+                          {classesBeforeBreak[1]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -263,6 +273,7 @@ const EveningFridayTable = ({
                           {classesBeforeBreak[1]?.courseCode} (
                           {classesBeforeBreak[1]?.courseTitle}){" "}
                           {classesBeforeBreak[1]?.teacher?.sortForm ?? ""}
+                          {classesBeforeBreak[1]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -278,6 +289,7 @@ const EveningFridayTable = ({
                       setRowIndex(classesBeforeBreak[2]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(classesBeforeBreak[2]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
@@ -293,6 +305,7 @@ const EveningFridayTable = ({
                         {classesBeforeBreak[2]?.courseCode} (
                         {classesBeforeBreak[2]?.courseTitle}){" "}
                         {classesBeforeBreak[2]?.teacher?.sortForm ?? ""}
+                        {classesBeforeBreak[2]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -311,6 +324,7 @@ const EveningFridayTable = ({
                         {classesBeforeBreak[2]?.courseCode} (
                         {classesBeforeBreak[2]?.courseTitle}){" "}
                         {classesBeforeBreak[2]?.teacher?.sortForm ?? ""}
+                        {classesBeforeBreak[2]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -324,6 +338,7 @@ const EveningFridayTable = ({
                         setRowIndex(classesBeforeBreak[3]?.rowIndex);
                       }}
                       onDoubleClick={() => {
+                        setCourseCredit(classesBeforeBreak[3]?.credit);
                         document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={3}
@@ -334,6 +349,7 @@ const EveningFridayTable = ({
                           {classesBeforeBreak[3]?.courseCode} (
                           {classesBeforeBreak[3]?.courseTitle}){" "}
                           {classesBeforeBreak[3]?.teacher?.sortForm ?? ""}
+                          {classesBeforeBreak[3]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -347,6 +363,7 @@ const EveningFridayTable = ({
                           {classesBeforeBreak[3]?.courseCode} (
                           {classesBeforeBreak[3]?.courseTitle}){" "}
                           {classesBeforeBreak[3]?.teacher?.sortForm ?? ""}
+                          {classesBeforeBreak[3]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -369,6 +386,7 @@ const EveningFridayTable = ({
                       setRowIndex(classesAfterBreak[0]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(classesAfterBreak[0]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
@@ -384,6 +402,7 @@ const EveningFridayTable = ({
                         {classesAfterBreak[0]?.courseCode} (
                         {classesAfterBreak[0]?.courseTitle}){" "}
                         {classesAfterBreak[0]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[0]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -402,6 +421,7 @@ const EveningFridayTable = ({
                         {classesAfterBreak[0]?.courseCode} (
                         {classesAfterBreak[0]?.courseTitle}){" "}
                         {classesAfterBreak[0]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[0]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -413,6 +433,7 @@ const EveningFridayTable = ({
                       setRowIndex(classesAfterBreak[1]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(classesAfterBreak[1]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
@@ -428,6 +449,7 @@ const EveningFridayTable = ({
                         {classesAfterBreak[1]?.courseCode} (
                         {classesAfterBreak[1]?.courseTitle}){" "}
                         {classesAfterBreak[1]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[1]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -446,6 +468,7 @@ const EveningFridayTable = ({
                         {classesAfterBreak[1]?.courseCode} (
                         {classesAfterBreak[1]?.courseTitle}){" "}
                         {classesAfterBreak[1]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[1]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -459,6 +482,7 @@ const EveningFridayTable = ({
                         setRowIndex(classesAfterBreak[2]?.rowIndex);
                       }}
                       onDoubleClick={() => {
+                        setCourseCredit(classesAfterBreak[2]?.credit);
                         document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={3}
@@ -469,6 +493,7 @@ const EveningFridayTable = ({
                           {classesAfterBreak[2]?.courseCode} (
                           {classesAfterBreak[2]?.courseTitle}){" "}
                           {classesAfterBreak[2]?.teacher?.sortForm ?? ""}
+                          {classesAfterBreak[2]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -482,6 +507,7 @@ const EveningFridayTable = ({
                           {classesAfterBreak[2]?.courseCode} (
                           {classesAfterBreak[2]?.courseTitle}){" "}
                           {classesAfterBreak[2]?.teacher?.sortForm ?? ""}
+                          {classesAfterBreak[2]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -496,6 +522,7 @@ const EveningFridayTable = ({
                       setRowIndex(classesAfterBreak[3]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(classesAfterBreak[3]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
@@ -511,6 +538,7 @@ const EveningFridayTable = ({
                         {classesAfterBreak[3]?.courseCode} (
                         {classesAfterBreak[3]?.courseTitle}){" "}
                         {classesAfterBreak[3]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[3]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -529,6 +557,7 @@ const EveningFridayTable = ({
                         {classesAfterBreak[3]?.courseCode} (
                         {classesAfterBreak[3]?.courseTitle}){" "}
                         {classesAfterBreak[3]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[3]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -542,6 +571,7 @@ const EveningFridayTable = ({
                         setRowIndex(classesAfterBreak[4]?.rowIndex);
                       }}
                       onDoubleClick={() => {
+                        setCourseCredit(classesAfterBreak[4]?.credit);
                         document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={3}
@@ -552,6 +582,7 @@ const EveningFridayTable = ({
                           {classesAfterBreak[4]?.courseCode} (
                           {classesAfterBreak[4]?.courseTitle}){" "}
                           {classesAfterBreak[4]?.teacher?.sortForm ?? ""}
+                          {classesAfterBreak[4]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -565,6 +596,7 @@ const EveningFridayTable = ({
                           {classesAfterBreak[4]?.courseCode} (
                           {classesAfterBreak[4]?.courseTitle}){" "}
                           {classesAfterBreak[4]?.teacher?.sortForm ?? ""}
+                          {classesAfterBreak[4]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -576,6 +608,7 @@ const EveningFridayTable = ({
                       setRowIndex(classesAfterBreak[5]?.rowIndex);
                     }}
                     onDoubleClick={() => {
+                      setCourseCredit(classesAfterBreak[5]?.credit);
                       document.getElementById("teacher_assign").showModal();
                     }}
                     colSpan={`${
@@ -591,6 +624,7 @@ const EveningFridayTable = ({
                         {classesAfterBreak[5]?.courseCode} (
                         {classesAfterBreak[5]?.courseTitle}){" "}
                         {classesAfterBreak[5]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[5]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -609,6 +643,7 @@ const EveningFridayTable = ({
                         {classesAfterBreak[5]?.courseCode} (
                         {classesAfterBreak[5]?.courseTitle}){" "}
                         {classesAfterBreak[5]?.teacher?.sortForm ?? ""}
+                        {classesAfterBreak[5]?.room ?? ""}
                       </>
                     )}
                   </td>
@@ -622,6 +657,7 @@ const EveningFridayTable = ({
                         setRowIndex(classesAfterBreak[6]?.rowIndex);
                       }}
                       onDoubleClick={() => {
+                        setCourseCredit(classesAfterBreak[6]?.credit);
                         document.getElementById("teacher_assign").showModal();
                       }}
                       colSpan={3}
@@ -632,6 +668,7 @@ const EveningFridayTable = ({
                           {classesAfterBreak[6]?.courseCode} (
                           {classesAfterBreak[6]?.courseTitle}){" "}
                           {classesAfterBreak[6]?.teacher?.sortForm ?? ""}
+                          {classesAfterBreak[6]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -645,6 +682,7 @@ const EveningFridayTable = ({
                           {classesAfterBreak[6]?.courseCode} (
                           {classesAfterBreak[6]?.courseTitle}){" "}
                           {classesAfterBreak[6]?.teacher?.sortForm ?? ""}
+                          {classesAfterBreak[6]?.room ?? ""}
                         </>
                       )}
                     </td>
@@ -660,6 +698,7 @@ const EveningFridayTable = ({
         eveningDayTab={eveningDayTab}
         setControl={setControl}
         control={control}
+        courseCredit={courseCredit}
       ></TeacherAssign>
     </TableWrapper>
   );

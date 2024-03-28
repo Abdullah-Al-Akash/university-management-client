@@ -116,18 +116,18 @@ console.log(timeSlot, 'timeslot');
 
     return (
         <TableWrapper>
-            <table className="min-w-full table-auto mb-1 border border-black">
+            <table className="min-w-full table-auto mb-1 border-2 border-black">
                 <thead>
                     <tr>
-                        <th className="border border-black p-3">Batch</th>
-                        <th className="border border-black p-3">Year/Sem</th>
-                        <th className="border border-black p-3">Sem No.</th>
-                        <th className="border border-black p-3">Room No.</th>
-                        <th className="border border-black p-3"> {timeSlot[0]?.startTime} {timeSlot[0]?.period} - {timeSlot[0]?.endTime} {timeSlot[0]?.period} </th>
-                        <th className="border border-black p-3">{timeSlot[1]?.startTime} {timeSlot[1]?.period} - {timeSlot[1]?.endTime} {timeSlot[1]?.period}</th>
-                        <th className="border border-black border-b-0 p-3"></th>
-                        <th className="border border-black p-3">{timeSlot[2]?.startTime} {timeSlot[2]?.period} - {timeSlot[2]?.endTime} {timeSlot[2]?.period}</th>
-                        <th className="border border-black p-3">{timeSlot[3]?.startTime} {timeSlot[3]?.period} - {timeSlot[3]?.endTime} {timeSlot[3]?.period}</th>
+                        <th className="border-2 border-black p-3">Batch</th>
+                        <th className="border-2 border-black p-3">Year/Sem</th>
+                        <th className="border-2 border-black p-3">Sem No.</th>
+                        <th className="border-2 border-black p-3">Room No.</th>
+                        <th className="border-2 border-black p-3"> {timeSlot[0]?.startTime}{timeSlot[0]?.period} - {timeSlot[0]?.endTime}{timeSlot[0]?.period} </th>
+                        <th className="border-2 border-black p-3">{timeSlot[1]?.startTime}{timeSlot[1]?.period} - {timeSlot[1]?.endTime}{timeSlot[1]?.period}</th>
+                        <th className="border-2 border-black border-b-0 p-3"></th>
+                        <th className="border-2 border-black p-3">{timeSlot[2]?.startTime}{timeSlot[2]?.period} - {timeSlot[2]?.endTime}{timeSlot[2]?.period}</th>
+                        <th className="border-2 border-black p-3">{timeSlot[3]?.startTime}{timeSlot[3]?.period} - {timeSlot[3]?.endTime}{timeSlot[3]?.period}</th>
                     </tr>
                 </thead>
 
@@ -140,15 +140,15 @@ console.log(timeSlot, 'timeslot');
                             const classesAfterBreak = courses.slice(2, 4);
                             return (
                                 <tr key={ind}>
-                                    <td className="border border-black p-3">{batch}</td>
-                                    <td className="border border-black p-3">{yearSem}</td>
-                                    <td className="border border-black p-3">{sem}</td>
-                                    <td className="border border-black p-3">{room}</td>
+                                    <td className="border-2 border-black p-3">{batch}</td>
+                                    <td className="border-2 border-black p-3">{yearSem}</td>
+                                    <td className="border-2 border-black p-3">{sem}</td>
+                                    <td className="border-2 border-black p-3">{room}</td>
                                     {classesBeforeBreak[0]?.courseCode ===
                                         classesBeforeBreak[1]?.courseCode ? (
                                         <td
 
-                                            className={`border border-black p-3 ${swapClass?.routineId === elem?._id && (swapClass?.firstRowIndex === classesBeforeBreak[0]?.rowIndex || swapClass?.secondRowIndex === classesBeforeBreak[0]?.rowIndex) && 'bg-purple-500'}`}
+                                            className={`border-2 border-black p-3 ${swapClass?.routineId === elem?._id && (swapClass?.firstRowIndex === classesBeforeBreak[0]?.rowIndex || swapClass?.secondRowIndex === classesBeforeBreak[0]?.rowIndex) && 'bg-purple-500'}`}
 
                                             onClick={() => {
                                                 if (classesBeforeBreak[0]?.courseCode ||
@@ -195,7 +195,7 @@ console.log(timeSlot, 'timeslot');
                                                             .showModal();
                                                     }
                                                 }}
-                                                className={`border border-black p-3 ${swapClass?.routineId === elem?._id && (swapClass?.firstRowIndex === classBeforeBreak?.rowIndex || swapClass?.secondRowIndex === classBeforeBreak?.rowIndex) && 'bg-purple-500'}`}
+                                                className={`border-2 border-black p-3 ${swapClass?.routineId === elem?._id && (swapClass?.firstRowIndex === classBeforeBreak?.rowIndex || swapClass?.secondRowIndex === classBeforeBreak?.rowIndex) && 'bg-purple-500'}`}
                                             >
                                                 {`${classBeforeBreak?.courseCode ?? ""} ${classBeforeBreak?.courseTitle ? `(${classBeforeBreak?.courseTitle})` : ""
                                                     }  ${classBeforeBreak?.teacher?.sortForm ?? ""}`}
@@ -233,7 +233,7 @@ console.log(timeSlot, 'timeslot');
                                                         .showModal();
                                                 }
                                             }}
-                                            className={`border border-black p-3 ${swapClass?.routineId === elem?._id && (swapClass?.firstRowIndex === classesAfterBreak[0]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[0]?.rowIndex) && 'bg-purple-500'}`}
+                                            className={`border-2 border-black p-3 ${swapClass?.routineId === elem?._id && (swapClass?.firstRowIndex === classesAfterBreak[0]?.rowIndex || swapClass?.secondRowIndex === classesAfterBreak[0]?.rowIndex) && 'bg-purple-500'}`}
                                             colSpan={2}
                                         >
                                             {`${classesAfterBreak[0]?.courseCode ?? ""} ${classesAfterBreak[0]?.courseTitle
@@ -260,7 +260,7 @@ console.log(timeSlot, 'timeslot');
                                                             .showModal();
                                                     }
                                                 }}
-                                                className={`border border-black p-3 ${swapClass?.routineId === elem?._id && (swapClass?.firstRowIndex === classAfterBreak?.rowIndex || swapClass?.secondRowIndex === classAfterBreak?.rowIndex) && 'bg-purple-500'}`}
+                                                className={`border-2 border-black p-3 ${swapClass?.routineId === elem?._id && (swapClass?.firstRowIndex === classAfterBreak?.rowIndex || swapClass?.secondRowIndex === classAfterBreak?.rowIndex) && 'bg-purple-500'}`}
                                             >
                                                 {`${classAfterBreak?.courseCode ?? ""} ${classAfterBreak?.courseTitle ? `(${classAfterBreak?.courseTitle})` : ""
                                                     } ${classAfterBreak?.teacher?.sortForm ?? ""}`}

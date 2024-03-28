@@ -18,7 +18,7 @@ const TeacherAssign = ({
   const [loading, setLoading] = useState(true);
   const [selectTeacher, setSelectTeacher] = useState({});
   const url = `https://routine-management-system-backend.onrender.com/api/v1`;
-  
+
   // Function to handle search logic
   const handleSearch = () => {
     // Perform search logic based on searchQuery
@@ -101,9 +101,9 @@ const TeacherAssign = ({
   };
   return (
     <dialog id="teacher_assign" className="modal">
-      <div className="modal-box max-h-[50vh] ">
-        <div className="flex flex-col gap-2 justify-start items-start">
-          <div className="h-[46px] mt-[18px] md:mt-auto relative overflow-hidden shadow-lg  rounded-[6px] w-full p">
+      <div className="modal-box max-h-[50vh] w-full">
+        <div className="flex flex-col gap-2 justify-start items-start w-full">
+          <div className="h-[46px] mt-[18px] md:mt-auto relative overflow-hidden shadow-lg  rounded-[6px] w-full">
             <FiSearch className="text-[#636363] text-[18px] left-[17px] absolute top-1/2 -translate-y-1/2" />
             <input
               className="my-inp teacher_modal "

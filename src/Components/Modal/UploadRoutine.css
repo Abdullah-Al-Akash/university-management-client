@@ -23,13 +23,19 @@
 .textarea-container textarea {
   width: 100%;
   height: 100%;
-  border: 1px solid #ccc;
   padding: 10px;
   resize: none;
   outline: none;
   border-radius: 5px;
 }
 
+.textarea-container textarea::-webkit-scrollbar,
+.textarea-container textarea::-webkit-scrollbar-track,
+.textarea-container textarea::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+
 .error {
-  background-color: #ffcccc; /* Change to your preferred background color */
+  background-color: #ffcccc;
+  /* Change to your preferred background color */
 }

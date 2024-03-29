@@ -12,13 +12,14 @@ const TeacherAssign = ({
   setControl,
   control,
   courseCredit,
+  tab,
+  setTab,
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [allReacher, setAllTeacher] = useState([]);
   const [selectedTeacherName, setSelectedTeacherName] = useState({});
   const [loading, setLoading] = useState(true);
   const [selectTeacher, setSelectTeacher] = useState({});
-  const [tab, setTab] = useState("SelectTeachers");
   const [selectRoom, setSelectRoom] = useState("");
   const url = `https://routine-management-system-backend.onrender.com/api/v1`;
 

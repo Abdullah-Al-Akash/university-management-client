@@ -12,7 +12,7 @@ const RegularTable = ({
   selectShift,
   regularDayTab,
   eveningDayTab,
-  setControl,
+  setControl, 
   control,
 }) => {
   const [courseId, setCourseId] = useState("");

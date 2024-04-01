@@ -11,7 +11,7 @@ const RegularTable = ({
   loading,
   selectShift,
   regularDayTab,
-  eveningDayTab,
+  eveningDayTab, 
   setControl,
   control,
 }) => {

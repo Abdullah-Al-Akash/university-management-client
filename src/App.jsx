@@ -10,6 +10,7 @@ import EveningTable from "./Components/Evening/EveningTable";
 import EveningFridayTable from "./Components/Evening/EveningFridayTable";
 import AddNewBatchModal from "./Components/Modal/AddNewBatchModal";
 import UploadRoutine from "./Components/Modal/UploadRoutine";
+import InsertRoutine from "./Components/Modal/InsertRoutine";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -115,6 +116,7 @@ const App = () => {
       {/* Modal */}
       <AddNewBatchModal setControl={setControl} control={control} />
       <UploadRoutine control={control} setControl={setControl}></UploadRoutine>
+      <InsertRoutine control={control} setControl={setControl}/>
     </div>
   );
 };

@@ -71,6 +71,9 @@ const FacultyDetails = () => {
   if (facultyTimesLoading) {
     return <Loading />;
   }
+
+  console.log(facultyTimes, 80);
+
   return (
     <main className="w-[900px] mx-auto p-4 space-y-2">
       <div className="flex items-center gap-4">
@@ -85,6 +88,14 @@ const FacultyDetails = () => {
         </button>
       </div>
       <section id="download-container">
+
+<div className="space-y-2 mb-4 text-center">
+        <img src={'https://eub.edu.bd/wp-content/uploads/2017/11/logo-eub.png'} alt="EUB"  className="w-full h-[95px] my-6"/>
+        <h2 className="font-bold text-xl text-center">Department of computer science and engineering</h2>
+        <p className="text-center">Semester: Spring 2024</p>
+        <h2 className="font-bold">{facultyTimes?.fullName} ({facultyTimes?.sortForm})</h2>
+</div>
+
         <table
           border={1}
           className=" font-medium text-center  border-[#000] mx-auto w-full"
@@ -197,9 +208,6 @@ const FacultyDetails = () => {
                 Cr
               </td>
               <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                Day
-              </td>
-              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
                 Batch & Year-Semester
               </td>
             </tr>
@@ -225,9 +233,6 @@ const FacultyDetails = () => {
                     {item?.credit}
                   </td>
                   <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    Day
-                  </td>
-                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
                     {item?.batch}th {item?.yearSem}
                   </td>
                 </tr>
@@ -249,13 +254,7 @@ const FacultyDetails = () => {
                 {/* {JSON.stringify(combinedClassesTimes)} */}
               </td>
               <td
-                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
-                colSpan={1}
-              >
-                Total cr Hr
-              </td>
-              <td
-                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
+                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px]  text-[#000] p-[16px] text-center whitespace-nowrap"
                 colSpan={1}
               >
                 Total cr Hr

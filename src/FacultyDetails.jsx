@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import html2pdf from "html2pdf.js";
 import { FaBackward } from "react-icons/fa6";
 import Loading from "./Shared/Loading";
+import image from "./assets/img/logo-eub.png";
 
 // const FacultyTable = () => {
 //   const data = [
@@ -45,7 +46,7 @@ const FacultyDetails = () => {
       margin: 0.2,
       filename: "Leads.pdf",
       image: { type: "jpeg", quality: 100 },
-      html2canvas: { scale: 2 },
+      html2canvas: { scale: 2, useCORS: true },
       jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     };
     html2pdf().from(dataContainer).set(opt).save();
@@ -88,23 +89,26 @@ const FacultyDetails = () => {
         </button>
       </div>
       <section id="download-container">
-
-<div className="space-y-2 mb-4 text-center">
-        <img src={'https://eub.edu.bd/wp-content/uploads/2017/11/logo-eub.png'} alt="EUB"  className="w-full h-[95px] my-6"/>
-        <h2 className="font-bold text-xl text-center">Department of computer science and engineering</h2>
-        <p className="text-center">Semester: Spring 2024</p>
-        <h2 className="font-bold">{facultyTimes?.fullName} ({facultyTimes?.sortForm})</h2>
-</div>
+        <div className="space-y-2 mb-5 text-center">
+          <img src={image} alt="EUB" className="mx-auto h-[100px] my-5" />
+          <h2 className="font-bold text-xl text-center">
+            Department of computer science and engineering
+          </h2>
+          <p className="text-center">Semester: Spring 2024</p>
+          <h2 className="font-bold">
+            {facultyTimes?.fullName} ({facultyTimes?.sortForm})
+          </h2>
+        </div>
 
         <table
           border={1}
-          className=" font-medium text-center  border-[#000] mx-auto w-full"
+          className="table-auto font-medium text-center border-[#000] mx-auto w-full"
           cellPadding="0"
           cellSpacing={0}
         >
           <tr>
             <td
-              className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
+              className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[5px] text-center whitespace-nowrap"
               rowSpan={2}
               colSpan={1}
             >
@@ -173,7 +177,7 @@ const FacultyDetails = () => {
                   (v, i) => (
                     <td
                       key={i}
-                      className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap"
+                      className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap"
                     ></td>
                   )
                 )}
@@ -182,86 +186,83 @@ const FacultyDetails = () => {
           })}
         </table>
 
-        <div className="mt-[40px]">
-          <table
-            border={1}
-            className="table-auto font-medium text-center  border-[#000] mx-auto w-full"
-            cellPadding="0"
-            cellSpacing={0}
-          >
-            {/* table head */}
-            <tr>
-              <td className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                Serial No
-              </td>
+        <table
+          border={1}
+          className="mt-[40px] table-auto font-medium text-center border-[#000] mx-auto w-full"
+          cellPadding="0"
+          cellSpacing={0}
+        >
+          {/* table head */}
+          <tr>
+            <td className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[5px] text-center whitespace-nowrap">
+              Serial No
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+              Course Code
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+              Course Title
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+              Program
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+              Cr
+            </td>
+            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+              Batch & Year-Semester
+            </td>
+          </tr>
 
-              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                Course Code
-              </td>
-              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                Course Title
-              </td>
-              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                Program
-              </td>
-              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                Cr
-              </td>
-              <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                Batch & Year-Semester
-              </td>
-            </tr>
+          {combinedClassesTimes?.map((item, i) => {
+            console.log(item, "faculty time item");
+            return (
+              <tr key={i}>
+                <td className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[5px] text-center whitespace-nowrap">
+                  {i + 1}
+                </td>
+                <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+                  {item?.courseCode}
+                </td>
+                <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center">
+                  {item?.courseTitle}
+                </td>
+                <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+                  CSE(REG)
+                </td>
+                <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+                  {item?.credit}
+                </td>
+                <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[5px] text-center whitespace-nowrap">
+                  {item?.batch}th {item?.yearSem}
+                </td>
+              </tr>
+            );
+          })}
 
-            {combinedClassesTimes?.map((item, i) => {
-              console.log(item, "faculty time item");
-              return (
-                <tr key={i}>
-                  <td className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    {i + 1}
-                  </td>
-
-                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    {item?.courseCode}
-                  </td>
-                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    {item?.courseTitle}
-                  </td>
-                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    CSE(REG)
-                  </td>
-                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    {item?.credit}
-                  </td>
-                  <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[16px] text-center whitespace-nowrap">
-                    {item?.batch}th {item?.yearSem}
-                  </td>
-                </tr>
-              );
-            })}
-            {/* table footer */}
-            <tr>
-              <td
-                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
-                colSpan={4}
-              >
-                Total Credits & Minutes
-              </td>
-              <td
-                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[16px] text-center whitespace-nowrap"
-                colSpan={1}
-              >
-                Total cr {totalCredit}
-                {/* {JSON.stringify(combinedClassesTimes)} */}
-              </td>
-              <td
-                className="text-[14px] border-[#000] border bg-white border-t border-b-[1px]  text-[#000] p-[16px] text-center whitespace-nowrap"
-                colSpan={1}
-              >
-                Total cr Hr
-              </td>
-            </tr>
-          </table>
-        </div>
+          {/* table footer */}
+          <tr>
+            <td
+              className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[5px] text-center whitespace-nowrap"
+              colSpan={4}
+            >
+              Total Credits & Minutes
+            </td>
+            <td
+              className="text-[14px] border-[#000] border bg-white border-t border-b-[1px] border-r-[0px] text-[#000] p-[5px] text-center whitespace-nowrap"
+              colSpan={1}
+            >
+              Total cr {totalCredit}
+              {/* {JSON.stringify(combinedClassesTimes)} */}
+            </td>
+            <td
+              className="text-[14px] border-[#000] border bg-white border-t border-b-[1px]  text-[#000] p-[5px] text-center whitespace-nowrap"
+              colSpan={1}
+            >
+              Total cr Hr
+            </td>
+          </tr>
+        </table>
       </section>
     </main>
   );

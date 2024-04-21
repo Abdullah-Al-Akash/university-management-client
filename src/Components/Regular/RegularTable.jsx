@@ -5,6 +5,7 @@ import TeacherAssign from "../Modal/TeacherAssign";
 import Loading from "../../Shared/Loading";
 import Swal from "sweetalert2";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import heading from "../../assets/img/logo-eub.png";
 
 const RegularTable = ({
   data,
@@ -139,6 +140,13 @@ const RegularTable = ({
   }
   return (
     <>
+      <div className="space-y-2 mb-5 text-center">
+        <img className="mx-auto" src={heading} alt="" />
+        <h2 className="font-bold text-xl text-center">
+          Department of computer science and engineering
+        </h2>
+        <p className="text-center">Semester: Spring 2024</p>
+      </div>
       <TableWrapper>
         <table
           border={1}
@@ -272,7 +280,7 @@ const RegularTable = ({
                       setCourseId(_id);
                       setCourseCredit(courses["0"]?.credit);
                       document.getElementById("teacher_assign").showModal();
-                      setTab("SelectTeachers")
+                      setTab("SelectTeachers");
                     }}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
                       swapClass?.routineId === _id &&
@@ -320,7 +328,7 @@ const RegularTable = ({
                       setRowIndex(courses["1"]?.rowIndex);
                       setCourseCredit(courses["1"]?.credit);
                       document.getElementById("teacher_assign").showModal();
-                      setTab("SelectTeachers")
+                      setTab("SelectTeachers");
                     }}
                     className={`px-[16px] border-r-[1px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
                       swapClass?.routineId === _id &&
@@ -370,7 +378,7 @@ const RegularTable = ({
                       setRowIndex(courses["2"]?.rowIndex);
                       setCourseCredit(courses["2"]?.credit);
                       document.getElementById("teacher_assign").showModal();
-                      setTab("SelectTeachers")
+                      setTab("SelectTeachers");
                     }}
                     className={`px-[16px] py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
                       swapClass?.routineId === _id &&
@@ -444,7 +452,7 @@ const RegularTable = ({
                       setRowIndex(courses["3"]?.rowIndex);
                       setCourseCredit(courses["3"]?.credit);
                       document.getElementById("teacher_assign").showModal();
-                      setTab("SelectTeachers")
+                      setTab("SelectTeachers");
                     }}
                     className={`px-[16px]  py-[6px] text-[#000] border-[#000] border-2 text-[14px] cursor-pointer ${
                       swapClass?.routineId === _id &&

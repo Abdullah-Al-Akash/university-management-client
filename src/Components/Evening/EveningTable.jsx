@@ -4,6 +4,7 @@ import TeacherAssign from "../Modal/TeacherAssign";
 import Loading from "../../Shared/Loading";
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import heading from "../../assets/img/logo-eub.png";
 
 const EveningTable = ({
   data,
@@ -141,119 +142,183 @@ const EveningTable = ({
   };
 
   return (
-    <TableWrapper>
-      <table className="min-w-full table-auto mb-1 border-2 border-black">
-        <thead>
-          <tr>
-            <th className="border-2 border-black p-3">Batch</th>
-            <th className="border-2 border-black p-3">Year/Sem</th>
-            <th className="border-2 border-black p-3">Sem No.</th>
-            <th className="border-2 border-black p-3">Room No.</th>
-            <th className="border-2 border-black p-3">
-              {" "}
-              {timeSlot[0]?.startTime} {timeSlot[0]?.period} -{" "}
-              {timeSlot[0]?.endTime} {timeSlot[0]?.period}{" "}
-            </th>
-            <th className="border-2 border-black p-3">
-              {timeSlot[1]?.startTime} {timeSlot[1]?.period} -{" "}
-              {timeSlot[1]?.endTime} {timeSlot[1]?.period}
-            </th>
-            <th className="border-2 border-black border-b-0 p-3"></th>
-            <th className="border-2 border-black p-3">
-              {timeSlot[2]?.startTime} {timeSlot[2]?.period} -{" "}
-              {timeSlot[2]?.endTime} {timeSlot[2]?.period}
-            </th>
-            <th className="border-2 border-black p-3">
-              {timeSlot[3]?.startTime} {timeSlot[3]?.period} -{" "}
-              {timeSlot[3]?.endTime} {timeSlot[3]?.period}
-            </th>
-          </tr>
-        </thead>
+    <div>
+      <div className="space-y-2 mb-5 text-center">
+        <img className="mx-auto" src={heading} alt="" />
+        <h2 className="font-bold text-xl text-center">
+          Department of computer science and engineering
+        </h2>
+        <p className="text-center">Semester: Spring 2024</p>
+      </div>
 
-        <tbody className=" text-center font-semibold">
-          {loading
-            ? "loading"
-            : data?.map((elem, ind) => {
-                const { batch, yearSem, sem, room, courses, _id } = elem;
-                const classesBeforeBreak = courses.slice(0, 2);
-                const classesAfterBreak = courses.slice(2, 4);
-                return (
-                  <tr key={ind}>
-                    <td className="border-2 border-black p-3">{batch}</td>
-                    <td className="border-2 border-black p-3">{yearSem}</td>
-                    <td className="border-2 border-black p-3">{sem}</td>
-                    <td className="border-2 border-black p-3">{room}</td>
-                    {classesBeforeBreak[0]?.courseCode ===
-                    classesBeforeBreak[1]?.courseCode ? (
-                      <td
-                        className={`border-2 border-black p-3 ${
-                          swapClass?.routineId === elem?._id &&
-                          (swapClass?.firstRowIndex ===
-                            classesBeforeBreak[0]?.rowIndex ||
-                            swapClass?.secondRowIndex ===
-                              classesBeforeBreak[0]?.rowIndex) &&
-                          "bg-purple-500"
-                        }`}
-                        onClick={() => {
-                          if (
-                            classesBeforeBreak[0]?.courseCode ||
-                            classesBeforeBreak[0]?.courseTitle
-                          ) {
-                            handleClickTD(
-                              elem?._id,
-                              classesBeforeBreak[0]?.rowIndex,
-                              classesBeforeBreak[0]?.credit
-                            );
-                          }
-                        }}
-                        onDoubleClick={() => {
-                          if (
-                            classesBeforeBreak[0]?.courseCode ||
-                            classesBeforeBreak[0]?.courseTitle
-                          ) {
-                            setCourseId(_id);
-                            setRowIndex(classesBeforeBreak[0]?.rowIndex);
-                            setCourseCredit(classesBeforeBreak[0]?.credit);
-                            document
-                              .getElementById("teacher_assign")
-                              .showModal();
-                            setTab("SelectTeachers");
-                          }
-                        }}
-                        colSpan={2}
-                      >
-                        {`${classesBeforeBreak[0]?.courseCode ?? ""} ${
-                          classesBeforeBreak[0]?.courseTitle
-                            ? `(${classesBeforeBreak[0]?.courseTitle})`
-                            : ""
-                        } ${classesBeforeBreak[0]?.teacher?.sortForm ?? ""} ${
-                          classesBeforeBreak[0]?.room ?? ""
-                        }`}
-                      </td>
-                    ) : (
-                      classesBeforeBreak?.map((classBeforeBreak, ind) => (
+      <TableWrapper>
+        <table className="min-w-full table-auto mb-1 border-2 border-black">
+          <thead>
+            <tr>
+              <th className="border-2 border-black p-3">Batch</th>
+              <th className="border-2 border-black p-3">Year/Sem</th>
+              <th className="border-2 border-black p-3">Sem No.</th>
+              <th className="border-2 border-black p-3">Room No.</th>
+              <th className="border-2 border-black p-3">
+                {" "}
+                {timeSlot[0]?.startTime} {timeSlot[0]?.period} -{" "}
+                {timeSlot[0]?.endTime} {timeSlot[0]?.period}{" "}
+              </th>
+              <th className="border-2 border-black p-3">
+                {timeSlot[1]?.startTime} {timeSlot[1]?.period} -{" "}
+                {timeSlot[1]?.endTime} {timeSlot[1]?.period}
+              </th>
+              <th className="border-2 border-black border-b-0 p-3"></th>
+              <th className="border-2 border-black p-3">
+                {timeSlot[2]?.startTime} {timeSlot[2]?.period} -{" "}
+                {timeSlot[2]?.endTime} {timeSlot[2]?.period}
+              </th>
+              <th className="border-2 border-black p-3">
+                {timeSlot[3]?.startTime} {timeSlot[3]?.period} -{" "}
+                {timeSlot[3]?.endTime} {timeSlot[3]?.period}
+              </th>
+            </tr>
+          </thead>
+
+          <tbody className=" text-center font-semibold">
+            {loading
+              ? "loading"
+              : data?.map((elem, ind) => {
+                  const { batch, yearSem, sem, room, courses, _id } = elem;
+                  const classesBeforeBreak = courses.slice(0, 2);
+                  const classesAfterBreak = courses.slice(2, 4);
+                  return (
+                    <tr key={ind}>
+                      <td className="border-2 border-black p-3">{batch}</td>
+                      <td className="border-2 border-black p-3">{yearSem}</td>
+                      <td className="border-2 border-black p-3">{sem}</td>
+                      <td className="border-2 border-black p-3">{room}</td>
+                      {classesBeforeBreak[0]?.courseCode ===
+                      classesBeforeBreak[1]?.courseCode ? (
                         <td
-                          key={ind}
+                          className={`border-2 border-black p-3 ${
+                            swapClass?.routineId === elem?._id &&
+                            (swapClass?.firstRowIndex ===
+                              classesBeforeBreak[0]?.rowIndex ||
+                              swapClass?.secondRowIndex ===
+                                classesBeforeBreak[0]?.rowIndex) &&
+                            "bg-purple-500"
+                          }`}
                           onClick={() => {
                             if (
-                              classBeforeBreak?.courseCode ||
-                              classBeforeBreak?.courseTitle
+                              classesBeforeBreak[0]?.courseCode ||
+                              classesBeforeBreak[0]?.courseTitle
                             ) {
                               handleClickTD(
                                 elem?._id,
-                                classBeforeBreak?.rowIndex,
-                                classBeforeBreak?.credit
+                                classesBeforeBreak[0]?.rowIndex,
+                                classesBeforeBreak[0]?.credit
                               );
                             }
                           }}
                           onDoubleClick={() => {
                             if (
-                              classBeforeBreak?.courseCode ||
-                              classBeforeBreak?.courseTitle
+                              classesBeforeBreak[0]?.courseCode ||
+                              classesBeforeBreak[0]?.courseTitle
                             ) {
                               setCourseId(_id);
-                              setRowIndex(classBeforeBreak?.rowIndex);
-                              setCourseCredit(classBeforeBreak?.credit);
+                              setRowIndex(classesBeforeBreak[0]?.rowIndex);
+                              setCourseCredit(classesBeforeBreak[0]?.credit);
+                              document
+                                .getElementById("teacher_assign")
+                                .showModal();
+                              setTab("SelectTeachers");
+                            }
+                          }}
+                          colSpan={2}
+                        >
+                          {`${classesBeforeBreak[0]?.courseCode ?? ""} ${
+                            classesBeforeBreak[0]?.courseTitle
+                              ? `(${classesBeforeBreak[0]?.courseTitle})`
+                              : ""
+                          } ${classesBeforeBreak[0]?.teacher?.sortForm ?? ""} ${
+                            classesBeforeBreak[0]?.room ?? ""
+                          }`}
+                        </td>
+                      ) : (
+                        classesBeforeBreak?.map((classBeforeBreak, ind) => (
+                          <td
+                            key={ind}
+                            onClick={() => {
+                              if (
+                                classBeforeBreak?.courseCode ||
+                                classBeforeBreak?.courseTitle
+                              ) {
+                                handleClickTD(
+                                  elem?._id,
+                                  classBeforeBreak?.rowIndex,
+                                  classBeforeBreak?.credit
+                                );
+                              }
+                            }}
+                            onDoubleClick={() => {
+                              if (
+                                classBeforeBreak?.courseCode ||
+                                classBeforeBreak?.courseTitle
+                              ) {
+                                setCourseId(_id);
+                                setRowIndex(classBeforeBreak?.rowIndex);
+                                setCourseCredit(classBeforeBreak?.credit);
+                                document
+                                  .getElementById("teacher_assign")
+                                  .showModal();
+                                setTab("SelectTeachers");
+                              }
+                            }}
+                            className={`border-2 border-black p-3 ${
+                              swapClass?.routineId === elem?._id &&
+                              (swapClass?.firstRowIndex ===
+                                classBeforeBreak?.rowIndex ||
+                                swapClass?.secondRowIndex ===
+                                  classBeforeBreak?.rowIndex) &&
+                              "bg-purple-500"
+                            }`}
+                          >
+                            {`${classBeforeBreak?.courseCode ?? ""} ${
+                              classBeforeBreak?.courseTitle
+                                ? `(${classBeforeBreak?.courseTitle})`
+                                : ""
+                            }  ${classBeforeBreak?.teacher?.sortForm ?? ""}`}
+                          </td>
+                        ))
+                      )}
+                      {ind === 0 && (
+                        <td rowSpan={data.length}>
+                          <div className="flex flex-col font-bold">
+                            {"BREAK".split("").map((elem, ind) => (
+                              <span key={ind}>{elem}</span>
+                            ))}
+                          </div>
+                        </td>
+                      )}
+                      {classesAfterBreak[0]?.courseCode ===
+                      classesAfterBreak[1]?.courseCode ? (
+                        <td
+                          onClick={() => {
+                            if (
+                              classesAfterBreak[0]?.courseCode ||
+                              classesAfterBreak[0]?.courseTitle
+                            ) {
+                              handleClickTD(
+                                elem?._id,
+                                classesAfterBreak[0]?.rowIndex,
+                                classesAfterBreak[0]?.credit
+                              );
+                            }
+                          }}
+                          onDoubleClick={() => {
+                            if (
+                              classesAfterBreak[0]?.courseCode ||
+                              classesAfterBreak[0]?.courseTitle
+                            ) {
+                              setCourseId(_id);
+                              setRowIndex(classesAfterBreak[0]?.rowIndex);
+                              setCourseCredit(classesAfterBreak[0]?.credit);
                               document
                                 .getElementById("teacher_assign")
                                 .showModal();
@@ -263,155 +328,104 @@ const EveningTable = ({
                           className={`border-2 border-black p-3 ${
                             swapClass?.routineId === elem?._id &&
                             (swapClass?.firstRowIndex ===
-                              classBeforeBreak?.rowIndex ||
+                              classesAfterBreak[0]?.rowIndex ||
                               swapClass?.secondRowIndex ===
-                                classBeforeBreak?.rowIndex) &&
+                                classesAfterBreak[0]?.rowIndex) &&
                             "bg-purple-500"
                           }`}
+                          colSpan={2}
                         >
-                          {`${classBeforeBreak?.courseCode ?? ""} ${
-                            classBeforeBreak?.courseTitle
-                              ? `(${classBeforeBreak?.courseTitle})`
+                          {`${classesAfterBreak[0]?.courseCode ?? ""} ${
+                            classesAfterBreak[0]?.courseTitle
+                              ? `(${classesAfterBreak[0]?.courseTitle})`
                               : ""
-                          }  ${classBeforeBreak?.teacher?.sortForm ?? ""}`}
-                        </td>
-                      ))
-                    )}
-                    {ind === 0 && (
-                      <td rowSpan={data.length}>
-                        <div className="flex flex-col font-bold">
-                          {"BREAK".split("").map((elem, ind) => (
-                            <span key={ind}>{elem}</span>
-                          ))}
-                        </div>
-                      </td>
-                    )}
-                    {classesAfterBreak[0]?.courseCode ===
-                    classesAfterBreak[1]?.courseCode ? (
-                      <td
-                        onClick={() => {
-                          if (
-                            classesAfterBreak[0]?.courseCode ||
-                            classesAfterBreak[0]?.courseTitle
-                          ) {
-                            handleClickTD(
-                              elem?._id,
-                              classesAfterBreak[0]?.rowIndex,
-                              classesAfterBreak[0]?.credit
-                            );
-                          }
-                        }}
-                        onDoubleClick={() => {
-                          if (
-                            classesAfterBreak[0]?.courseCode ||
-                            classesAfterBreak[0]?.courseTitle
-                          ) {
-                            setCourseId(_id);
-                            setRowIndex(classesAfterBreak[0]?.rowIndex);
-                            setCourseCredit(classesAfterBreak[0]?.credit);
-                            document
-                              .getElementById("teacher_assign")
-                              .showModal();
-                            setTab("SelectTeachers");
-                          }
-                        }}
-                        className={`border-2 border-black p-3 ${
-                          swapClass?.routineId === elem?._id &&
-                          (swapClass?.firstRowIndex ===
-                            classesAfterBreak[0]?.rowIndex ||
-                            swapClass?.secondRowIndex ===
-                              classesAfterBreak[0]?.rowIndex) &&
-                          "bg-purple-500"
-                        }`}
-                        colSpan={2}
-                      >
-                        {`${classesAfterBreak[0]?.courseCode ?? ""} ${
-                          classesAfterBreak[0]?.courseTitle
-                            ? `(${classesAfterBreak[0]?.courseTitle})`
-                            : ""
-                        } ${classesAfterBreak[0]?.teacher?.sortForm ?? ""} ${
-                          classesAfterBreak[0]?.room ?? ""
-                        }`}
-                      </td>
-                    ) : (
-                      classesAfterBreak?.map((classAfterBreak, ind) => (
-                        <td
-                          key={ind}
-                          onClick={() => {
-                            if (
-                              classAfterBreak?.courseCode ||
-                              classAfterBreak?.courseTitle
-                            ) {
-                              handleClickTD(
-                                elem?._id,
-                                classAfterBreak?.rowIndex,
-                                classAfterBreak?.credit
-                              );
-                            }
-                          }}
-                          onDoubleClick={() => {
-                            if (
-                              classAfterBreak?.courseCode ||
-                              classAfterBreak?.courseTitle
-                            ) {
-                              setCourseId(_id);
-                              setRowIndex(classAfterBreak?.rowIndex);
-                              setCourseCredit(classAfterBreak?.credit);
-                              document
-                                .getElementById("teacher_assign")
-                                .showModal();
-                              setTab("SelectTeachers");
-                            }
-                          }}
-                          className={`border-2 border-black p-3 ${
-                            swapClass?.routineId === elem?._id &&
-                            (swapClass?.firstRowIndex ===
-                              classAfterBreak?.rowIndex ||
-                              swapClass?.secondRowIndex ===
-                                classAfterBreak?.rowIndex) &&
-                            "bg-purple-500"
+                          } ${classesAfterBreak[0]?.teacher?.sortForm ?? ""} ${
+                            classesAfterBreak[0]?.room ?? ""
                           }`}
-                        >
-                          {`${classAfterBreak?.courseCode ?? ""} ${
-                            classAfterBreak?.courseTitle
-                              ? `(${classAfterBreak?.courseTitle})`
-                              : ""
-                          } ${classAfterBreak?.teacher?.sortForm ?? ""}`}
                         </td>
-                      ))
-                    )}
-                  </tr>
-                );
-              })}
-        </tbody>
-      </table>
+                      ) : (
+                        classesAfterBreak?.map((classAfterBreak, ind) => (
+                          <td
+                            key={ind}
+                            onClick={() => {
+                              if (
+                                classAfterBreak?.courseCode ||
+                                classAfterBreak?.courseTitle
+                              ) {
+                                handleClickTD(
+                                  elem?._id,
+                                  classAfterBreak?.rowIndex,
+                                  classAfterBreak?.credit
+                                );
+                              }
+                            }}
+                            onDoubleClick={() => {
+                              if (
+                                classAfterBreak?.courseCode ||
+                                classAfterBreak?.courseTitle
+                              ) {
+                                setCourseId(_id);
+                                setRowIndex(classAfterBreak?.rowIndex);
+                                setCourseCredit(classAfterBreak?.credit);
+                                document
+                                  .getElementById("teacher_assign")
+                                  .showModal();
+                                setTab("SelectTeachers");
+                              }
+                            }}
+                            className={`border-2 border-black p-3 ${
+                              swapClass?.routineId === elem?._id &&
+                              (swapClass?.firstRowIndex ===
+                                classAfterBreak?.rowIndex ||
+                                swapClass?.secondRowIndex ===
+                                  classAfterBreak?.rowIndex) &&
+                              "bg-purple-500"
+                            }`}
+                          >
+                            {`${classAfterBreak?.courseCode ?? ""} ${
+                              classAfterBreak?.courseTitle
+                                ? `(${classAfterBreak?.courseTitle})`
+                                : ""
+                            } ${classAfterBreak?.teacher?.sortForm ?? ""}`}
+                          </td>
+                        ))
+                      )}
+                    </tr>
+                  );
+                })}
+          </tbody>
+        </table>
 
-      {/* Swapping btn */}
-      {swapClass.firstRowIndex && swapClass.secondRowIndex && (
-        <div className="h-screen w-full bg-slate-500 bg-opacity-75 flex items-center justify-center absolute left-0 top-0">
-          <button className="my-btn-one" onClick={classSwappingHandler}>
-            Swap <FaArrowRightArrowLeft />
-          </button>
-          <button className="my-btn-one ml-4" onClick={() => setSwapClass({})}>
-            Reset
-          </button>
-        </div>
-      )}
+        {/* Swapping btn */}
+        {swapClass.firstRowIndex && swapClass.secondRowIndex && (
+          <div className="h-screen w-full bg-slate-500 bg-opacity-75 flex items-center justify-center absolute left-0 top-0">
+            <button className="my-btn-one" onClick={classSwappingHandler}>
+              Swap <FaArrowRightArrowLeft />
+            </button>
+            <button
+              className="my-btn-one ml-4"
+              onClick={() => setSwapClass({})}
+            >
+              Reset
+            </button>
+          </div>
+        )}
 
-      {/* Teacher assign modal  */}
-      <TeacherAssign
-        courseId={courseId}
-        rowIndex={rowIndex}
-        selectShift={selectShift}
-        regularDayTab={regularDayTab}
-        eveningDayTab={eveningDayTab}
-        setControl={setControl}
-        control={control}
-        courseCredit={courseCredit}
-        tab={tab}
-        setTab={setTab}
-      />
-    </TableWrapper>
+        {/* Teacher assign modal  */}
+        <TeacherAssign
+          courseId={courseId}
+          rowIndex={rowIndex}
+          selectShift={selectShift}
+          regularDayTab={regularDayTab}
+          eveningDayTab={eveningDayTab}
+          setControl={setControl}
+          control={control}
+          courseCredit={courseCredit}
+          tab={tab}
+          setTab={setTab}
+        />
+      </TableWrapper>
+    </div>
   );
 };
 

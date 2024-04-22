@@ -7,14 +7,6 @@ import { FaBackward } from "react-icons/fa6";
 import Loading from "./Shared/Loading";
 import image from "./assets/img/logo-eub.png";
 
-// const FacultyTable = () => {
-//   const data = [
-//     { id: 1, name: "John Doe", job: "Software Engineer", color: "Blue" },
-//     { id: 2, name: "Jane Smith", job: "Data Scientist", color: "Red" },
-//     { id: 3, name: "Alice Johnson", job: "UI/UX Designer", color: "Green" },
-//   ];
-// };
-
 const FacultyDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -41,12 +33,13 @@ const FacultyDetails = () => {
   console.log("facultyTimes:", facultyTimes);
 
   const handleDownload = () => {
+    console.log("Hello");
     const dataContainer = document.getElementById("download-container");
     const opt = {
       margin: 0.2,
       filename: "Leads.pdf",
       image: { type: "jpeg", quality: 100 },
-      html2canvas: { scale: 2, useCORS: true },
+      html2canvas: { scale: 2 },
       jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     };
     html2pdf().from(dataContainer).set(opt).save();

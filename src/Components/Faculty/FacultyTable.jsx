@@ -12,9 +12,7 @@ const FacultyTable = () => {
   const [control, setControl] = useState(false);
   useEffect(() => {
     setControl(true);
-    fetch(
-      `https://routine-management-system-backend.onrender.com/api/v1/teacher`
-    )
+    fetch(`https://routine-management-system-backend.onrender.com/api/v1/teacher`)
       .then((res) => res.json())
       .then((data) => {
         setAllFaculty(data?.data);
@@ -31,19 +29,11 @@ const FacultyTable = () => {
   return (
     <div className="container mx-auto">
       <div className="my-5 flex justify-between items-center">
-        <button
-          className="flex items-center gap-2 font-medium"
-          onClick={() => navigate(-1)}
-        >
+        <button className="flex items-center gap-2 font-medium" onClick={() => navigate(-1)}>
           <FaBackward /> <span>back</span>
         </button>
-        <button
-          onClick={() => document.getElementById("uploadFaculties").showModal()}
-        >
-          <a
-            href="#_"
-            className="relative px-5 py-2 font-medium text-white group"
-          >
+        <button onClick={() => document.getElementById("uploadFaculties").showModal()}>
+          <a href="#_" className="relative px-5 py-2 font-medium text-white group">
             <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-orange-400 group-hover:bg-orange-500 group-hover:skew-x-12"></span>
             <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform skew-x-12 bg-orange-500 group-hover:bg-orange-700 group-hover:-skew-x-12"></span>
             <span className="absolute bottom-0 left-0 hidden w-10 h-20 transition-all duration-100 ease-out transform -translate-x-8 translate-y-10 bg-orange-500 -rotate-12"></span>

@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBackward } from "react-icons/fa";
 import UploadFacultiesModal from "../Modal/UploadFacultiesModal";
 import Loading from "../../Shared/Loading";
+import { CgClose } from "react-icons/cg";
+import Swal from "sweetalert2";
 
 const FacultyTable = () => {
   const navigate = useNavigate();
@@ -12,7 +14,9 @@ const FacultyTable = () => {
   const [control, setControl] = useState(false);
   useEffect(() => {
     setControl(true);
-    fetch(`https://routine-management-system-backend.onrender.com/api/v1/teacher`)
+    fetch(
+      `https://routine-management-system-backend.onrender.com/api/v1/teacher`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllFaculty(data?.data);
@@ -25,15 +29,54 @@ const FacultyTable = () => {
         setControl(false);
       });
   }, [control]);
+  const handleDeleteFaculty = (facultyName, _id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `You won't to delete this faculty "${facultyName}"`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `This faculty "${facultyName}" delete successfully`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    });
 
+
+
+
+
+    // fetch(`https://your-api.com/items/${_id}`, {
+    //   method: "DELETE",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
+  };
   return (
     <div className="container mx-auto">
       <div className="my-5 flex justify-between items-center">
-        <button className="flex items-center gap-2 font-medium" onClick={() => navigate(-1)}>
+        <button
+          className="flex items-center gap-2 font-medium"
+          onClick={() => navigate(-1)}
+        >
           <FaBackward /> <span>back</span>
         </button>
-        <button onClick={() => document.getElementById("uploadFaculties").showModal()}>
-          <a href="#_" className="relative px-5 py-2 font-medium text-white group">
+        <button
+          onClick={() => document.getElementById("uploadFaculties").showModal()}
+        >
+          <a
+            href="#_"
+            className="relative px-5 py-2 font-medium text-white group"
+          >
             <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-orange-400 group-hover:bg-orange-500 group-hover:skew-x-12"></span>
             <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform skew-x-12 bg-orange-500 group-hover:bg-orange-700 group-hover:-skew-x-12"></span>
             <span className="absolute bottom-0 left-0 hidden w-10 h-20 transition-all duration-100 ease-out transform -translate-x-8 translate-y-10 bg-orange-500 -rotate-12"></span>
@@ -53,12 +96,18 @@ const FacultyTable = () => {
               return (
                 <div
                   key={ind}
-                  className="rounded bg-slate-100 border shadow p-2 space-y-2 flex items-center justify-center flex-col"
+                  className="rounded bg-slate-100 border shadow p-2 space-y-2 flex items-center justify-center flex-col relative"
                 >
                   <h2 className="font-semibold">{fullName}</h2>
                   <Link to={`/individual-faculty/${_id}`}>
                     <button className="my-btn-one-outline ">See table</button>
                   </Link>
+                  <buttona
+                    onClick={() => handleDeleteFaculty(fullName, _id)}
+                    className="absolute -top-4 -right-2 cursor-pointer"
+                  >
+                    <CgClose />
+                  </buttona>
                 </div>
               );
             })}

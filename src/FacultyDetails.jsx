@@ -31,7 +31,7 @@ const FacultyDetails = () => {
   }, [id]);
 
   console.log("facultyTimes:", facultyTimes);
-
+  //Handle Download PDF Button
   const handleDownload = () => {
     console.log("Hello");
     const dataContainer = document.getElementById("download-container");

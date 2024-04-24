@@ -6,7 +6,7 @@ import { FaTimes } from "react-icons/fa";
 const InsertRoutine = ({ setControl, control }) => {
 
   // TODO: Need to use it to rerender after insert routine
-  { setControl, control }
+  // { setControl, control }
 
   const url = `https://routine-management-system-backend.onrender.com/api/v1`;
 
@@ -18,7 +18,7 @@ const InsertRoutine = ({ setControl, control }) => {
     formState: { errors, isSubmitted },
   } = useForm();
   const handleInsertRoutineFunc = (form) => {
-    const {courseTitle, courseCode, semester, credit, regulation} = form
+    const { courseTitle, courseCode, semester, credit, regulation } = form
     console.log(form);
 
   };
@@ -31,9 +31,18 @@ const InsertRoutine = ({ setControl, control }) => {
           {/*  Semester*/}
           <div className=''>
             <label htmlFor="semester" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Semester</label>
-            <input type="text" id='semester' className='my-inp' placeholder="Enter semester"  {...register("semester", { required: true })} />
+            <select id='semester' className='my-inp' {...register("semester", { required: true })}>
+              <option value={''}>Select semester</option>
+              {
+                ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"].map((elem, ind) => {
+                  return <option key={ind} value={elem}>{elem}</option>
+                })
+
+              }
+            </select>
             {errors.semester && <p className="text-red-500">*This field is required</p>}
           </div>
+          
           {/*  Course title */}
           <div className=''>
             <label htmlFor="courseTitle" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Course title</label>

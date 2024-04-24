@@ -23,7 +23,6 @@ const InsertCourse = ({ setControl, control }) => {
         axios.post(`${url}/course/create-course`, {
             courseTitle, courseCode, credit, regulation
         }).then(res => {
-            console.log(res.data);
             toast.success(res.data?.message, {
                 position: "bottom-center",
                 autoClose: 2000,
@@ -36,7 +35,7 @@ const InsertCourse = ({ setControl, control }) => {
                 transition: Bounce,
             });
         }).catch(e => {
-            toast.error(e.response?.data?.errorMessage, {
+            toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
                 position: "bottom-center",
                 autoClose: 2000,
                 hideProgressBar: false,

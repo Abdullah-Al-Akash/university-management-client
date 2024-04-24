@@ -11,6 +11,11 @@ import EveningFridayTable from "./Components/Evening/EveningFridayTable";
 import AddNewBatchModal from "./Components/Modal/AddNewBatchModal";
 import UploadRoutine from "./Components/Modal/UploadRoutine";
 import InsertRoutine from "./Components/Modal/InsertRoutine";
+import InsertCourse from "./Components/Modal/InsertCourse";
+
+// toastify
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -27,8 +32,7 @@ const App = () => {
     setLoading(true);
 
     fetch(
-      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${
-        selectShift === "Regular" ? regularDayTab : eveningDayTab
+      `https://routine-management-system-backend.onrender.com/api/v1/routine?day=${selectShift === "Regular" ? regularDayTab : eveningDayTab
       }&shift=${selectShift}`
     )
       .then((res) => res.json())
@@ -67,8 +71,8 @@ const App = () => {
 
       {/* Evening batch table  Friday*/}
       {!selectBatch &&
-      selectShift === "Evening" &&
-      eveningDayTab === "Friday" ? (
+        selectShift === "Evening" &&
+        eveningDayTab === "Friday" ? (
         <EveningFridayTable
           eveningDayTab={eveningDayTab}
           data={data.data}
@@ -116,7 +120,22 @@ const App = () => {
       {/* Modal */}
       <AddNewBatchModal setControl={setControl} control={control} />
       <UploadRoutine control={control} setControl={setControl}></UploadRoutine>
-      <InsertRoutine control={control} setControl={setControl}/>
+      <InsertRoutine control={control} setControl={setControl} />
+      <InsertCourse />
+
+      {/* Toast container */}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 };

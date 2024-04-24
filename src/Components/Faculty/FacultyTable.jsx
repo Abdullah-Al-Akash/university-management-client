@@ -37,29 +37,38 @@ const FacultyTable = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: `This faculty "${facultyName}" delete successfully`,
-          showConfirmButton: false,
-          timer: 1500
-        });
+        fetch(
+          `https://routine-management-system-backend.onrender.com/api/v1/teacher/delete-teacher/${_id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((res) => res.json)
+          .then((data) => {
+            console.log(data);
+            setControl(!control)
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: `This faculty "${facultyName}" delete successfully`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        
       }
     });
 
-
-
-
-
-    // fetch(`https://your-api.com/items/${_id}`, {
-    //   method: "DELETE",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
+   
   };
   return (
     <div className="container mx-auto">

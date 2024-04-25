@@ -82,6 +82,7 @@ const InsertRoutine = ({ setControl, control }) => {
         transition: Bounce,
     });
     }).catch(e => {
+      console.log(e.response);
       toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
         position: "bottom-right",
         autoClose: 2000,

@@ -35,30 +35,39 @@ const InsertRoutine = ({ setControl, control }) => {
 
   const handleInsertRoutineFunc = (form) => {
     const courses = []
-    const { courseTitle, courseCode, teacher, semester, credit, regulation, rowIndex } = form
+    const rowIndexes = watch('shift') === 'Regular' ? regularRowIndexes : watch('shift') === 'Evening' ? eveningRowIndexes : []
+    let countRowIndex = 0
+    const {day, batch, sem, yearSem, shift, regulation } = form
 
     Object.keys(form).forEach(key => {
-      if (key.startsWith('rowIndex-courseTitle')) {
+      if (key.startsWith('rowIndex-courseTitle') && countRowIndex < rowIndexes.length) {
+        countRowIndex += 1
 
-        const rowIndex = key.split('rowIndex-courseTitle-')[1]
-        const courseName = watch(key).split(',')[0]
+        const rowIndex = Number(key.split('rowIndex-courseTitle-')[1])
+        const courseTitle = watch(key).split(',')[0]
         const courseCode = watch(key).split(',')[1]
-        const credit = watch(key).split(',')[2]
+        const credit = watch(key).split(',')[2] ? Number(watch(key).split(',')[2]) : ''
 
         const courseObj = {
           rowIndex,
-          courseName,
+          courseTitle,
           courseCode,
-          credit
+          credit, 
+          teacher: '',
         }
         courses.push(courseObj)
       }
     })
-    console.log(form, 'form');
-    console.log(courses, 'courses');
 
-    return
-    axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/routine/insert-routine`).then(res => {
+
+    // console.log(form, 'form');
+    // console.log(courses, 'courses');
+    // console.log(countRowIndex, 'countRowIndex after');
+    const newRoutine = {day, batch:Number(batch), sem, yearSem, shift, regulation, room: '', courses}
+    console.log(newRoutine, 'newRoutine');
+
+
+    axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/routine/insert-routine`, newRoutine).then(res => {
       console.log(res.data);
     }).catch(e => console.log(e))
   };
@@ -75,7 +84,7 @@ const InsertRoutine = ({ setControl, control }) => {
           {/*  Semester*/}
           <div className=''>
             <label htmlFor="semester" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Semester</label>
-            <select id='semester' className='my-inp' {...register("semester", { required: true })}>
+            <select id='semester' className='my-inp' {...register("sem", { required: true })}>
               <option value={''}>Select semester</option>
               {
                 ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"].map((elem, ind) => {
@@ -84,7 +93,7 @@ const InsertRoutine = ({ setControl, control }) => {
 
               }
             </select>
-            {errors.semester && <p className="text-red-500">*This field is required</p>}
+            {errors.sem && <p className="text-red-500">*This field is required</p>}
           </div>
 
           {/*  Regulation */}
@@ -138,23 +147,18 @@ const InsertRoutine = ({ setControl, control }) => {
             {errors.batch && <p className="text-red-500">*This field is required</p>}
           </div>
 
-          {/* <div className=''>
-              <label htmlFor={`rowIndex`} className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Row index {elem}</label>
-              <select id='rowIndex' className='my-inp' {...register(`rowIndex-${elem}`, { required: true })}>
-                <option value={''}>Select row index</option>
-                {(watch('shift') === 'Evening' ? eveningRowIndexes : watch('shift') === 'Regular' ? regularRowIndexes : []).map((elem, ind) => {
-                  return <option key={ind} value={elem}>{elem}</option>
-                })
-                }
-              </select>
-              </div> */}
+          {/*  Year/sem */}
+          <div className=''>
+            <label htmlFor="yearSem" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Year/sem</label>
+            <input type="text" id='yearSem' className='my-inp' placeholder="Enter yearSem - (ex: 2/3)"  {...register("yearSem", { required: true })} />
+            {errors.yearSem && <p className="text-red-500">*This field is required</p>}
+          </div>
 
           {/* Row indexes */}
           {eveningRowIndexes.length || regularRowIndexes.length ?
             <>
               <h2 className="font-semibold !mt-6 !mb-3">Assign classes</h2>
               {(watch('shift') === 'Evening' ? eveningRowIndexes : watch('shift') === 'Regular' ? regularRowIndexes : []).map((elem, ind) => {
-                console.log(elem, 'elem from map');
                 return <div key={ind} className=''>
                   <label htmlFor={`rowIndex-${elem}`} className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Row index {elem}</label>
                   <select id={`rowIndex-${elem}`} className='my-inp' {...register(`rowIndex-courseTitle-${elem}`)}>
@@ -167,24 +171,6 @@ const InsertRoutine = ({ setControl, control }) => {
                   </select>
                 </div>
               })}</> : ''}
-
-          {/*  Course title */}
-          {/* <div className=''>
-            <label htmlFor="courseTitle" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Course title</label>
-            <select id='courseTitle' className='my-inp' {...register("courseTitle", { required: true })}>
-              <option value={''}>Select course title</option>
-              {
-                courses.filter(elem => elem?.regulation == watch('regulation'))?.map((elem, ind) => {
-                  return <option key={ind} value={elem}>{elem.courseTitle}</option>
-                })
-
-              }
-            </select>
-            {errors.courseTitle && <p className="text-red-500">*This field is required</p>}
-          </div> */}
-
-
-
 
 
           <button type="submit" className="my-btn-one my-1">Insert</button>

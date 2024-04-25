@@ -13,7 +13,6 @@ const FacultyTable = () => {
   const [loading, setLoading] = useState(true);
   const [control, setControl] = useState(false);
   useEffect(() => {
-    setControl(true);
     fetch(
       `https://routine-management-system-backend.onrender.com/api/v1/teacher`
     )
@@ -21,12 +20,10 @@ const FacultyTable = () => {
       .then((data) => {
         setAllFaculty(data?.data);
         setLoading(false);
-        setControl(false);
       })
       .catch((err) => {
         console.error(err);
         setLoading(false);
-        setControl(false);
       });
   }, [control]);
   const handleDeleteFaculty = (facultyName, _id) => {
@@ -111,12 +108,12 @@ const FacultyTable = () => {
                   <Link to={`/individual-faculty/${_id}`}>
                     <button className="my-btn-one-outline ">See table</button>
                   </Link>
-                  <buttona
+                  <button
                     onClick={() => handleDeleteFaculty(fullName, _id)}
-                    className="absolute -top-4 -right-2 cursor-pointer"
+                    className="absolute -top-4 -right-2 cursor-pointer text-red-500"
                   >
                     <CgClose />
-                  </buttona>
+                  </button>
                 </div>
               );
             })}

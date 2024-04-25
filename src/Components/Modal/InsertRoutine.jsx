@@ -17,43 +17,66 @@ const InsertRoutine = ({ setControl, control }) => {
   const eveningRowIndexes = (watch('shift') === 'Evening' && watch('day') === 'Friday') ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] : (watch('shift') === 'Evening' && (watch('day') !== 'Friday' && watch('day') !== '')) ? [1, 2, 3, 4] : []
   const regularRowIndexes = watch('shift') === 'Regular' ? [1, 2, 3, 4, 5, 6] : []
 
+  const [courses, setCourses] = useState([])
+  const [coursesLoading, setCoursesLoading] = useState(false)
+
+
+  const [regulations, setRegulations] = useState([])
+  const [regulationsLoading, setRegulationsLoading] = useState(false)
+
+
+
   // TODO: Need dynamic courses by regulation and need dynamic regulation
 
+  // Courses
+  useEffect(() => {
+    setCoursesLoading(true)
+    if (watch('regulation')) {
+      axios(`${import.meta.env.VITE_SERVER_BASE_URL}/course/courses-by-regulation/${watch('regulation')}`).then(res => {
+        setCoursesLoading(false)
+        setCourses(res.data?.data)
+      }).catch(e => {
+        setCoursesLoading(false)
+        console.log(e.response);
+      })
+    }else{
+      setCoursesLoading(false)
+    }
+  }, [watch('regulation')])
 
-  const courses = [
-    { "_id": "6628a942c6b06d324d113ef3", "courseCode": "101", "courseTitle": "DSA", "credit": 3, "regulation": "2021" },
-    { "_id": "6628a968c6b06d324d113ef5", "courseCode": "100", "courseTitle": "SPL", "credit": 3, "regulation": "2022" },
-    { "_id": "6628a976c6b06d324d113ef7", "courseCode": "106", "courseTitle": "BSL", "credit": 3, "regulation": "2024" },
-    { "_id": "6628aa6ec6b06d324d113efd", "courseCode": "3054", "courseTitle": "ISL", "credit": 3, "regulation": "2023" },
-    { "_id": "6628aad4c6b06d324d113f00", "courseCode": "3052", "courseTitle": "SSL", "credit": 3, "regulation": "2022" },
-    { "_id": "6628aaecc6b06d324d113f06", "courseCode": "25", "courseTitle": "NPG", "credit": 3, "regulation": "2021" },
-    { "_id": "6628ab3cc6b06d324d113f0a", "courseCode": "215", "courseTitle": "Testing and maintenance", "credit": 3, "regulation": "2022" },
-    { "_id": "6628ab48c6b06d324d113f0c", "courseCode": "245", "courseTitle": "Database", "credit": 3, "regulation": "2022" }
-  ];
-  const regulations = [2021, 2022, 2023, 2024]
+  // Regulation
+  useEffect(() => {
+    setRegulationsLoading(true)
+    axios(`${import.meta.env.VITE_SERVER_BASE_URL}/course/regulations`).then(res => {
+      setRegulationsLoading(false)
+      setRegulations(res.data?.data)
+    }).catch(e => {
+      setRegulationsLoading(false)
+      console.log(e.response);
+    })
+  }, [])
 
 
   const handleInsertRoutineFunc = (form) => {
     const courses = []
     const rowIndexes = watch('shift') === 'Regular' ? regularRowIndexes : watch('shift') === 'Evening' ? eveningRowIndexes : []
     let countRowIndex = 0
-    const {day, batch, sem, yearSem, shift, regulation } = form
+    const { day, batch, sem, yearSem, shift, regulation } = form
 
     Object.keys(form).forEach(key => {
       if (key.startsWith('rowIndex-courseTitle') && countRowIndex < rowIndexes.length) {
         countRowIndex += 1
 
         const rowIndex = Number(key.split('rowIndex-courseTitle-')[1])
-        const courseTitle = watch(key).split(',')[0]
-        const courseCode = watch(key).split(',')[1]
+        const courseTitle = watch(key).split(',')[0] || ''
+        const courseCode = watch(key).split(',')[1] || ''
         const credit = watch(key).split(',')[2] ? Number(watch(key).split(',')[2]) : ''
 
         const courseObj = {
           rowIndex,
           courseTitle,
           courseCode,
-          credit, 
-          teacher: '',
+          credit,
         }
         courses.push(courseObj)
       }
@@ -63,7 +86,7 @@ const InsertRoutine = ({ setControl, control }) => {
     // console.log(form, 'form');
     // console.log(courses, 'courses');
     // console.log(countRowIndex, 'countRowIndex after');
-    const newRoutine = {day, batch:Number(batch), sem, yearSem, shift, regulation, room: '', courses}
+    const newRoutine = { day, batch: Number(batch), sem, yearSem, shift, regulation, room: '', courses }
     console.log(newRoutine, 'newRoutine');
 
 
@@ -80,7 +103,7 @@ const InsertRoutine = ({ setControl, control }) => {
         progress: undefined,
         theme: "light",
         transition: Bounce,
-    });
+      });
     }).catch(e => {
       console.log(e.response);
       toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
@@ -93,7 +116,7 @@ const InsertRoutine = ({ setControl, control }) => {
         progress: undefined,
         theme: "light",
         transition: Bounce,
-    });
+      });
     })
   };
 
@@ -124,7 +147,7 @@ const InsertRoutine = ({ setControl, control }) => {
           {/*  Regulation */}
           <div className=''>
             <label htmlFor="regulation" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Regulation</label>
-            <select id='regulation' className='my-inp' {...register("regulation", { required: true })}>
+           {regulationsLoading? <span className="loading loading-ring loading-lg"></span> : !regulations.length>0 ? <h2 className="text-red-500 font-semibold">Insert course first!</h2> : <select id='regulation' className='my-inp' {...register("regulation", { required: true })}>
               <option value={''}>Select regulation</option>
               {
                 regulations.map((elem, ind) => {
@@ -132,7 +155,7 @@ const InsertRoutine = ({ setControl, control }) => {
                 })
 
               }
-            </select>
+            </select>}
             {errors.regulation && <p className="text-red-500">*This field is required</p>}
           </div>
 
@@ -175,12 +198,20 @@ const InsertRoutine = ({ setControl, control }) => {
           {/*  Year/sem */}
           <div className=''>
             <label htmlFor="yearSem" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Year/sem</label>
-            <input type="text" id='yearSem' className='my-inp' placeholder="Enter yearSem - (ex: 2/3)"  {...register("yearSem", { required: true })} />
+            <select id='yearSem' className='my-inp' {...register("yearSem", { required: true })}>
+              <option value={''}>Select year/sem</option>
+              {
+                ['1/1', '1/2', '1/3', '2/1', '2/2', '2/3', '3/1', '3/2', '3/3', '4/1', '4/2', '4/3'].map((elem, ind) => {
+                  return <option key={ind} value={elem}>{elem}</option>
+                })
+
+              }
+            </select>
             {errors.yearSem && <p className="text-red-500">*This field is required</p>}
           </div>
 
           {/* Row indexes */}
-          {eveningRowIndexes.length || regularRowIndexes.length ?
+          {coursesLoading? <span className="loading loading-ring loading-lg"></span> : eveningRowIndexes.length || regularRowIndexes.length ?
             <>
               <h2 className="font-semibold !mt-6 !mb-3">Assign classes</h2>
               {(watch('shift') === 'Evening' ? eveningRowIndexes : watch('shift') === 'Regular' ? regularRowIndexes : []).map((elem, ind) => {
@@ -189,13 +220,14 @@ const InsertRoutine = ({ setControl, control }) => {
                   <select id={`rowIndex-${elem}`} className='my-inp' {...register(`rowIndex-courseTitle-${elem}`)}>
                     <option value={''}>Select course title</option>
                     {
-                      courses.filter(elem => elem?.regulation == watch('regulation'))?.map((elem, ind) => {
+                      courses?.map((elem, ind) => {
                         return <option key={ind} value={[elem.courseTitle, elem.courseCode, elem.credit]}>{elem.courseTitle}</option>
                       })
                     }
                   </select>
                 </div>
-              })}</> : ''}
+              })}
+              </> : ''}
 
 
           <button type="submit" className="my-btn-one my-1">Insert</button>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaTimes } from "react-icons/fa";
+import { Bounce, toast } from "react-toastify";
 
 
 
@@ -16,8 +17,7 @@ const InsertRoutine = ({ setControl, control }) => {
   const eveningRowIndexes = (watch('shift') === 'Evening' && watch('day') === 'Friday') ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] : (watch('shift') === 'Evening' && (watch('day') !== 'Friday' && watch('day') !== '')) ? [1, 2, 3, 4] : []
   const regularRowIndexes = watch('shift') === 'Regular' ? [1, 2, 3, 4, 5, 6] : []
 
-  // TODO: Need to use it to rerender after insert routine
-  // { setControl, control }
+  // TODO: Need dynamic courses by regulation and need dynamic regulation
 
 
   const courses = [
@@ -69,7 +69,31 @@ const InsertRoutine = ({ setControl, control }) => {
 
     axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/routine/insert-routine`, newRoutine).then(res => {
       console.log(res.data);
-    }).catch(e => console.log(e))
+      setControl(!control)
+      toast.success(res.data?.message, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
+    }).catch(e => {
+      toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    });
+    })
   };
 
 

@@ -7,10 +7,7 @@ import { Bounce, toast } from "react-toastify";
 
 const InsertCourse = ({ setControl, control }) => {
 
-    // TODO: Need to use it to rerender after insert routine
-    // { setControl, control }
 
-    const url = `https://routine-management-system-backend.onrender.com/api/v1`;
 
     const {
         register,
@@ -20,9 +17,10 @@ const InsertCourse = ({ setControl, control }) => {
     } = useForm();
     const handleInsertCourseFunc = (form) => {
         const { courseTitle, courseCode, credit, regulation } = form
-        axios.post(`${url}/course/create-course`, {
+        axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/course/create-course`, {
             courseTitle, courseCode, credit, regulation
         }).then(res => {
+            setControl(!control)
             toast.success(res.data?.message, {
                 position: "bottom-center",
                 autoClose: 2000,

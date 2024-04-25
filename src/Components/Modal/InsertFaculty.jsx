@@ -56,9 +56,6 @@ const InsertFaculty = ({ setControl, control }) => {
       <div className="modal-box">
         <form onSubmit={handleSubmit(handleInsertRoutineFunc)} className="space-y-2 w-full">
 
-
-  
-
           {/*  fullName */}
           <div className=''>
             <label htmlFor="fullName" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Full name</label>

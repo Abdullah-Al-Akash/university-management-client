@@ -8,7 +8,7 @@ import { CgClose } from "react-icons/cg";
 import Swal from "sweetalert2";
 import axios from "axios";
 import InsertCourse from "../Modal/InsertCourse";
-import { ToastContainer } from "react-toastify";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 const CoursesPage = () => {
     const navigate = useNavigate();
@@ -22,7 +22,6 @@ const CoursesPage = () => {
             setCourses(res.data?.data)
             setCoursesLoading(false)
         }).catch(e => {
-            console.log(e);
             setCoursesLoading(false)
         })
     }, [control]);
@@ -41,8 +40,30 @@ const CoursesPage = () => {
                 axios.delete(`${import.meta.env.VITE_SERVER_BASE_URL}/course/delete-course/${_id}`).then(res => {
                     console.log(res.data);
                     setControl(!control)
+                    toast.success(res.data?.message, {
+                        position: "bottom-center",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        transition: Bounce,
+                    });
                 }).catch(e => {
                     console.log(e);
+                    toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
+                        position: "bottom-center",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        transition: Bounce,
+                    });
                 })
 
             }
@@ -52,7 +73,7 @@ const CoursesPage = () => {
     };
 
     return (
-        <div className="container mx-auto">
+        <div className="md:container md:mx-auto mx-4">
             <div className="my-5 flex justify-between items-center">
                 <button
                     className="flex items-center gap-2 font-medium"
@@ -77,9 +98,9 @@ const CoursesPage = () => {
                 {coursesLoading ? (
                     <Loading />
                 ) : (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                         {courses?.map((course, ind) => {
-                            const { courseTitle, courseCode, credit, _id } = course;
+                            const { courseTitle, courseCode, credit, regulation, _id } = course;
                             return (
                                 <div
                                     key={ind}
@@ -88,6 +109,7 @@ const CoursesPage = () => {
                                     <h2 className="font-bold">{courseTitle}</h2>
                                     <h2 className="font-semibold"><span className="text-gray-500">Course code:</span> {courseCode}</h2>
                                     <h2 className="font-semibold"><span className="text-gray-500">Credit:</span> {credit}</h2>
+                                    <h2 className="font-semibold"><span className="text-gray-500">Regulation:</span> {regulation}</h2>
                                     <button
                                         onClick={() => handleDeleteCourse(courseTitle, _id)}
                                         className="absolute -top-4 -right-2 cursor-pointer text-red-500"

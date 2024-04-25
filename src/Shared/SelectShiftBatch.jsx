@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex flex-wrap gap-3 justify-between items-center mb-6 md:mb-4">
       {/* Select shift */}
       <div>
         <label htmlFor="" className="font-bold">
@@ -21,7 +21,7 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
         </select>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4">
 
         {/* All faculty */}
         <Link to="/all-courses">

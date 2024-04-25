@@ -20,9 +20,11 @@ const InsertRoutine = ({ setControl, control }) => {
   const [courses, setCourses] = useState([])
   const [coursesLoading, setCoursesLoading] = useState(false)
 
-
   const [regulations, setRegulations] = useState([])
   const [regulationsLoading, setRegulationsLoading] = useState(false)
+
+  const [batches, setBatches] = useState([])
+  const [batchesLoading, setBatchesLoading] = useState(false)
 
 
 
@@ -39,7 +41,7 @@ const InsertRoutine = ({ setControl, control }) => {
         setCoursesLoading(false)
         console.log(e.response);
       })
-    }else{
+    } else {
       setCoursesLoading(false)
     }
   }, [watch('regulation')])
@@ -56,12 +58,24 @@ const InsertRoutine = ({ setControl, control }) => {
     })
   }, [])
 
+  // Batches
+  useEffect(() => {
+    setBatchesLoading(true)
+    axios(`${import.meta.env.VITE_SERVER_BASE_URL}/routine/get-batches`).then(res => {
+      setBatchesLoading(false)
+      setBatches(res.data?.data)
+    }).catch(e => {
+      setBatchesLoading(false)
+      console.log(e.response);
+    })
+  }, [])
+
 
   const handleInsertRoutineFunc = (form) => {
     const courses = []
     const rowIndexes = watch('shift') === 'Regular' ? regularRowIndexes : watch('shift') === 'Evening' ? eveningRowIndexes : []
     let countRowIndex = 0
-    const { day, batch, sem, yearSem, shift, regulation } = form
+    const { day, batch, sem, yearSem, shift, regulation, room } = form
 
     Object.keys(form).forEach(key => {
       if (key.startsWith('rowIndex-courseTitle') && countRowIndex < rowIndexes.length) {
@@ -86,7 +100,7 @@ const InsertRoutine = ({ setControl, control }) => {
     // console.log(form, 'form');
     // console.log(courses, 'courses');
     // console.log(countRowIndex, 'countRowIndex after');
-    const newRoutine = { day, batch: Number(batch), sem, yearSem, shift, regulation, room: '', courses }
+    const newRoutine = { day, batch: Number(batch), room, sem, yearSem, shift, regulation, courses }
     console.log(newRoutine, 'newRoutine');
 
 
@@ -147,7 +161,7 @@ const InsertRoutine = ({ setControl, control }) => {
           {/*  Regulation */}
           <div className=''>
             <label htmlFor="regulation" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Regulation</label>
-           {regulationsLoading? <span className="loading loading-ring loading-lg"></span> : !regulations.length>0 ? <h2 className="text-red-500 font-semibold">Insert course first!</h2> : <select id='regulation' className='my-inp' {...register("regulation", { required: true })}>
+            {regulationsLoading ? <span className="loading loading-ring loading-lg"></span> : !regulations.length > 0 ? <h2 className="text-red-500 font-semibold">Insert course first!</h2> : <select id='regulation' className='my-inp' {...register("regulation", { required: true })}>
               <option value={''}>Select regulation</option>
               {
                 regulations.map((elem, ind) => {
@@ -188,10 +202,19 @@ const InsertRoutine = ({ setControl, control }) => {
             {errors.day && <p className="text-red-500">*This field is required</p>}
           </div>
 
+
           {/*  Batch */}
           <div className=''>
             <label htmlFor="batch" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Batch</label>
-            <input type="text" id='batch' className='my-inp' placeholder="Enter batch"  {...register("batch", { required: true })} />
+            {batchesLoading ? <span className="loading loading-ring loading-lg"></span> : <select id='batch' className='my-inp' {...register("batch", { required: true })}>
+              <option value={''}>Select batch</option>
+              {
+                batches.map((elem, ind) => {
+                  return <option key={ind} value={elem}>{elem}</option>
+                })
+
+              }
+            </select>}
             {errors.batch && <p className="text-red-500">*This field is required</p>}
           </div>
 
@@ -210,8 +233,15 @@ const InsertRoutine = ({ setControl, control }) => {
             {errors.yearSem && <p className="text-red-500">*This field is required</p>}
           </div>
 
+          {/*  Room */}
+          <div className=''>
+            <label htmlFor="room" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Room</label>
+            <input type="text" id="room"  className="my-inp" {...register("room", { required: true })} placeholder="Enter room"/>
+            {errors.room && <p className="text-red-500">*This field is required</p>}
+          </div>
+
           {/* Row indexes */}
-          {coursesLoading? <span className="loading loading-ring loading-lg"></span> : eveningRowIndexes.length || regularRowIndexes.length ?
+          {coursesLoading ? <span className="loading loading-ring loading-lg"></span> : eveningRowIndexes.length || regularRowIndexes.length ?
             <>
               <h2 className="font-semibold !mt-6 !mb-3">Assign classes</h2>
               {(watch('shift') === 'Evening' ? eveningRowIndexes : watch('shift') === 'Regular' ? regularRowIndexes : []).map((elem, ind) => {
@@ -227,7 +257,7 @@ const InsertRoutine = ({ setControl, control }) => {
                   </select>
                 </div>
               })}
-              </> : ''}
+            </> : ''}
 
 
           <button type="submit" className="my-btn-one my-1">Insert</button>

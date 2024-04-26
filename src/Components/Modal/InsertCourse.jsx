@@ -22,9 +22,11 @@ const InsertCourse = ({ setControl, control }) => {
             courseTitle, courseCode, credit, regulation
         }).then(res => {
             setControl(!control)
+            const modal = document.getElementById("insertCourse");
+            modal.close();
             reset()
             toast.success(res.data?.message, {
-                position: "bottom-right",
+                position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -36,7 +38,7 @@ const InsertCourse = ({ setControl, control }) => {
             });
         }).catch(e => {
             toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
-                position: "bottom-right",
+                position: "top-center",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,

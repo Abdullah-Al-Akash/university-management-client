@@ -82,7 +82,7 @@ const SelectShiftBatch = ({ setSelectBatch, setSelectShift, selectShift }) => {
         <button
           onClick={() => document.getElementById("insertRoutine").showModal()}
         >
-          {" "}
+          
           <a
             href="#_"
             className="relative px-5 py-2 font-medium text-white group"

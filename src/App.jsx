@@ -47,7 +47,7 @@ const App = () => {
   }, [regularDayTab, eveningDayTab, selectShift, control]);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto pb-2">
       {/* To select shift and batch */}
       <SelectShiftBatch
         setSelectBatch={setSelectBatch}

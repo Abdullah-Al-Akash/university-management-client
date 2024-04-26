@@ -4,8 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import html2pdf from "html2pdf.js";
 import { FaBackward } from "react-icons/fa6";
-import Loading from "./Shared/Loading";
-import image from "./assets/img/logo-eub.png";
+import image from "../../assets/img/logo-eub.png";
+import Loading from "../../Shared/Loading";
 
 const FacultyDetails = () => {
   const { id } = useParams();

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaTimes } from "react-icons/fa";
+import { Bounce, toast } from "react-toastify";
 
 
 
@@ -16,51 +17,121 @@ const InsertRoutine = ({ setControl, control }) => {
   const eveningRowIndexes = (watch('shift') === 'Evening' && watch('day') === 'Friday') ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] : (watch('shift') === 'Evening' && (watch('day') !== 'Friday' && watch('day') !== '')) ? [1, 2, 3, 4] : []
   const regularRowIndexes = watch('shift') === 'Regular' ? [1, 2, 3, 4, 5, 6] : []
 
-  // TODO: Need to use it to rerender after insert routine
-  // { setControl, control }
+  const [courses, setCourses] = useState([])
+  const [coursesLoading, setCoursesLoading] = useState(false)
+
+  const [regulations, setRegulations] = useState([])
+  const [regulationsLoading, setRegulationsLoading] = useState(false)
+
+  const [batches, setBatches] = useState([])
+  const [batchesLoading, setBatchesLoading] = useState(false)
 
 
-  const courses = [
-    { "_id": "6628a942c6b06d324d113ef3", "courseCode": "101", "courseTitle": "DSA", "credit": 3, "regulation": "2021" },
-    { "_id": "6628a968c6b06d324d113ef5", "courseCode": "100", "courseTitle": "SPL", "credit": 3, "regulation": "2022" },
-    { "_id": "6628a976c6b06d324d113ef7", "courseCode": "106", "courseTitle": "BSL", "credit": 3, "regulation": "2024" },
-    { "_id": "6628aa6ec6b06d324d113efd", "courseCode": "3054", "courseTitle": "ISL", "credit": 3, "regulation": "2023" },
-    { "_id": "6628aad4c6b06d324d113f00", "courseCode": "3052", "courseTitle": "SSL", "credit": 3, "regulation": "2022" },
-    { "_id": "6628aaecc6b06d324d113f06", "courseCode": "25", "courseTitle": "NPG", "credit": 3, "regulation": "2021" },
-    { "_id": "6628ab3cc6b06d324d113f0a", "courseCode": "215", "courseTitle": "Testing and maintenance", "credit": 3, "regulation": "2022" },
-    { "_id": "6628ab48c6b06d324d113f0c", "courseCode": "245", "courseTitle": "Database", "credit": 3, "regulation": "2022" }
-  ];
-  const regulations = [2021, 2022, 2023, 2024]
+
+  // TODO: Need dynamic courses by regulation and need dynamic regulation
+
+  // Courses
+  useEffect(() => {
+    setCoursesLoading(true)
+    if (watch('regulation')) {
+      axios(`${import.meta.env.VITE_SERVER_BASE_URL}/course/courses-by-regulation/${watch('regulation')}`).then(res => {
+        setCoursesLoading(false)
+        setCourses(res.data?.data)
+      }).catch(e => {
+        setCoursesLoading(false)
+        console.log(e.response);
+      })
+    } else {
+      setCoursesLoading(false)
+    }
+  }, [watch('regulation')])
+
+  // Regulation
+  useEffect(() => {
+    setRegulationsLoading(true)
+    axios(`${import.meta.env.VITE_SERVER_BASE_URL}/course/regulations`).then(res => {
+      setRegulationsLoading(false)
+      setRegulations(res.data?.data)
+    }).catch(e => {
+      setRegulationsLoading(false)
+      console.log(e.response);
+    })
+  }, [])
+
+  // Batches
+  useEffect(() => {
+    setBatchesLoading(true)
+    axios(`${import.meta.env.VITE_SERVER_BASE_URL}/routine/get-batches`).then(res => {
+      setBatchesLoading(false)
+      setBatches(res.data?.data)
+    }).catch(e => {
+      setBatchesLoading(false)
+      console.log(e.response);
+    })
+  }, [])
 
 
   const handleInsertRoutineFunc = (form) => {
     const courses = []
-    const { courseTitle, courseCode, teacher, semester, credit, regulation, rowIndex } = form
+    const rowIndexes = watch('shift') === 'Regular' ? regularRowIndexes : watch('shift') === 'Evening' ? eveningRowIndexes : []
+    let countRowIndex = 0
+    const { day, batch, sem, yearSem, shift, regulation, room } = form
 
     Object.keys(form).forEach(key => {
-      if (key.startsWith('rowIndex-courseTitle')) {
+      if (key.startsWith('rowIndex-courseTitle') && countRowIndex < rowIndexes.length) {
+        countRowIndex += 1
 
-        const rowIndex = key.split('rowIndex-courseTitle-')[1]
-        const courseName = watch(key).split(',')[0]
-        const courseCode = watch(key).split(',')[1]
-        const credit = watch(key).split(',')[2]
+        const rowIndex = Number(key.split('rowIndex-courseTitle-')[1])
+        const courseTitle = watch(key).split(',')[0] || ''
+        const courseCode = watch(key).split(',')[1] || ''
+        const credit = watch(key).split(',')[2] ? Number(watch(key).split(',')[2]) : ''
 
         const courseObj = {
           rowIndex,
-          courseName,
+          courseTitle,
           courseCode,
-          credit
+          credit,
         }
         courses.push(courseObj)
       }
     })
-    console.log(form, 'form');
-    console.log(courses, 'courses');
 
-    return
-    axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/routine/insert-routine`).then(res => {
+
+    // console.log(form, 'form');
+    // console.log(courses, 'courses');
+    // console.log(countRowIndex, 'countRowIndex after');
+    const newRoutine = { day, batch: Number(batch), room, sem, yearSem, shift, regulation, courses }
+    console.log(newRoutine, 'newRoutine');
+
+
+    axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/routine/insert-routine`, newRoutine).then(res => {
       console.log(res.data);
-    }).catch(e => console.log(e))
+      setControl(!control)
+      toast.success(res.data?.message, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }).catch(e => {
+      console.log(e.response);
+      toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    })
   };
 
 
@@ -75,7 +146,7 @@ const InsertRoutine = ({ setControl, control }) => {
           {/*  Semester*/}
           <div className=''>
             <label htmlFor="semester" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Semester</label>
-            <select id='semester' className='my-inp' {...register("semester", { required: true })}>
+            <select id='semester' className='my-inp' {...register("sem", { required: true })}>
               <option value={''}>Select semester</option>
               {
                 ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"].map((elem, ind) => {
@@ -84,13 +155,13 @@ const InsertRoutine = ({ setControl, control }) => {
 
               }
             </select>
-            {errors.semester && <p className="text-red-500">*This field is required</p>}
+            {errors.sem && <p className="text-red-500">*This field is required</p>}
           </div>
 
           {/*  Regulation */}
           <div className=''>
             <label htmlFor="regulation" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Regulation</label>
-            <select id='regulation' className='my-inp' {...register("regulation", { required: true })}>
+            {regulationsLoading ? <span className="loading loading-ring loading-lg"></span> : !regulations.length > 0 ? <h2 className="text-red-500 font-semibold">Insert course first!</h2> : <select id='regulation' className='my-inp' {...register("regulation", { required: true })}>
               <option value={''}>Select regulation</option>
               {
                 regulations.map((elem, ind) => {
@@ -98,7 +169,7 @@ const InsertRoutine = ({ setControl, control }) => {
                 })
 
               }
-            </select>
+            </select>}
             {errors.regulation && <p className="text-red-500">*This field is required</p>}
           </div>
 
@@ -131,60 +202,62 @@ const InsertRoutine = ({ setControl, control }) => {
             {errors.day && <p className="text-red-500">*This field is required</p>}
           </div>
 
+
           {/*  Batch */}
           <div className=''>
             <label htmlFor="batch" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Batch</label>
-            <input type="text" id='batch' className='my-inp' placeholder="Enter batch"  {...register("batch", { required: true })} />
+            {batchesLoading ? <span className="loading loading-ring loading-lg"></span> : <select id='batch' className='my-inp' {...register("batch", { required: true })}>
+              <option value={''}>Select batch</option>
+              {
+                batches.map((elem, ind) => {
+                  return <option key={ind} value={elem}>{elem}</option>
+                })
+
+              }
+            </select>}
             {errors.batch && <p className="text-red-500">*This field is required</p>}
           </div>
 
-          {/* <div className=''>
-              <label htmlFor={`rowIndex`} className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Row index {elem}</label>
-              <select id='rowIndex' className='my-inp' {...register(`rowIndex-${elem}`, { required: true })}>
-                <option value={''}>Select row index</option>
-                {(watch('shift') === 'Evening' ? eveningRowIndexes : watch('shift') === 'Regular' ? regularRowIndexes : []).map((elem, ind) => {
+          {/*  Year/sem */}
+          <div className=''>
+            <label htmlFor="yearSem" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Year/sem</label>
+            <select id='yearSem' className='my-inp' {...register("yearSem", { required: true })}>
+              <option value={''}>Select year/sem</option>
+              {
+                ['1/1', '1/2', '1/3', '2/1', '2/2', '2/3', '3/1', '3/2', '3/3', '4/1', '4/2', '4/3'].map((elem, ind) => {
                   return <option key={ind} value={elem}>{elem}</option>
                 })
-                }
-              </select>
-              </div> */}
+
+              }
+            </select>
+            {errors.yearSem && <p className="text-red-500">*This field is required</p>}
+          </div>
+
+          {/*  Room */}
+          <div className=''>
+            <label htmlFor="room" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Room</label>
+            <input type="text" id="room"  className="my-inp" {...register("room", { required: true })} placeholder="Enter room"/>
+            {errors.room && <p className="text-red-500">*This field is required</p>}
+          </div>
 
           {/* Row indexes */}
-          {eveningRowIndexes.length || regularRowIndexes.length ?
+          {coursesLoading ? <span className="loading loading-ring loading-lg"></span> : eveningRowIndexes.length || regularRowIndexes.length ?
             <>
               <h2 className="font-semibold !mt-6 !mb-3">Assign classes</h2>
               {(watch('shift') === 'Evening' ? eveningRowIndexes : watch('shift') === 'Regular' ? regularRowIndexes : []).map((elem, ind) => {
-                console.log(elem, 'elem from map');
                 return <div key={ind} className=''>
                   <label htmlFor={`rowIndex-${elem}`} className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Row index {elem}</label>
                   <select id={`rowIndex-${elem}`} className='my-inp' {...register(`rowIndex-courseTitle-${elem}`)}>
                     <option value={''}>Select course title</option>
                     {
-                      courses.filter(elem => elem?.regulation == watch('regulation'))?.map((elem, ind) => {
+                      courses?.map((elem, ind) => {
                         return <option key={ind} value={[elem.courseTitle, elem.courseCode, elem.credit]}>{elem.courseTitle}</option>
                       })
                     }
                   </select>
                 </div>
-              })}</> : ''}
-
-          {/*  Course title */}
-          {/* <div className=''>
-            <label htmlFor="courseTitle" className="block mb-2 text-sm font-medium text-slate-500 dark:text-white">Course title</label>
-            <select id='courseTitle' className='my-inp' {...register("courseTitle", { required: true })}>
-              <option value={''}>Select course title</option>
-              {
-                courses.filter(elem => elem?.regulation == watch('regulation'))?.map((elem, ind) => {
-                  return <option key={ind} value={elem}>{elem.courseTitle}</option>
-                })
-
-              }
-            </select>
-            {errors.courseTitle && <p className="text-red-500">*This field is required</p>}
-          </div> */}
-
-
-
+              })}
+            </> : ''}
 
 
           <button type="submit" className="my-btn-one my-1">Insert</button>

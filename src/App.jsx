@@ -47,7 +47,7 @@ const App = () => {
   }, [regularDayTab, eveningDayTab, selectShift, control]);
 
   return (
-    <div className="container mx-auto pb-2">
+    <div className="md:container mx-4 md:mx-auto pb-2">
       {/* To select shift and batch */}
       <SelectShiftBatch
         setSelectBatch={setSelectBatch}
@@ -121,7 +121,6 @@ const App = () => {
       <AddNewBatchModal setControl={setControl} control={control} />
       <UploadRoutine control={control} setControl={setControl}></UploadRoutine>
       <InsertRoutine control={control} setControl={setControl} />
-      <InsertCourse />
 
       {/* Toast container */}
       <ToastContainer

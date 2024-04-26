@@ -80,7 +80,7 @@ const FacultyTable = () => {
         </button>
         <div className="space-x-5">
           {/* Upload faculties */}
-          <button
+          {/* <button
             onClick={() => document.getElementById("uploadFaculties").showModal()}
           >
             <a
@@ -93,7 +93,7 @@ const FacultyTable = () => {
               <span className="absolute bottom-0 right-0 hidden w-10 h-20 transition-all duration-100 ease-out transform translate-x-10 translate-y-8 bg-orange-500 -rotate-12"></span>
               <span className="relative">Upload Faculties</span>
             </a>
-          </button>
+          </button> */}
 
           {/* Insert faculty */}
           {/* Added new batch*/}

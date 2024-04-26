@@ -39,6 +39,7 @@ const AddNewBatchModal = ({ setControl, control }) => {
               showConfirmButton: false,
               timer: 1500,
             });
+            reset()
           } else {
             Swal.fire({
               position: "top-center",
@@ -68,6 +69,7 @@ const AddNewBatchModal = ({ setControl, control }) => {
               type="text"
               placeholder="Confirm"
               id="confirm"
+              autoComplete="off"
               {...register("confirm", {
                 validate: (value) =>
                   value === "Confirm" || 'Value must be "Confirm"',

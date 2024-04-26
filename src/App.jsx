@@ -121,6 +121,7 @@ const App = () => {
       <AddNewBatchModal setControl={setControl} control={control} />
       <UploadRoutine control={control} setControl={setControl}></UploadRoutine>
       <InsertRoutine control={control} setControl={setControl} />
+      <InsertCourse control={control} setControl={setControl}/>
 
       {/* Toast container */}
       <ToastContainer

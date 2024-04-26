@@ -13,6 +13,7 @@ const InsertCourse = ({ setControl, control }) => {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors, isSubmitted },
     } = useForm();
     const handleInsertCourseFunc = (form) => {
@@ -21,8 +22,9 @@ const InsertCourse = ({ setControl, control }) => {
             courseTitle, courseCode, credit, regulation
         }).then(res => {
             setControl(!control)
+            reset()
             toast.success(res.data?.message, {
-                position: "bottom-center",
+                position: "bottom-right",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -34,7 +36,7 @@ const InsertCourse = ({ setControl, control }) => {
             });
         }).catch(e => {
             toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
-                position: "bottom-center",
+                position: "bottom-right",
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,

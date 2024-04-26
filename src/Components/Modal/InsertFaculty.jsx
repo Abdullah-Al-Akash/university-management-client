@@ -10,17 +10,20 @@ const InsertFaculty = ({ setControl, control }) => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isSubmitted },
   } = useForm();
 
 
 
-  const handleInsertRoutineFunc = (form) => {
- 
+  const handleInsertFacultyFunc = (form) => {
+
     // const {fullName, sortForm} = form
 
     axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/teacher/create-teacher`, form).then(res => {
       setControl(!control)
+      reset()
+
       toast.success(res.data?.message, {
         position: "bottom-right",
         autoClose: 2000,
@@ -31,7 +34,7 @@ const InsertFaculty = ({ setControl, control }) => {
         progress: undefined,
         theme: "light",
         transition: Bounce,
-    });
+      });
     }).catch(e => {
       console.log(e.response);
       toast.error(e.response?.data?.errorMessage || e.response?.data?.message, {
@@ -44,7 +47,7 @@ const InsertFaculty = ({ setControl, control }) => {
         progress: undefined,
         theme: "light",
         transition: Bounce,
-    });
+      });
     })
   };
 
@@ -54,7 +57,7 @@ const InsertFaculty = ({ setControl, control }) => {
   return (
     <dialog id="insertFacultyModal" className="modal">
       <div className="modal-box">
-        <form onSubmit={handleSubmit(handleInsertRoutineFunc)} className="space-y-2 w-full">
+        <form onSubmit={handleSubmit(handleInsertFacultyFunc)} className="space-y-2 w-full">
 
           {/*  fullName */}
           <div className=''>

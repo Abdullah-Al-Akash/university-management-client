@@ -110,31 +110,12 @@ const FacultyDetails = () => {
 
             <td
               className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap"
-              colSpan={6}
+              colSpan={7}
             >
-              Time
+              Class Details
             </td>
           </tr>
-          <tr>
-            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
-              9:0-10:20am
-            </td>
-            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
-              10:30-11:50am
-            </td>
-            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
-              12:00-1:20pm
-            </td>
-            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
-              2:00-3:20pm
-            </td>
-            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
-              5:30-7:10pm
-            </td>
-            <td className="text-[14px] border-[#000] border border-b-[1px] border-r-[1px] text-[#000] p-[6px] text-center whitespace-nowrap">
-              6:20-7:10pm
-            </td>
-          </tr>
+          <tr></tr>
 
           {[
             "Sunday",
@@ -166,7 +147,7 @@ const FacultyDetails = () => {
                 })}
 
                 {Array.from(
-                  { length: 7 - ((time?.classesTimes?.length || 0) + 1) },
+                  { length: 8 - ((time?.classesTimes?.length || 0) + 1) },
                   (v, i) => (
                     <td
                       key={i}

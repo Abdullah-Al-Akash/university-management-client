@@ -11,6 +11,7 @@ const FacultyDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  // Faculty
   const [facultyTimes, setFacultyTimes] = useState({});
   const [facultyTimesLoading, setFacultyTimesLoading] = useState(false);
 
